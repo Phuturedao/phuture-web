@@ -2,7 +2,10 @@ import "./coming-soon.scss";
 
 import React, { FunctionComponent } from "react";
 
+import DiscordLogo from "assets/svgs/discord";
+import Email from "assets/svgs/email";
 import Logo from "assets/svgs/phuture-logo";
+import MediumLogo from "assets/svgs/medium";
 
 const ComingSoonContainer: FunctionComponent = () => (
   <div className="coming-soon-module">
@@ -30,8 +33,44 @@ const ComingSoonContainer: FunctionComponent = () => (
           community, to unlock a universe of open applications with one token.
         </p>
         <p>
-          Coming Soon... <Logo className="rotate" />
+          LAUNCHING SOON... <Logo className="rotate" />
         </p>
+      </div>
+
+      <div className="contact-us">
+        <h3 className="sub-heading">Contact Us</h3>
+        <ul>
+          <li>
+            <a
+              href="mailto:info@phuturedao.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Email />
+              info@phuturedao.com
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://discord.gg/frRD3Ck"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DiscordLogo />
+              Discord
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://medium.com/@PhutureDAO"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MediumLogo />
+              Medium
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 

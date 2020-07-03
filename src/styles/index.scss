@@ -30,7 +30,6 @@ code {
   .app {
     min-height: 100vh;
     position: relative;
-    margin-bottom: 100px;
 
     min-width: 1280px;
     overflow: auto;
@@ -45,8 +44,6 @@ h5 {
   font-family: "Playfair Display", serif;
 }
 
-span,
-p,
-td {
-  font-family: "Inter", serif;
+ul {
+  list-style: none;
 }

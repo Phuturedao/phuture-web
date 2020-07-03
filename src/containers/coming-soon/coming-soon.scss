@@ -1,3 +1,5 @@
+@import "~styles/colors.scss";
+
 @keyframes rotate {
   to {
     transform: rotate(360deg);
@@ -9,6 +11,10 @@
 }
 
 .coming-soon-module {
+  a {
+    color: $comlementary;
+  }
+
   nav {
     padding: 10px 0;
 
@@ -35,13 +41,20 @@
 
   .heading-wrapper {
     max-width: 876px;
-    margin: 120px auto;
+    margin: 120px auto 80px;
   }
 
   .heading {
     font-weight: bold;
     font-size: 54px;
     line-height: 116.4%;
+  }
+
+  .sub-heading {
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 112.4%;
+    margin: 50px 0 20px;
   }
 
   .message {
@@ -62,12 +75,31 @@
     }
   }
 
+  .contact-us {
+    text-align: center;
+
+    ul {
+      width: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin: auto;
+
+      li {
+        padding-bottom: 5px;
+
+        svg {
+          margin-right: 10px;
+          position: relative;
+          top: 7px;
+        }
+      }
+    }
+  }
+
   footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
+    padding: 100px 10px 10px;
     text-align: center;
   }
 }
