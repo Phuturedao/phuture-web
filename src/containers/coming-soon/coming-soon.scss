@@ -1,0 +1,73 @@
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 3s linear infinite;
+}
+
+.coming-soon-module {
+  nav {
+    padding: 10px 0;
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        margin-right: 10px;
+      }
+
+      span {
+        font-weight: 500;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  .heading-wrapper {
+    max-width: 876px;
+    margin: 120px auto;
+  }
+
+  .heading {
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 116.4%;
+  }
+
+  .message {
+    text-align: center;
+    margin: auto;
+    max-width: 716px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 140%;
+
+    svg {
+      margin-left: 20px;
+      width: 20px;
+      position: relative;
+      top: 12px;
+    }
+  }
+
+  footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+  }
+}

@@ -1,17 +1,16 @@
-import "styles/app.scss";
-
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-import Home from "./containers/home.container";
+import ComingSoon from "containers/coming-soon/coming-soon.container";
+import Home from "containers/home.container";
 import React from "react";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Router>
         <Switch>
           <Route path="/">
-            <Home />
+            <ComingSoon />
           </Route>
         </Switch>
       </Router>

@@ -1,13 +1,52 @@
+@import "./colors.scss";
+
+html,
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+      181.6deg,
+      rgba(63, 92, 166, 0.05) 0.82%,
+      rgba(255, 255, 255, 0) 50.01%
+    ),
+    #f8f8fa;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Inter", "Playfair Display", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+#root {
+  min-height: 100vh;
+  .app {
+    min-height: 100vh;
+    position: relative;
+    margin-bottom: 100px;
+
+    min-width: 1280px;
+    overflow: auto;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Playfair Display", serif;
+}
+
+span,
+p,
+td {
+  font-family: "Inter", serif;
 }
