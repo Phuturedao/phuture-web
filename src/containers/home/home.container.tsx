@@ -4,6 +4,7 @@ import React, { FunctionComponent } from "react";
 
 import Container from "layouts/container";
 import Default from "layouts/default.layout";
+import Table from "components/table/table.component";
 
 const HomeContainer: FunctionComponent = () => (
   <Default>
@@ -21,10 +22,14 @@ const HomeContainer: FunctionComponent = () => (
             <h2 className="heading">Top Index</h2>
             <p>
               The DeFi Index - Top 5 (Market Cap) <br />
-              Index price <b>$78 or 0.34 ETH</b> / % Change 24h total index
+              Index price <b>$78 or 0.34 ETH</b> / % Change 24h total index{" "}
               <b>+55</b>
             </p>
           </header>
+
+          <div className="content">
+            <Table />
+          </div>
         </section>
       </Container>
     </div>
