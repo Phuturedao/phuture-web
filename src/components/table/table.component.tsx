@@ -13,10 +13,12 @@ const TableComponent: FunctionComponent<any> = () => {
     <div className="table-component">
       <table>
         <thead>
-          <th style={{ width }}>Name</th>
-          <th style={{ width }}>Market size 24h</th>
-          <th style={{ width }}>%loss/24h</th>
-          <th style={{ width }}>%gain/24h</th>
+          <tr>
+            <td style={{ width }}>Name</td>
+            <td style={{ width }}>Market size 24h</td>
+            <td style={{ width }}>%loss/24h</td>
+            <td style={{ width }}>%gain/24h</td>
+          </tr>
         </thead>
         <tbody>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (

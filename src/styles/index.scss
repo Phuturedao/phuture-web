@@ -1,6 +1,5 @@
 @import "./colors.scss";
 
-html,
 body {
   min-height: 100vh;
   background: linear-gradient(
@@ -24,12 +23,12 @@ body {
 
 #root {
   min-height: 100vh;
+
   .app {
     min-height: 100vh;
     position: relative;
 
     min-width: 1280px;
-    overflow: auto;
   }
 }
 
@@ -62,6 +61,12 @@ ul {
 a {
   color: $main;
   text-decoration: none;
+}
+
+hr {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
 }
 
 .button {
