@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 
-import Header from "components/header/header.component";
+import Default from "layouts/default.layout";
 
 const HomeContainer: FunctionComponent = () => (
-  <div className="home-module">
-    <Header />
-  </div>
+  <Default>
+    <div className="home-module"></div>
+  </Default>
 );
 
 export default HomeContainer;

@@ -2,22 +2,32 @@ import "./header.scss";
 
 import React, { FunctionComponent } from "react";
 
-import logo from "assets/logo.svg";
+import Container from "layouts/container";
+import { Link } from "react-router-dom";
+import PhutureLogo from "assets/svgs/phuture-logo";
+
+const Logo: FunctionComponent<any> = () => (
+  <a href="/">
+    <div className="logo">
+      <PhutureLogo /> <div className="divider"></div>
+      <span>PhutureDAO</span>
+    </div>
+  </a>
+);
 
 const HeaderComponent: FunctionComponent<any> = () => (
-  <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
-    <p>
-      Edit <code>src/App.tsx</code> and save to reload.
-    </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Learn React
-    </a>
+  <header className="header-component" aria-label="main header">
+    <Container>
+      <nav className="top-nav" aria-label="top navigation">
+        <Logo />
+        <div>
+          <div className="nav-links">
+            <Link to={`/how-it-works`}>How it works</Link>
+            <button className="button">All indexes</button>
+          </div>
+        </div>
+      </nav>
+    </Container>
   </header>
 );
 
