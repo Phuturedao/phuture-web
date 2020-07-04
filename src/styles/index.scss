@@ -83,4 +83,14 @@ a {
   &:hover {
     background-color: rgba($main, 0.8);
   }
+
+  &.alternative {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid $main;
+    color: $main;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
 }

@@ -6,6 +6,7 @@
     p {
       font-size: 20px;
       line-height: 140%;
+      margin-bottom: 30px;
     }
 
     .button {
@@ -16,13 +17,35 @@
     }
   }
 
-  .main-module-header {
-    max-width: 876px;
-    padding-bottom: 50px;
-  }
-
   section .content {
     max-width: 980px;
     margin: 0 auto;
+  }
+
+  .main-module-header {
+    max-width: 876px;
+    padding: 50px 0;
+  }
+
+  .top-index-section {
+    margin-bottom: 100px;
+  }
+
+  .what-we-do-section {
+    margin-bottom: 100px;
+
+    header {
+      max-width: 716px;
+      margin-bottom: 80px;
+    }
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-between;
+
+    & > div {
+      flex: 0 0 270px;
+    }
   }
 }

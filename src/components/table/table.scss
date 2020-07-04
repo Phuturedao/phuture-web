@@ -49,4 +49,17 @@
   .highlight {
     color: $complementary;
   }
+
+  td.logo {
+    & > div {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    svg {
+      width: 30px;
+      margin-right: 15px;
+    }
+  }
 }
