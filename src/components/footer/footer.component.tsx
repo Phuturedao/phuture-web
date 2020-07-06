@@ -26,13 +26,25 @@ const FooterComponent: FunctionComponent = () => (
           <div className="owner">©PhutureDAO, 2020</div>
           <div>
             <div className="socials">
-              <a href="/">
+              <a
+                href="https://discord.gg/frRD3Ck"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Twitter />
               </a>
-              <a href="/">
+              <a
+                href="https://medium.com/@PhutureDAO"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Medium />
               </a>
-              <a href="/">
+              <a
+                href="https://discord.gg/frRD3Ck"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Discord />
               </a>
             </div>

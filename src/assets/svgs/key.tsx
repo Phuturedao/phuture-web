@@ -21,7 +21,7 @@ const KeyIcon: FunctionComponent<PropTypes> = (props) => (
       rx="3.35"
       transform="rotate(45 36.3345 0.919239)"
       stroke="black"
-      stroke-width="1.3"
+      strokeWidth="1.3"
     />
     <line
       x1="35.8705"
@@ -29,7 +29,7 @@ const KeyIcon: FunctionComponent<PropTypes> = (props) => (
       x2="10.3592"
       y2="46.6936"
       stroke="black"
-      stroke-width="1.3"
+      strokeWidth="1.3"
     />
     <rect
       x="23.0417"
@@ -38,7 +38,7 @@ const KeyIcon: FunctionComponent<PropTypes> = (props) => (
       height="10.7261"
       transform="rotate(45 23.0417 34.011)"
       stroke="black"
-      stroke-width="1.3"
+      strokeWidth="1.3"
     />
     <line
       x1="38.9134"
@@ -46,8 +46,8 @@ const KeyIcon: FunctionComponent<PropTypes> = (props) => (
       x2="44.3581"
       y2="17.9271"
       stroke="black"
-      stroke-width="1.3"
-      stroke-linecap="round"
+      strokeWidth="1.3"
+      strokeLinecap="round"
     />
   </svg>
 );

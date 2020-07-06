@@ -5,6 +5,7 @@ import React, { FunctionComponent } from "react";
 import CardGeneral from "components/cards/card-general/card-general.component";
 import Container from "layouts/container";
 import Default from "layouts/default.layout";
+import { Link } from "react-router-dom";
 import Table from "components/table/table.component";
 
 const HomeContainer: FunctionComponent = () => (
@@ -15,7 +16,9 @@ const HomeContainer: FunctionComponent = () => (
           <h1 className="heading">
             PhutureDAO provides a range of benchmark INDEXES for Crypto
           </h1>
-          <button className="button">All Indexes</button>
+          <Link className="button" to={`/all-indexes`}>
+            All Indexes
+          </Link>
         </header>
 
         <section className="top-index-section">
@@ -42,7 +45,9 @@ const HomeContainer: FunctionComponent = () => (
               token.
             </p>
 
-            <button className="button alternative">Learn More</button>
+            <Link className="button alternative" to={"/all-indexes"}>
+              Learn More
+            </Link>
           </header>
 
           <div className="content">

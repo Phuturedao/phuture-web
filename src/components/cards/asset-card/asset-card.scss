@@ -1,0 +1,39 @@
+@import "~styles/colors.scss";
+
+.asset-card {
+  background: #ffffff;
+  /* Panel_shadow_outlined */
+
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.03), 0px 0px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  padding: 20px 20px 25px;
+
+  max-width: 288px;
+
+  .title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 112.4%;
+    margin-bottom: 10px;
+  }
+
+  .rate {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 112.4%;
+    margin-bottom: 20px;
+  }
+
+  .total {
+    font-size: 15px;
+    line-height: 130%;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .up {
+    color: $positive;
+  }
+}

@@ -15,7 +15,15 @@ const Logo: FunctionComponent<any> = () => (
   </a>
 );
 
-const HeaderComponent: FunctionComponent<any> = () => (
+type Props = {
+  account?: string;
+  isAllIndexes?: boolean;
+};
+
+const HeaderComponent: FunctionComponent<Props> = ({
+  account,
+  isAllIndexes = true,
+}) => (
   <header className="header-component" aria-label="main header">
     <Container>
       <nav className="top-nav" aria-label="top navigation">
@@ -23,7 +31,22 @@ const HeaderComponent: FunctionComponent<any> = () => (
         <div>
           <div className="nav-links">
             <Link to={`/how-it-works`}>How it works</Link>
-            <button className="button">All indexes</button>
+
+            {isAllIndexes && !account && (
+              <Link to={`/all-indexes`} className="button">
+                All indexes
+              </Link>
+            )}
+
+            {isAllIndexes && account && (
+              <Link to={`/all-indexes`}>All indexes</Link>
+            )}
+
+            {account && (
+              <a href="/" className="button alternative">
+                {account}
+              </a>
+            )}
           </div>
         </div>
       </nav>

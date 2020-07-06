@@ -1,5 +1,6 @@
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
+import AllIndexes from "containers/all-indexes/all-indexes.container";
 import ComingSoon from "containers/coming-soon/coming-soon.container";
 import Home from "containers/home/home.container";
 import React from "react";
@@ -11,6 +12,9 @@ function App() {
         <Switch>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/all-indexes">
+            <AllIndexes />
           </Route>
           <Route path="/">
             <ComingSoon />
