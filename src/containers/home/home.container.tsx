@@ -45,7 +45,7 @@ const HomeContainer: FunctionComponent = () => (
               token.
             </p>
 
-            <Link className="button alternative" to={"/all-indexes"}>
+            <Link className="button alternative" to={"/how-it-works"}>
               Learn More
             </Link>
           </header>
