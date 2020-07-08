@@ -1,0 +1,30 @@
+.input-select {
+  position: relative;
+  display: flex;
+
+  background: #f6f6f6;
+  border-radius: 10px;
+
+  font-size: 18px;
+  line-height: 130%;
+  padding: 10px;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  input {
+    border: none;
+    background: none;
+    width: 100%;
+    padding-right: 60px;
+    outline: none;
+  }
+
+  select {
+    position: absolute;
+    right: 5px;
+    border: none;
+    background: none;
+    outline: none;
+  }
+}

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import PhutureLogo from "assets/svgs/phuture-logo";
 
 const Logo: FunctionComponent<any> = () => (
-  <a href="/">
+  <a href="/home">
     <div className="logo">
       <PhutureLogo /> <div className="divider"></div>
       <span>PhutureDAO</span>
