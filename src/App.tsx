@@ -4,6 +4,7 @@ import AllIndexes from "containers/all-indexes/all-indexes.container";
 import ComingSoon from "containers/coming-soon/coming-soon.container";
 import Faq from "containers/faq/faq.container";
 import Home from "containers/home/home.container";
+import Index from "containers/individual-index/individual-index.container";
 import React from "react";
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
         <Switch>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/indexes/:index">
+            <Index />
           </Route>
           <Route path="/all-indexes">
             <AllIndexes />
