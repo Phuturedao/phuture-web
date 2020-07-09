@@ -5,12 +5,24 @@ import React, { FunctionComponent } from "react";
 import InputSelect from "components/inputs/input-select/input-select.component";
 import SwitchIcon from "assets/svgs/switch";
 
-const DepositSection: FunctionComponent = () => (
+type Props = {
+  balance?: string;
+};
+
+const DepositSection: FunctionComponent<Props> = ({ balance }) => (
   <section className="deposit-section">
     <div className="flex-layout">
       <div className="inputs">
         <div>
-          <label>From</label>
+          <div className="top-lables">
+            <label>From</label>
+            {balance && (
+              <label className="balance">
+                <span className="title">Balance:</span>
+                <span className="value">{balance}</span>
+              </label>
+            )}
+          </div>
           <InputSelect />
         </div>
         <div className="switcher">

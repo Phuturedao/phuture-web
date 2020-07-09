@@ -1,5 +1,6 @@
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
+import Account from "containers/account/account.container";
 import AllIndexes from "containers/all-indexes/all-indexes.container";
 import ComingSoon from "containers/coming-soon/coming-soon.container";
 import Faq from "containers/faq/faq.container";
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route path="/indexes/:index">
             <Index />
+          </Route>
+          <Route path="/account">
+            <Account />
           </Route>
           <Route path="/all-indexes">
             <AllIndexes />

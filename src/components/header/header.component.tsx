@@ -51,7 +51,7 @@ const HeaderComponent: FunctionComponent<Props> = ({
             )}
 
             {account && (
-              <a href="/" className="button alternative">
+              <a href="/account" className="button alternative">
                 {account}
               </a>
             )}
