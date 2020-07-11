@@ -47,7 +47,7 @@ const AssetStats: FunctionComponent = () => (
       <ProfitLoss />
     </div>
     <div>
-      <LineChart />
+      <LineChart chart={{ height: 163 }} />
     </div>
   </section>
 );

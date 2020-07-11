@@ -21,7 +21,7 @@ const DonutChart: FunctionComponent = () => {
       .attr("width", width)
       .attr("height", height)
       .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
     // Create dummy data
     const data: any = { a: 6, b: 3, c: 3 };

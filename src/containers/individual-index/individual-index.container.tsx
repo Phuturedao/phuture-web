@@ -15,7 +15,7 @@ const IndividualIndexContainer: FunctionComponent = () => (
       <Container>
         <IndexStats />
         <Deposit />
-        <ChartSection />
+        <ChartSection chart={{ height: 220 }} />
         <Table title="Assets" />
       </Container>
     </div>
