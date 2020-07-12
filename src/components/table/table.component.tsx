@@ -1,9 +1,10 @@
 import "./table.scss";
 
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
 import PhutureLogo from "assets/svgs/phuture-logo";
+import TokenModal from "components/modals/token-modal/token-modal.component";
 
 interface Props extends RouteComponentProps<any> {
   title?: string;
@@ -39,12 +40,8 @@ const IndexRow: FunctionComponent<any> = ({ history, width }) => (
 
 const colors: Array<string> = ["#0092CC", "#33C5FF", "#99E2FF"];
 
-const AssetRow: FunctionComponent<any> = ({ history, colorIndex }) => (
-  <tr
-    onClick={() => {
-      history.push(`/indexes/defi`);
-    }}
-  >
+const AssetRow: FunctionComponent<any> = ({ history, colorIndex, onClick }) => (
+  <tr>
     <td className="logo">
       <div>
         <i className="dot" style={{ background: colors[colorIndex] }} />
@@ -57,7 +54,9 @@ const AssetRow: FunctionComponent<any> = ({ history, colorIndex }) => (
     <td>5%</td>
     <td>
       <div className="actions">
-        <button className="button">Deposit</button>
+        <button className="button" onClick={() => onClick()}>
+          Deposit
+        </button>
         <button className="button">Withdraw</button>
       </div>
     </td>
@@ -70,6 +69,7 @@ const TableComponent: FunctionComponent<Props> = ({
   title,
   history,
 }) => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
   let headings: Array<string>;
 
   switch (type) {
@@ -104,10 +104,16 @@ const TableComponent: FunctionComponent<Props> = ({
 
           {type === "assets" &&
             [0, 1, 2].map((i) => (
-              <AssetRow history={history} colorIndex={i} key={i} />
+              <AssetRow
+                history={history}
+                colorIndex={i}
+                onClick={() => setIsOpenModal(true)}
+                key={i}
+              />
             ))}
         </tbody>
       </table>
+      <TokenModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)} />
     </div>
   );
 };

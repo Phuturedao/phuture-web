@@ -1,0 +1,17 @@
+.input-search {
+  width: 100%;
+
+  input {
+    width: 100%;
+    outline: none;
+
+    background: rgba(196, 196, 196, 0.15);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    font-size: 18px;
+    line-height: 130%;
+    padding: 10px;
+  }
+}
