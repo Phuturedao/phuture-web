@@ -26,6 +26,7 @@
   .actions {
     button:not(:last-child) {
       margin-right: 10px;
+      min-width: 70px;
     }
   }
 }
