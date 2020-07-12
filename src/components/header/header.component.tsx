@@ -1,7 +1,8 @@
 import "./header.scss";
 
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 
+import AccountModal from "components/modals/account-modal/account-modal.component";
 import Container from "layouts/container";
 import { Link } from "react-router-dom";
 import PhutureLogo from "assets/svgs/phuture-logo";
@@ -22,44 +23,68 @@ const Logo: FunctionComponent<any> = ({ index }) => (
 
 type Props = {
   account?: string;
-  isAllIndexes?: boolean;
+  isAccountModal?: boolean;
   index?: string;
+  isAllIndexes?: boolean;
 };
 
 const HeaderComponent: FunctionComponent<Props> = ({
   account,
   isAllIndexes = true,
+  isAccountModal = false,
   index,
-}) => (
-  <header className="header-component" aria-label="main header">
-    <Container>
-      <nav className="top-nav" aria-label="top navigation">
-        <Logo index={index} />
+}) => {
+  const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
 
-        <div>
-          <div className="nav-links">
-            <Link to={`/how-it-works`}>How it works</Link>
+  return (
+    <header className="header-component" aria-label="main header">
+      <Container>
+        <nav className="top-nav" aria-label="top navigation">
+          <Logo index={index} />
 
-            {isAllIndexes && !account && (
-              <Link to={`/all-indexes`} className="button">
-                All indexes
-              </Link>
-            )}
+          <div>
+            <div className="nav-links">
+              <Link to={`/how-it-works`}>How it works</Link>
 
-            {isAllIndexes && account && (
-              <Link to={`/all-indexes`}>All indexes</Link>
-            )}
+              {isAllIndexes && !account && (
+                <Link to={`/all-indexes`} className="button">
+                  All indexes
+                </Link>
+              )}
 
-            {account && (
-              <a href="/account" className="button alternative">
-                {account}
-              </a>
-            )}
+              {isAllIndexes && account && (
+                <Link to={`/all-indexes`}>All indexes</Link>
+              )}
+
+              {account && !isAccountModal && (
+                <a href="/account" className="button alternative">
+                  {account}
+                </a>
+              )}
+
+              {account && isAccountModal && (
+                <button
+                  className="button alternative"
+                  onClick={() => {
+                    setIsAccountModalOpen(true);
+                  }}
+                >
+                  {account}
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-      </nav>
-    </Container>
-  </header>
-);
+        </nav>
+      </Container>
+
+      <AccountModal
+        isOpen={isAccountModalOpen}
+        onClose={() => {
+          setIsAccountModalOpen(false);
+        }}
+      />
+    </header>
+  );
+};
 
 export default HeaderComponent;

@@ -9,7 +9,13 @@ import Deposit from "components/sections/deposit/deposit.component";
 import Table from "components/table/table.component";
 
 const AccountContainer: FunctionComponent = () => (
-  <Default navigation={{ account: "0x9E39...6D94", index: "DeFi" }}>
+  <Default
+    navigation={{
+      account: "0x9E39...6D94",
+      index: "DeFi",
+      isAccountModal: true,
+    }}
+  >
     <div className="account-module">
       <Container>
         <AssetStats />
