@@ -1,0 +1,55 @@
+@import "~styles/colors.scss";
+
+.wallet-modal {
+  .content {
+    padding: 0 20px 40px;
+  }
+
+  label {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    opacity: 0.4;
+    margin-bottom: 10px;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    background-color: rgba(196, 196, 196, 0.15);
+    border-radius: 10px;
+
+    transition: background-color 0.3s;
+
+    &:not(:first-child) {
+      cursor: pointer;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &.selected {
+      border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+
+    &:hover:not(.selected) {
+      background-color: rgba($positive, 0.1);
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 112.4%;
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
