@@ -14,6 +14,7 @@ const AccountContainer: FunctionComponent = () => (
       account: "0x9E39...6D94",
       index: "DeFi",
       isAccountModal: true,
+      isCreateIndex: true,
     }}
   >
     <div className="account-module">

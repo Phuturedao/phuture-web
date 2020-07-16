@@ -1,0 +1,23 @@
+.create-index-modal {
+  .content {
+    padding: 0 20px 20px;
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 130%;
+
+      opacity: 0.4;
+      margin-bottom: 10px;
+    }
+
+    .input-search {
+      margin-bottom: 30px;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
+}

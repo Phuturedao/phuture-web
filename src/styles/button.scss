@@ -46,6 +46,13 @@
     padding: 5px 15px;
   }
 
+  &.large {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    padding: 10px 20px;
+  }
+
   &.success {
     background-color: $positive;
     color: white;
@@ -60,4 +67,19 @@
 
 a.button {
   text-decoration: none !important;
+}
+
+button.link {
+  border: none;
+  outline: none;
+  color: $main;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 112.4%;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

@@ -31,11 +31,15 @@ export const ProfitLoss: FunctionComponent = () => (
     </div>
     <div>
       <div className="title">24h Gain/Loss</div>
-      <div className="value down">-24%</div>
+      <div className="value down">
+        -24% <div className="fiat">-0.004 ETH</div>
+      </div>
     </div>
     <div>
       <div className="title">24h Gain/Loss</div>
-      <div className="value up">+24%</div>
+      <div className="value up">
+        +24% <div className="fiat">+0.004 ETH</div>
+      </div>
     </div>
   </section>
 );

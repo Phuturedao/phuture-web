@@ -88,6 +88,20 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 112.4%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .fiat {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 112.4%;
+    margin-left: 3px;
+    position: relative;
+    top: -2px;
+
+    color: $main;
   }
 
   .up {

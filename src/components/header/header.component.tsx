@@ -4,6 +4,7 @@ import React, { FunctionComponent, useState } from "react";
 
 import AccountModal from "components/modals/account-modal/account-modal.component";
 import Container from "layouts/container";
+import CreateIndexModal from "components/modals/create-index-modal/create-index-modal.component";
 import { Link } from "react-router-dom";
 import PhutureLogo from "assets/svgs/phuture-logo";
 
@@ -26,15 +27,18 @@ type Props = {
   isAccountModal?: boolean;
   index?: string;
   isAllIndexes?: boolean;
+  isCreateIndex?: boolean;
 };
 
 const HeaderComponent: FunctionComponent<Props> = ({
   account,
   isAllIndexes = true,
   isAccountModal = false,
+  isCreateIndex = false,
   index,
 }) => {
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
+  const [isCreateIndexModalOpen, setIsCreateIndexModalOpen] = useState(false);
 
   return (
     <header className="header-component" aria-label="main header">
@@ -62,6 +66,17 @@ const HeaderComponent: FunctionComponent<Props> = ({
                 </a>
               )}
 
+              {isCreateIndex && (
+                <button
+                  className="link"
+                  onClick={() => {
+                    setIsCreateIndexModalOpen(true);
+                  }}
+                >
+                  Create Index
+                </button>
+              )}
+
               {account && isAccountModal && (
                 <button
                   className="button alternative"
@@ -81,6 +96,13 @@ const HeaderComponent: FunctionComponent<Props> = ({
         isOpen={isAccountModalOpen}
         onClose={() => {
           setIsAccountModalOpen(false);
+        }}
+      />
+
+      <CreateIndexModal
+        isOpen={isCreateIndexModalOpen}
+        onClose={() => {
+          setIsCreateIndexModalOpen(false);
         }}
       />
     </header>

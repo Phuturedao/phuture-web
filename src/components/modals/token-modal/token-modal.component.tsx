@@ -4,14 +4,14 @@ import React, { FunctionComponent } from "react";
 
 import DefaultModal from "components/modals/modal/modal.componnet";
 import ETH from "assets/svgs/eth";
-import InputSearch from "components/inputs/input-search/input-search.component";
+import SearchInput from "components/inputs/input-search/input-search.component";
 
 const TokenModal: FunctionComponent<any> = (props) => {
   return (
     <DefaultModal title="Select a token" className="token-modal" {...props}>
       <div className="search">
         <label>From</label>
-        <InputSearch />
+        <SearchInput placeholder="Search token by name or address" />
       </div>
 
       <div className="search-result">
