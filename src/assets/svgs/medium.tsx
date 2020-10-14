@@ -7,9 +7,9 @@ type PropTypes = {
 const MediumLogo: FunctionComponent<PropTypes> = (props) => (
   <svg
     width="32"
-    height="25"
+    height="30"
     viewBox="0 0 32 25"
-    fill="none"
+    fill="black"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
