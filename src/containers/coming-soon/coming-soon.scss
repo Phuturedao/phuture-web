@@ -10,17 +10,20 @@
   animation: rotate 3s linear infinite;
 }
 
+a {
+  text-decoration: none;
+}
+
 .coming-soon-module {
   a {
     color: $comlementary;
   }
 
   nav {
-    padding: 10px 0;
-
     .logo {
+      cursor: pointer;
+      padding: 35px 0;
       display: flex;
-      justify-content: center;
       align-items: center;
 
       svg {
@@ -34,9 +37,51 @@
     }
   }
 
+  .content {
+    flex: 1 0 auto;
+    margin-top: 160px;
+    p {
+      font-family: Playfair Display, sans-serif;
+      font-size: 42px;
+      line-height: 132.4%;
+      color: $primary;
+    }
+    a {
+      display: inline-block;
+      margin-top: 60px;
+      padding: 10px 40px;
+      background: $primary;
+      color: #ffffff;
+      outline: none;
+      cursor: pointer;
+      border: 1px solid $primary;
+      box-sizing: border-box;
+      border-radius: 10px;
+      font-size: 18px;
+      line-height: 112.4%;
+      &:hover {
+        background: rgba($color: $primary, $alpha: 0.8);
+      }
+      &:active {
+        &:active {
+          transform: translateY(0.1px);
+          box-shadow: 0 5px 10px rgba($color: $primary, $alpha: 0.2);
+        }
+      }
+    }
+  }
+
   .container {
-    max-width: 1024px;
+    max-width: 1150px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .wrapper {
+    flex: 1 0 auto;
+    padding: 0 20px;
   }
 
   .heading-wrapper {
@@ -99,7 +144,53 @@
   }
 
   footer {
-    padding: 100px 10px 10px;
-    text-align: center;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 66px;
+    margin-top: 20px;
+    .email-link {
+      font-family: Inter;
+      font-size: 24px;
+      line-height: 116.4%;
+      text-transform: uppercase;
+      color: $primary;
+    }
+    .medium-link {
+      margin-right: 30px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .coming-soon-module {
+    .content {
+      margin-top: 40px;
+      p {
+        font-size: 22px;
+      }
+      a {
+        margin-top: 30px;
+      }
+    }
+
+    footer {
+      .email-link {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .coming-soon-module {
+    footer {
+      flex-direction: column-reverse;
+      padding-bottom: 20px;
+      .email-link {
+        margin-top: 10px;
+      }
+    }
   }
 }
