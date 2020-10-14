@@ -22,7 +22,7 @@ const ComingSoonContainer: FunctionComponent = () => (
           <p>
             PhutureDAO provides a range of benchmark, programmatic indexes with
             real underlying assets, auto rebalancing functionality and a
-            non-custodial architecture
+            non-custodial architecture.
           </p>
           <a href="https://www.phuturedao.com/whitepaper.pdf" target="_blank">
             Whitepaper
