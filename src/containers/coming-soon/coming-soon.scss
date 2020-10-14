@@ -163,7 +163,7 @@ a {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $tablet-width) {
   .coming-soon-module {
     .content {
       margin-top: 40px;
@@ -183,7 +183,7 @@ a {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: $mob-width) {
   .coming-soon-module {
     footer {
       flex-direction: column-reverse;
