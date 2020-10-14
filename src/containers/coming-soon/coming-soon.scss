@@ -22,8 +22,9 @@ a {
   nav {
     .logo {
       cursor: pointer;
-      padding: 35px 0;
+      padding: 75px 0 0;
       display: flex;
+      justify-content: center;
       align-items: center;
 
       svg {
@@ -38,6 +39,7 @@ a {
   }
 
   .content {
+    text-align: center;
     flex: 1 0 auto;
     margin-top: 160px;
     p {
@@ -72,7 +74,7 @@ a {
   }
 
   .container {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -165,6 +167,11 @@ a {
 
 @media (max-width: $tablet-width) {
   .coming-soon-module {
+    nav {
+      .logo {
+        padding: 35px 0 0;
+      }
+    }
     .content {
       margin-top: 40px;
       p {
