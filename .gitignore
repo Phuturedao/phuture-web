@@ -20,3 +20,6 @@ yarn-error.log*
 # cache
 .eslintcache
 .cache
+
+#abi typings
+src/abi/typings 
