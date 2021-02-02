@@ -1,19 +1,22 @@
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-
-import ComingSoon from "containers/coming-soon/coming-soon.container";
-import Home from "containers/home.container";
 import React from "react";
+import "./App.css";
 
 function App() {
   return (
-    <div className="app">
-      <Router>
-        <Switch>
-          <Route path="/">
-            <ComingSoon />
-          </Route>
-        </Switch>
-      </Router>
+    <div className="App">
+      <header className="App-header">
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
