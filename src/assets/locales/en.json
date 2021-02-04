@@ -17,6 +17,7 @@
   "pools_call-to-action_text": "Provide liquidity and get rewards",
   "pools_descriptor": "Liquidity providers earn a 0.5% fee on all trades proportional to their share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.",
   "pools_button": "Create pair",
+  "pools_create_pool_button": "Create pool",
   "pools_add_liquidity_button": "Add liquidity",
   "pools_pools_table_column_name": "24h Fees",
   "pools_all_pairs_button": "See all pairs",

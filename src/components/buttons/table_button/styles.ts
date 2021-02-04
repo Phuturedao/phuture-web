@@ -5,11 +5,11 @@ export const useStyles = makeStyles({
   buttonStyles: {
     textDecoration: 'none',
     textTransform: 'none',
+    padding: '3px',
     fontSize: '16px',
     fontWeight: 500,
     color: colors.white,
-    width: '155px',
-    lineHeight: '17px',
+    lineHeight: '20px',
     borderRadius: '10px',
     borderColor: colors.walletButtonBorderColor,
     transition: 'all 0.4s',
