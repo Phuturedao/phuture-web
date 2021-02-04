@@ -135,11 +135,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
               classes={{ root: classes.title }}
             >
               {headCell.label}
-              {orderBy === headCell.id ? (
-                <span className={classes.visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </span>
-              ) : null}
             </TableSortLabel>
           </TableCell>
         ))}
@@ -150,10 +145,10 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 
 const PoolsTable = () => {
   const classes = useStyles()
-  const [order, setOrder] = React.useState<Order>('asc')
-  const [orderBy, setOrderBy] = React.useState<keyof Data>('liquidity')
+  const [order, setOrder] = useState<Order>('asc')
+  const [orderBy, setOrderBy] = useState<keyof Data>('liquidity')
   const page = 0
-  const [rowsPerPage, setRowsPerPage] = React.useState(5)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
   const [shownAll, setShownAll] = useState(false)
 
   const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
