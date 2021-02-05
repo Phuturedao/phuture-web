@@ -1,8 +1,7 @@
 import Button, { ButtonProps as MuiButtonProps } from '@material-ui/core/Button'
 import React, { FC } from 'react'
-import { colors } from 'utils/mui'
-import { useStyles } from './styles'
 import { transormAddress } from 'utils/AddressHelper'
+import { useStyles } from './styles'
 
 interface ButtonProps extends MuiButtonProps {
   activeWeb3Account: string
@@ -14,11 +13,7 @@ const WalletButton: FC<ButtonProps> = ({ activeWeb3Account, activateWeb3Account 
 
   return (
     <Button onClick={activateWeb3Account} variant="outlined" classes={{ root: buttonStyles }}>
-      <span
-        style={{
-          color: activeWeb3Account ? colors.primaryGreen : colors.walletButtonTextColor,
-        }}
-      >
+      <span>
         {activeWeb3Account ? transormAddress(activeWeb3Account) : 'header_top-right_button_state_1'.localized()}
       </span>
     </Button>

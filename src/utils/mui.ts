@@ -11,6 +11,13 @@ export const colors: { [key: string]: string } = {
   //search icon
   searchIconBg: '#4F6579',
   searchIconHoverBg: '#61798C',
+  //tables
+  tableTextColor: '#D1DEE6',
+  tableTitleColor: '#95B3C3',
+  //buttons
+  primaryButtonTextColor: '#1D2E3E',
+  primaryButtonBgColor: '#4CC9F0',
+  primaryButtonBgHoverColor: '#AAE5F8',
 }
 export const color = (c: string): string => colors[c]
 export const buildVariant = (fontWeight: number, fontSize: number, color: string): unknown => ({

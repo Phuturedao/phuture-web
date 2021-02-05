@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import { INDEXES, POOLS, STATS, SWAP } from 'routes'
 import 'services/i18n'
 import { themeConfig } from 'utils/mui'
-import './App.css'
 
 const Indexes = lazy(() => import('./pages/indexes'))
 const Pools = lazy(() => import('./pages/pools'))

@@ -5,16 +5,17 @@ export const useStyles = makeStyles({
   buttonStyles: {
     textDecoration: 'none',
     textTransform: 'none',
+    padding: '7px',
     fontSize: '16px',
     fontWeight: 500,
     color: colors.white,
-    width: '155px',
-    lineHeight: '17px',
+    width: '170px',
+    lineHeight: '20px',
     borderRadius: '10px',
-    borderColor: colors.walletButtonBorderColor,
+    borderColor: colors.walletButtonBorderHoverColor,
     transition: 'all 0.4s',
     '&:hover': {
-      borderColor: colors.walletButtonBorderHoverColor,
+      borderColor: colors.walletButtonBorderColor,
     },
     '&:active': {
       opacity: 0.3,
