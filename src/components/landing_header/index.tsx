@@ -1,0 +1,18 @@
+import { Button } from '@material-ui/core'
+import HeaderLogo from 'assets/icons/HeaderLogo.svg'
+import React from 'react'
+import { useStyles } from './styles'
+
+export const LandingHeader = (): JSX.Element => {
+  const { wrap, logoContainer, buttonStyles } = useStyles()
+  return (
+    <header className={wrap}>
+      <div className={logoContainer}>
+        <img src={HeaderLogo} />
+      </div>
+      <Button variant="outlined" classes={{ root: buttonStyles }}>
+        App coming soon
+      </Button>
+    </header>
+  )
+}

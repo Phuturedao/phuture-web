@@ -18,6 +18,8 @@ export const colors: { [key: string]: string } = {
   primaryButtonTextColor: '#1D2E3E',
   primaryButtonBgColor: '#4CC9F0',
   primaryButtonBgHoverColor: '#AAE5F8',
+  //cards
+  defaultCardBg: '#1A2C3C',
 }
 export const color = (c: string): string => colors[c]
 export const buildVariant = (fontWeight: number, fontSize: number, color: string): unknown => ({
