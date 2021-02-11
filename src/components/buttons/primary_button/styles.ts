@@ -9,7 +9,6 @@ export const useStyles = makeStyles({
     lineHeight: '20px',
     backgroundColor: colors.primaryButtonBgColor,
     borderRadius: '10px',
-    height: '36px',
     transition: 'all 0.4s',
     '&:hover': {
       backgroundColor: colors.primaryButtonBgHoverColor,

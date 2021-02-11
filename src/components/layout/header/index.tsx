@@ -34,7 +34,7 @@ export const Header: FC<HeaderProps> = ({ activeWeb3Account, activateWeb3Account
             </NavLink>
           </li>
           <li style={{ marginRight: '30px' }}>
-            <NavLink exact to={POOLS} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
+            <NavLink to={POOLS} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
               <span>{'header_menu_item_2'.localized()}</span>
             </NavLink>
           </li>
