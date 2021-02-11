@@ -36,7 +36,6 @@ export const useStyles = makeStyles({
     color: colors.tableTitleColor,
   },
   endAdornmentContainer: {
-    minWidth: '155px',
     height: '100%',
     display: 'flex',
     flexDirection: 'column',

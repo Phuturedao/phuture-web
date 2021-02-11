@@ -5,6 +5,5 @@ export const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
-    margin: '0 12px',
   },
 })

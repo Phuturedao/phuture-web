@@ -7,14 +7,11 @@ interface ButtonProps extends MuiButtonProps {
   text: string
   width?: string
   height?: string
-  activateWeb3Account?: () => void
-  activeWeb3Account?: string
 }
 
 const PrimaryButton = (props: ButtonProps) => {
   const { buttonStyles } = useStyles()
-  const { text, width, height, activateWeb3Account, activeWeb3Account, onClick } = props
-  console.log(activeWeb3Account)
+  const { text, width, height } = props
 
   return (
     <Button
@@ -22,7 +19,6 @@ const PrimaryButton = (props: ButtonProps) => {
       style={{ width: width ? width : '170px', height: height ? height : '36px' }}
       variant="outlined"
       classes={{ root: buttonStyles }}
-      onClick={!activeWeb3Account || activeWeb3Account.length === 0 ? activateWeb3Account : onClick}
     >
       <span
         style={{

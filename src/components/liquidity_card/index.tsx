@@ -1,20 +1,20 @@
-import { Slide, Slider, TextField } from '@material-ui/core'
-import React from 'react'
-import { colors } from 'utils/mui'
-import { useStyles } from './styles'
-import EthIcon from 'assets/icons/tokens/EthIcon.svg'
-import UsdcIcon from 'assets/icons/tokens/UsdcIcon.svg'
-import LiquidityCardArrow from 'assets/icons/LiquidityCardArrow.svg'
-import LiquidityInput from 'components/liquidity_input'
-import { LiquiditySlider } from 'components/liquidity_slider'
-import { PrimaryButton } from 'components/buttons'
-import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
+import { IconButton, Typography } from '@material-ui/core'
+import { useWeb3React } from '@web3-react/core'
+import InfoIcon from 'assets/icons/InfoIcon.svg'
+import { ConfirmationButton } from 'components/buttons'
+import LiquidityInput, { CurrencyTypes } from 'components/liquidity_input'
+import { LiquiditySlider } from 'components/liquidity_slider'
+import React, { useState } from 'react'
 import { injectedConnector } from 'services/Provider'
+import { useStyles } from './styles'
 
 const LiquidityCard = () => {
   const {
     cardContainer,
+    cardTitleContainer,
+    cardTitleText,
+    cardTitleIcon,
     sliderContainer,
     sliderText,
     sliderTextTitle,
@@ -23,7 +23,8 @@ const LiquidityCard = () => {
   } = useStyles({})
   const { account, activate } = useWeb3React<Web3Provider>()
 
-  const [value, setValue] = React.useState<number>(50)
+  const [value, setValue] = useState<number>(50)
+  const [confirmed, setConfirmed] = useState<boolean>(false)
 
   const handleSliderChange = (event: any, newValue: number) => {
     setValue(newValue)
@@ -31,11 +32,14 @@ const LiquidityCard = () => {
 
   return (
     <div className={cardContainer}>
-      <div></div>
-      <span>Input 1</span>
-      <img />
-      <LiquidityInput />
-      <LiquidityInput />
+      <div className={cardTitleContainer}>
+        <Typography classes={{ root: cardTitleText }}>Liquidity</Typography>
+        <IconButton classes={{ root: cardTitleIcon }}>
+          <img src={InfoIcon} />
+        </IconButton>
+      </div>
+      <LiquidityInput currency={CurrencyTypes.eth} label={'Input 1'} />
+      <LiquidityInput currency={CurrencyTypes.usdt} label={'Input 2'} />
       <div className={sliderContainer}>
         <LiquiditySlider
           value={value}
@@ -58,13 +62,21 @@ const LiquidityCard = () => {
         <span className={sliderTextValue}>{`0.001 ETH`}</span>
       </div>
       <div className={bottomButtonsContainer}>
-        <PrimaryButton
+        <ConfirmationButton
           activateWeb3Account={() => activate(injectedConnector)}
           activeWeb3Account={account ? account : ''}
-          width={'100%'}
-          height={'48px'}
-          text={'header_top-right_button_state_1'.localized()}
+          text={account ? 'Confirm' : 'header_top-right_button_state_1'.localized()}
+          confirmed={confirmed}
+          setConfirmed={setConfirmed}
         />
+        {account && (
+          <ConfirmationButton
+            activateWeb3Account={() => activate(injectedConnector)}
+            activeWeb3Account={account ? account : ''}
+            text={'pools_add_liquidity_button'.localized()}
+            disabled={!confirmed}
+          />
+        )}
       </div>
     </div>
   )
