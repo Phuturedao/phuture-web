@@ -21,6 +21,7 @@ export const useStyles = makeStyles({
     lineHeight: '107px',
     color: colors.white,
     textAlign: 'center',
+    textShadow: `0px 0px 90px ${colors.textShadowColor}`,
     ['@media (max-width:425px)']: {
       fontSize: '28px',
       lineHeight: '45px',

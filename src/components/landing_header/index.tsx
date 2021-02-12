@@ -11,7 +11,7 @@ export const LandingHeader = (): JSX.Element => {
         <img className={logo} src={HeaderLogo} />
       </div>
       <Button variant="outlined" classes={{ root: buttonStyles }}>
-        App coming soon
+        App Сoming Soon
       </Button>
     </header>
   )

@@ -2,6 +2,8 @@ import { ThemeOptions } from '@material-ui/core'
 
 export const colors: { [key: string]: string } = {
   white: '#FFFFFF',
+  //landing
+  textShadowColor: 'rgba(255, 255, 255, 0.55)',
   //BG gradient
   firstGradientColor: '#508676',
   secondGradientColor: '#3D5066',
