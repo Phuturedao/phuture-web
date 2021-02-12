@@ -4,6 +4,9 @@ import { colors } from 'utils/mui'
 export const useStyles = makeStyles({
   container: {
     padding: '80px 60px 120px 60px',
+    ['@media (max-width:550px)']: {
+      padding: '20px 20px 40px 20px',
+    },
   },
   headContainer: {
     display: 'flex',
@@ -18,19 +21,22 @@ export const useStyles = makeStyles({
     lineHeight: '107px',
     color: colors.white,
     textAlign: 'center',
+    ['@media (max-width:425px)']: {
+      fontSize: '28px',
+      lineHeight: '45px',
+    },
   },
   buttonContainer: {
     textTransform: 'none',
-    textDecoration: 'none !important',
+    textDecoration: 'none',
+    marginTop: '40px',
     '&:hover': {
-      textTransform: 'none',
       textDecoration: 'none',
     },
   },
   button: {
     width: '140px',
     height: '48px',
-    marginTop: '40px',
     borderRadius: '5px',
     fontSize: '16px',
     fontWeight: 500,
@@ -61,6 +67,10 @@ export const useStyles = makeStyles({
       flexDirection: 'column',
       alignItems: 'center',
     },
+    ['@media (max-width:425px)']: {
+      marginTop: '40px',
+      marginBottom: '40px',
+    },
   },
   cardContainer: {
     width: '394px',
@@ -73,6 +83,10 @@ export const useStyles = makeStyles({
     marginBottom: '24px',
     padding: '54px 20px 20px 20px',
     textAlign: 'center',
+    ['@media (max-width:550px)']: {
+      padding: '30px 20px 20px 20px',
+      width: '80%',
+    },
   },
   cardTitle: {
     fontSize: '32px',
@@ -80,6 +94,10 @@ export const useStyles = makeStyles({
     color: colors.white,
     marginTop: '24px',
     lineHeight: '34px',
+    ['@media (max-width:425px)']: {
+      fontSize: '25px',
+      lineHeight: '28px',
+    },
   },
   cardText: {
     fontSize: '16px',
@@ -88,11 +106,21 @@ export const useStyles = makeStyles({
     opacity: 0.9,
     marginTop: '24px',
     lineHeight: '25px',
+    ['@media (max-width:425px)']: {
+      marginTop: '12px',
+      fontSize: '15px',
+      lineHeight: '17px',
+    },
   },
   footer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    ['@media (max-width:550px)']: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
   },
   footerEmail: {
     textTransform: 'uppercase',
@@ -105,6 +133,9 @@ export const useStyles = makeStyles({
     height: '30px',
     display: 'flex',
     alignItems: 'center',
+    ['@media (max-width:550px)']: {
+      marginTop: '24px',
+    },
   },
   iconsMargin: {
     marginRight: '30px',

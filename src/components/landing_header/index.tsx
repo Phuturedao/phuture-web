@@ -4,11 +4,11 @@ import React from 'react'
 import { useStyles } from './styles'
 
 export const LandingHeader = (): JSX.Element => {
-  const { wrap, logoContainer, buttonStyles } = useStyles()
+  const { wrap, logoContainer, logo, buttonStyles } = useStyles()
   return (
     <header className={wrap}>
       <div className={logoContainer}>
-        <img src={HeaderLogo} />
+        <img className={logo} src={HeaderLogo} />
       </div>
       <Button variant="outlined" classes={{ root: buttonStyles }}>
         App coming soon

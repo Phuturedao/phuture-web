@@ -16,6 +16,11 @@ export const useStyles = makeStyles({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  logo: {
+    ['@media (max-width:425px)']: {
+      width: '120px',
+    },
+  },
   buttonStyles: {
     textDecoration: 'none',
     textTransform: 'none',
@@ -32,6 +37,10 @@ export const useStyles = makeStyles({
     },
     '&:active': {
       opacity: 0.3,
+    },
+    ['@media (max-width:425px)']: {
+      fontSize: '12px',
+      width: '130px',
     },
   },
 })

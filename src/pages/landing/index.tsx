@@ -16,6 +16,7 @@ const Landing = (): JSX.Element => {
     container,
     headContainer,
     title,
+    buttonContainer,
     button,
     cards,
     cardContainer,
@@ -30,7 +31,7 @@ const Landing = (): JSX.Element => {
     <Container className={container}>
       <div className={headContainer}>
         <Typography className={title}>Unlock the power to create, swap and invest into crypto indices.</Typography>
-        <Link target={'_blank'} href="https://phuture.gitbook.io/phuture/">
+        <Link className={buttonContainer} target={'_blank'} href="https://phuture.gitbook.io/phuture/">
           <Button variant="outlined" classes={{ root: button }}>
             Learn More
           </Button>
