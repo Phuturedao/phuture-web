@@ -12,7 +12,6 @@ const useStyles = makeStyles({
   landingWrap: {
     height: '100%',
     background: `radial-gradient(192.14% 212.11% at 50% 212.11%, ${colors.firstGradientColor} 0%, ${colors.secondGradientColor} 100%)`,
-    overflowY: 'scroll',
   },
 })
 
