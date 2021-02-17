@@ -9,9 +9,6 @@ export const useStyles = makeStyles({
     width: '100%',
     boxSizing: 'border-box',
     borderRadius: 6,
-    '&:focus': {
-      border: '1px solid red',
-    },
     '&>div': {
       height: '95px',
       boxShadow: 'none',
@@ -45,6 +42,7 @@ export const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    cursor: 'pointer',
   },
   endAdornmentIconText: {
     color: colors.tableTextColor,
