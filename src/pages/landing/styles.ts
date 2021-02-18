@@ -18,10 +18,10 @@ export const useStyles = makeStyles({
     fontFamily: 'Roboto Slab, serif',
     fontSize: '58px',
     fontWeight: 500,
-    lineHeight: '107px',
+    lineHeight: '63px',
     color: colors.white,
     textAlign: 'center',
-    textShadow: `0px 0px 90px ${colors.textShadowColor}`,
+    textShadow: `0px 0px 50px ${colors.textShadowColor}`,
     ['@media (max-width:425px)']: {
       fontSize: '28px',
       lineHeight: '45px',
