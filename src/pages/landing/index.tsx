@@ -4,7 +4,7 @@ import { useStyles } from './styles'
 import StrategiesIcon from 'assets/icons/landing/StrategiesIcon.svg'
 import PermissionIcon from 'assets/icons/landing/PermissionIcon.svg'
 import RebalancingIcon from 'assets/icons/landing/RebalancingIcon.svg'
-import FeesIcon from 'assets/icons/landing/FeesIcon.svg'
+import LiquidityLogo from 'assets/icons/landing/LiquidityLogo.svg'
 
 import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
 import MediumIcon from 'assets/icons/landing/MediumIcon.svg'
@@ -58,17 +58,16 @@ const Landing = (): JSX.Element => {
           <img src={RebalancingIcon} alt="rebalancing-icon" />
           <Typography className={cardTitle}>Automated Rebalancing and Reweighting</Typography>
           <Typography className={cardText}>
-            The Phuture AMM fuels the rebalancing engine ensuring that with every trade, index assets are rebalanced
-            towards their optimal weights. Weights calculated on dynamic data are reweighted weekly to assure index
-            accuracy.
+            The Phuture platform utilises a network of keepers to ensure automated rebalancing and reweighting. Weights
+            calculated on dynamic data are reweighted weekly to assure index accuracy.
           </Typography>
         </div>
         <div className={cardContainer}>
-          <img src={FeesIcon} alt="fees-icon" />
-          <Typography className={cardTitle}>Slippage Based Fees</Typography>
+          <img src={LiquidityLogo} alt="fees-icon" />
+          <Typography className={cardTitle}>Liquidity Nexus</Typography>
           <Typography className={cardText}>
-            The Phuture AMM employs a slippage based fee system to deliver superior performance and incentives to
-            liquidity providers.
+            Phuture is accessing liquidity across the entire Ethereum ecosystem, ensuring users get the best prices and
+            the broadest selection of assets.
           </Typography>
         </div>
       </div>
