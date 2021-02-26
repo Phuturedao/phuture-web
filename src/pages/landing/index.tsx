@@ -30,50 +30,38 @@ const Landing = (): JSX.Element => {
   return (
     <Container className={container}>
       <div className={headContainer}>
-        <Typography className={title}>Unlock the power to create, swap and invest into crypto indices.</Typography>
+        <Typography className={title}>{'landing_title'.localized()}</Typography>
         <Link className={buttonContainer} target={'_blank'} href="https://phuture.gitbook.io/phuture/">
           <Button variant="outlined" classes={{ root: button }}>
-            Learn More
+            {'landing_learn_button_text'.localized()}
           </Button>
         </Link>
       </div>
       <div className={cards}>
         <div className={cardContainer}>
           <img src={StrategiesIcon} alt="strategies-icon" />
-          <Typography className={cardTitle}>Flexible Index Strategies</Typography>
-          <Typography className={cardText}>
-            The Phuture Index Creator can support an array of index options including automated sector tracking and
-            dynamic weighting methodologies.
-          </Typography>
+          <Typography className={cardTitle}>{'landing_card1_title'.localized()}</Typography>
+          <Typography className={cardText}>{'landing_card1_text'.localized()}</Typography>
         </div>
         <div className={cardContainer}>
           <img src={PermissionIcon} alt="permission-icon" />
-          <Typography className={cardTitle}>Permissionless Index Creation </Typography>
-          <Typography className={cardText}>
-            Phuture introduces an open design philosophy for creating passive investment strategies, providing the tools
-            for users to create new indices or invest into existing ones created by the community.
-          </Typography>
+          <Typography className={cardTitle}>{'landing_card2_title'.localized()}</Typography>
+          <Typography className={cardText}>{'landing_card2_text'.localized()}</Typography>
         </div>
         <div className={cardContainer}>
           <img src={RebalancingIcon} alt="rebalancing-icon" />
-          <Typography className={cardTitle}>Automated Rebalancing and Reweighting</Typography>
-          <Typography className={cardText}>
-            The Phuture platform utilises a network of keepers to ensure automated rebalancing and reweighting. Weights
-            calculated on dynamic data are reweighted weekly to assure index accuracy.
-          </Typography>
+          <Typography className={cardTitle}>{'landing_card3_title'.localized()}</Typography>
+          <Typography className={cardText}>{'landing_card3_text'.localized()}</Typography>
         </div>
         <div className={cardContainer}>
           <img src={LiquidityLogo} alt="fees-icon" />
-          <Typography className={cardTitle}>Liquidity Nexus</Typography>
-          <Typography className={cardText}>
-            Phuture is accessing liquidity across the entire Ethereum ecosystem, ensuring users get the best prices and
-            the broadest selection of assets.
-          </Typography>
+          <Typography className={cardTitle}>{'landing_card4_title'.localized()}</Typography>
+          <Typography className={cardText}>{'landing_card4_text'.localized()}</Typography>
         </div>
       </div>
       <div className={footer}>
         <a href="mailto:info@phuture.finance" className={footerEmail}>
-          info@phuture.finance
+          {'landing_mail_text'.localized()}
         </a>
         <div className={footerIconsContainer}>
           <Link target="_blank" href="https://twitter.com/phuturedao">
