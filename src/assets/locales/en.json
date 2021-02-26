@@ -96,6 +96,19 @@
   "creating_index/weighting_method_price_button_title": "Weight by price",
   "creating_index/weighting_method_price_button_description": "Short description for weighting method",
   "creating_index/weighting_method_manual_method_button_title": "Define weights manually",
+  "landing_title": "Unlock the power to create and invest in crypto indices",
+  "landing_header_button_text": "App coming soon",
+  "landing_learn_button_text": "Learn More",
+  "landing_card1_title": "Flexible Index Strategies",
+  "landing_card1_text": "The Phuture Index Creator can support an array of index options including automated sector tracking and dynamic weighting methodologies.",
+  "landing_card2_title": "Permissionless Index Creation ",
+  "landing_card2_text": "Phuture introduces an open design philosophy for creating passive investment strategies, providing the tools for users to create new indices or invest into existing ones created by the community.",
+  "landing_card3_title": "Automated Rebalancing and Reweighting",
+  "landing_card3_text": "The Phuture platform utilises a network of keepers to ensure automated rebalancing and reweighting. Weights calculated on dynamic data are reweighted weekly to assure index accuracy.",
+  "landing_card4_title": "Liquidity Nexus",
+  "landing_card4_text": "Phuture is accessing liquidity across the entire Ethereum ecosystem, ensuring users get the best prices and the broadest selection of assets.",
+  "landing_mail_text": "info@phuture.finance",
+
   "common_day_template": {
     "one": "{{count}} Day old",
     "other": "{{count}} Days old"
