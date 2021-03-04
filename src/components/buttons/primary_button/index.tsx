@@ -6,14 +6,20 @@ import { useStyles } from './styles'
 interface ButtonProps extends MuiButtonProps {
   text: string
   width?: string
+  height?: string
 }
 
 const PrimaryButton = (props: ButtonProps) => {
   const { buttonStyles } = useStyles()
-  const { text, width } = props
+  const { text, width, height } = props
 
   return (
-    <Button {...props} style={{ width: width ? width : '170px' }} variant="outlined" classes={{ root: buttonStyles }}>
+    <Button
+      {...props}
+      style={{ width: width ? width : '170px', height: height ? height : '36px' }}
+      variant="outlined"
+      classes={{ root: buttonStyles }}
+    >
       <span
         style={{
           color: colors.primaryButtonTextColor,

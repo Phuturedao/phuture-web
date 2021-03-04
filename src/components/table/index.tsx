@@ -16,6 +16,7 @@ import UsdcIcon from 'assets/icons/tokens/UsdcIcon.svg'
 import UsdtIcon from 'assets/icons/tokens/UsdtIcon.svg'
 import { BottomTableButton, TableButton } from 'components/buttons'
 import React, { FC, useState } from 'react'
+import { colors } from 'utils/mui'
 import { useStyles } from './styles'
 
 interface Data {
@@ -178,7 +179,7 @@ const PoolsTable = () => {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row) => {
                   return (
-                    <TableRow style={{ backgroundColor: '#1A2C3C' }} hover tabIndex={-1} key={row.name}>
+                    <TableRow style={{ backgroundColor: colors.defaultCardBg }} hover tabIndex={-1} key={row.name}>
                       <TableCell
                         classes={{ root: classes.tableName }}
                         style={{ borderRadius: '10px 0 0 10px', padding: '0 18px' }}

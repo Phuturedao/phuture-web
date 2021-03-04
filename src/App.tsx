@@ -6,7 +6,7 @@ import { CustomCircularProgress } from 'components/custom_progress'
 import { Layout } from 'components/layout'
 import React, { lazy } from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
-import { INDEXES, POOLS, STATS, SWAP } from 'routes'
+import { INDEXES, POOLS, STATS, SWAP, LIQUIDITY } from 'routes'
 import 'services/i18n'
 import { themeConfig } from 'utils/mui'
 
@@ -14,6 +14,7 @@ const Indexes = lazy(() => import('./pages/indexes'))
 const Pools = lazy(() => import('./pages/pools'))
 const Swap = lazy(() => import('./pages/swap'))
 const Stats = lazy(() => import('./pages/stats'))
+const Liquidity = lazy(() => import('./pages/liquidity'))
 
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,6 +39,7 @@ const App = () => {
               <Switch>
                 <Route exact path={INDEXES} component={Indexes} />
                 <Route exact path={POOLS} component={Pools} />
+                <Route exact path={LIQUIDITY} component={Liquidity} />
                 <Route exact path={SWAP} component={Swap} />
                 <Route exact path={STATS} component={Stats} />
                 <Redirect to={POOLS} />
