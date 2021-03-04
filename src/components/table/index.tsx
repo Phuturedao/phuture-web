@@ -8,12 +8,10 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import SortTableIcon from 'assets/icons/SortTableIcon.svg'
-import AmplIcon from 'assets/icons/tokens/AmplIcon.svg'
-import DaiIcon from 'assets/icons/tokens/DaiIcon.svg'
-import EthIcon from 'assets/icons/tokens/EthIcon.svg'
-import LinkIcon from 'assets/icons/tokens/LinkIcon.svg'
-import UsdcIcon from 'assets/icons/tokens/UsdcIcon.svg'
-import UsdtIcon from 'assets/icons/tokens/UsdtIcon.svg'
+import NftIcon from 'assets/icons/NftIcon.svg'
+import LendingIcon from 'assets/icons/LendingIcon.svg'
+import ExchangeIcon from 'assets/icons/ExchangeIcon.svg'
+import DefiIcon from 'assets/icons/DefiIcon.svg'
 import { BottomTableButton, TableButton } from 'components/buttons'
 import React, { FC, useState } from 'react'
 import { colors } from 'utils/mui'
@@ -21,36 +19,26 @@ import { useStyles } from './styles'
 
 interface Data {
   name: string
-  icon1: string
-  icon2: string
+  icon: string
   liquidity: number
-  fees: number
   volume: number
   button: string
 }
 
-function createData(
-  name: string,
-  icon1: string,
-  icon2: string,
-  liquidity: number,
-  volume: number,
-  fees: number,
-  button: string,
-): Data {
-  return { name, icon1, icon2, liquidity, volume, fees, button }
+function createData(name: string, icon: string, liquidity: number, volume: number, button: string): Data {
+  return { name, icon, liquidity, volume, button }
 }
 
 const rows = [
-  createData('ETH-USDT', EthIcon, UsdtIcon, 305, 3.7, 67, 'button'),
-  createData('DAI-ETH', DaiIcon, EthIcon, 452, 25.0, 51, 'button'),
-  createData('LINK-ETH', LinkIcon, EthIcon, 262, 16.0, 24, 'button'),
-  createData('ETH-AMPL', EthIcon, AmplIcon, 159, 6.0, 24, 'button'),
-  createData('ETH-USDC', EthIcon, UsdcIcon, 356, 16.0, 49, 'button'),
-  createData('TEST-ETH', UsdtIcon, EthIcon, 408, 4.2, 87, 'button'),
-  createData('TEST-USDC', UsdtIcon, UsdcIcon, 351, 8.2, 12, 'button'),
-  createData('USDC-TEST', UsdcIcon, UsdtIcon, 111, 5.2, 11, 'button'),
-  createData('ETH-TEST', EthIcon, UsdtIcon, 222, 0.2, 22, 'button'),
+  createData('NFT', NftIcon, 3.7, 67, 'button'),
+  createData('Lending', LendingIcon, 25.0, 51, 'button'),
+  createData('Exchange', ExchangeIcon, 16.0, 24, 'button'),
+  createData('DeFi', DefiIcon, 6.0, 24, 'button'),
+  createData('NFT', NftIcon, 16.0, 49, 'button'),
+  createData('DeFi', DefiIcon, 4.2, 87, 'button'),
+  createData('Lending', LendingIcon, 8.2, 12, 'button'),
+  createData('DeFi', DefiIcon, 5.2, 11, 'button'),
+  createData('NFT', NftIcon, 0.2, 22, 'button'),
 ]
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -92,10 +80,19 @@ interface HeadCell {
 }
 
 const headCells: HeadCell[] = [
-  { id: 'name', isCentered: true, disablePadding: false, label: 'Name' },
-  { id: 'liquidity', isCentered: true, disablePadding: false, label: 'Liquidity' },
-  { id: 'volume', isCentered: true, disablePadding: false, label: 'Volume' },
-  { id: 'fees', isCentered: true, disablePadding: false, label: '24h Fees' },
+  { id: 'name', isCentered: true, disablePadding: false, label: `${'indices_indices_table_column_name'.localized()}` },
+  {
+    id: 'liquidity',
+    isCentered: true,
+    disablePadding: false,
+    label: `${'indices_indices_table_column_price'.localized()}`,
+  },
+  {
+    id: 'volume',
+    isCentered: true,
+    disablePadding: false,
+    label: `${'indices_indices_table_column_gain_loss'.localized()}`,
+  },
   { id: 'button', isCentered: false, disablePadding: false, label: '' },
 ]
 
@@ -189,11 +186,8 @@ const PoolsTable = () => {
                       >
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                            <div style={{ zIndex: 10 }}>
-                              <img src={row.icon1} />
-                            </div>
-                            <div style={{ zIndex: 0, marginLeft: -10 }}>
-                              <img src={row.icon2} />
+                            <div style={{ zIndex: 10, height: 42 }}>
+                              <img src={row.icon} />
                             </div>
                           </div>
                           <span style={{ marginLeft: '24px' }}>{row.name}</span>
@@ -203,10 +197,9 @@ const PoolsTable = () => {
                         {row.liquidity}
                       </TableCell>
                       <TableCell classes={{ root: classes.tableValues }} align="center">
-                        {row.volume}
-                      </TableCell>
-                      <TableCell classes={{ root: classes.tableValues }} align="center">
-                        {row.fees}
+                        <span style={{ color: colors.tablePositiveGreenColor }}>
+                          {'indices_indices_table_percent_positive'.localized({ v1: row.volume })}
+                        </span>
                       </TableCell>
                       <TableCell
                         style={{ borderRadius: '0 10px 10px 0', width: '160px' }}
@@ -214,7 +207,7 @@ const PoolsTable = () => {
                         align="right"
                       >
                         <div style={{ padding: '24px' }}>
-                          <TableButton text={'pools_add_liquidity_button'.localized()} width={'136px'} />
+                          <TableButton text={'indices_indices_table_button_text'.localized()} width={'136px'} />
                         </div>
                       </TableCell>
                     </TableRow>
@@ -225,7 +218,7 @@ const PoolsTable = () => {
         </TableContainer>
         <div className={classes.buttonButton}>
           <BottomTableButton
-            text={'pools_all_pairs_button'.localized()}
+            text={'indices_all_indices_button'.localized()}
             onClick={(e: any) => handleChangeRowsPerPage(e)}
           />
         </div>

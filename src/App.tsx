@@ -2,18 +2,16 @@ import { Web3Provider } from '@ethersproject/providers'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import { Web3ReactProvider } from '@web3-react/core'
 import { Layout } from 'components/layout'
-import React, { lazy } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
-import 'services/i18n'
-import { INDEXES, POOLS, STATS, SWAP, LIQUIDITY } from 'routes'
+import { GOVERNANCE, INDICES, LIQUIDITY, STAKING, VAULT } from 'routes'
 import 'services/i18n'
 import { themeConfig } from 'utils/mui'
-
-const Indexes = lazy(() => import('./pages/indexes'))
-const Pools = lazy(() => import('./pages/pools'))
-const Swap = lazy(() => import('./pages/swap'))
-const Stats = lazy(() => import('./pages/stats'))
-const Liquidity = lazy(() => import('./pages/liquidity'))
+import Staking from './pages/staking'
+import Liquidity from './pages/liquidity'
+import Indices from './pages/indices'
+import Vault from './pages/vault'
+import Governance from './pages/governance'
 
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,12 +27,12 @@ const App = () => {
         <Router>
           <Layout>
             <Switch>
-              <Route exact path={INDEXES} component={Indexes} />
-              <Route exact path={POOLS} component={Pools} />
+              <Route exact path={INDICES} component={Indices} />
+              <Route exact path={STAKING} component={Staking} />
               <Route exact path={LIQUIDITY} component={Liquidity} />
-              <Route exact path={SWAP} component={Swap} />
-              <Route exact path={STATS} component={Stats} />
-              <Redirect to={POOLS} />
+              <Route exact path={GOVERNANCE} component={Governance} />
+              <Route exact path={VAULT} component={Vault} />
+              <Redirect to={INDICES} />
             </Switch>
           </Layout>
         </Router>

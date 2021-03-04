@@ -13,6 +13,7 @@ export const colors: { [key: string]: string } = {
   //tables
   tableTextColor: '#D1DEE6',
   tableTitleColor: '#95B3C3',
+  tablePositiveGreenColor: '#60E2A3',
   //buttons
   primaryButtonTextColor: '#1D2E3E',
   primaryButtonBgColor: '#4CC9F0',
