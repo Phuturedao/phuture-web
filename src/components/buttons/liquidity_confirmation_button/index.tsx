@@ -17,34 +17,38 @@ const ConfirmationButton = (props: ButtonProps) => {
   const { text, activateWeb3Account, activeWeb3Account, disabled, onClick, confirmed, setConfirmed } = props
   console.log(activeWeb3Account)
 
+  const buttonBgColor = disabled
+    ? colors.primaryButtonBgDisabled
+    : confirmed
+    ? 'transparent'
+    : colors.primaryButtonBgColor
+  const buttonTextColor = disabled
+    ? colors.walletButtonBorderColor
+    : confirmed
+    ? colors.primaryButtonBgColor
+    : colors.primaryButtonTextColor
+
+  const handleClick =
+    !activeWeb3Account || activeWeb3Account.length === 0
+      ? activateWeb3Account
+      : activeWeb3Account && activeWeb3Account.length > 0 && setConfirmed
+      ? () => setConfirmed(!confirmed)
+      : onClick
+
   return (
     <Button
       {...props}
       style={{
-        backgroundColor: disabled
-          ? colors.primaryButtonBgDisabled
-          : confirmed
-          ? 'transparent'
-          : colors.primaryButtonBgColor,
+        backgroundColor: buttonBgColor,
       }}
       variant="outlined"
       className={buttonStyles}
-      onClick={
-        !activeWeb3Account || activeWeb3Account.length === 0
-          ? activateWeb3Account
-          : activeWeb3Account && activeWeb3Account.length > 0 && setConfirmed
-          ? () => setConfirmed(!confirmed)
-          : onClick
-      }
+      onClick={handleClick}
       startIcon={confirmed ? <img src={DoneIcon} /> : undefined}
     >
       <span
         style={{
-          color: disabled
-            ? colors.walletButtonBorderColor
-            : confirmed
-            ? colors.primaryButtonBgColor
-            : colors.primaryButtonTextColor,
+          color: buttonTextColor,
         }}
       >
         {text}
