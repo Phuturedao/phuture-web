@@ -13,6 +13,7 @@ interface TabPanelProps {
 const Indices = (): JSX.Element => {
   const { subtitle, title, buttonContainer } = useStyles()
   const [index, setIndex] = useState(1)
+  const [activeScreen, setActiveScreen] = useState()
 
   return (
     <Container>

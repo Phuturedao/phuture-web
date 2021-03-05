@@ -3,7 +3,7 @@ import { colors } from 'utils/mui'
 
 export const useStyles = makeStyles({
   rootTextField: {
-    border: '1px solid #5C7684',
+    border: `1px solid ${colors.secondaryCardText}`,
     marginTop: 8,
     height: '95px',
     width: '100%',
