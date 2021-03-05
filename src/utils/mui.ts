@@ -2,6 +2,8 @@ import { ThemeOptions } from '@material-ui/core'
 
 export const colors: { [key: string]: string } = {
   white: '#FFFFFF',
+  //landing
+  textShadowColor: 'rgba(255, 255, 255, 0.55)',
   //BG gradient
   firstGradientColor: '#508676',
   secondGradientColor: '#3D5066',
@@ -11,6 +13,7 @@ export const colors: { [key: string]: string } = {
   //tables
   tableTextColor: '#D1DEE6',
   tableTitleColor: '#95B3C3',
+  tablePositiveGreenColor: '#60E2A3',
   //buttons
   primaryButtonTextColor: '#1D2E3E',
   primaryButtonBgColor: '#4CC9F0',

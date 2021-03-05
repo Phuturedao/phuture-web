@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
-import { SWAP, INDEXES, POOLS, STATS } from 'routes'
+import { GOVERNANCE, INDICES, STAKING, VAULT } from 'routes'
 import { useStyles } from './styles'
 import HeaderLogo from 'assets/icons/HeaderLogo.svg'
 import { WalletButton } from 'components/buttons'
@@ -29,23 +29,23 @@ export const Header: FC<HeaderProps> = ({ activeWeb3Account, activateWeb3Account
       <nav className={navBarContainer}>
         <ul className={ulList}>
           <li style={{ marginRight: '30px' }}>
-            <NavLink to={INDEXES} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
-              <span>{'header_menu_item_1'.localized()}</span>
+            <NavLink to={INDICES} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
+              <span>{'header_menu_indices'.localized()}</span>
             </NavLink>
           </li>
           <li style={{ marginRight: '30px' }}>
-            <NavLink to={POOLS} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
-              <span>{'header_menu_item_2'.localized()}</span>
+            <NavLink to={STAKING} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
+              <span>{'header_menu_staking'.localized()}</span>
             </NavLink>
           </li>
           <li style={{ marginRight: '30px' }}>
-            <NavLink exact to={SWAP} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
-              <span>{'header_menu_item_3'.localized()}</span>
+            <NavLink exact to={GOVERNANCE} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
+              <span>{'header_menu_governance'.localized()}</span>
             </NavLink>
           </li>
           <li>
-            <NavLink exact to={STATS} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
-              <span>{'header_menu_item_4'.localized()}</span>
+            <NavLink exact to={VAULT} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
+              <span>{'header_menu_vault'.localized()}</span>
             </NavLink>
           </li>
         </ul>

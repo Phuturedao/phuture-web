@@ -13,9 +13,7 @@ const WalletButton: FC<ButtonProps> = ({ activeWeb3Account, activateWeb3Account 
 
   return (
     <Button onClick={activateWeb3Account} variant="outlined" classes={{ root: buttonStyles }}>
-      <span>
-        {activeWeb3Account ? transormAddress(activeWeb3Account) : 'header_top-right_button_state_1'.localized()}
-      </span>
+      <span>{activeWeb3Account ? transormAddress(activeWeb3Account) : 'header_connect_wallet_button'.localized()}</span>
     </Button>
   )
 }
