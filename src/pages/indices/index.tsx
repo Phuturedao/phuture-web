@@ -14,9 +14,6 @@ const Indices = (): JSX.Element => {
   const { subtitle, title, buttonContainer } = useStyles()
   const [index, setIndex] = useState(1)
 
-  // const handleChange = (event: React.ChangeEvent<any>, newValue: number) => {
-  //   setIndex(newValue)
-  // }
   return (
     <Container>
       <Typography className={title}>{'indices_call_to_action_text'.localized()}</Typography>

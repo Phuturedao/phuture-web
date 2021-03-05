@@ -15,7 +15,6 @@ interface ButtonProps extends MuiButtonProps {
 const ConfirmationButton = (props: ButtonProps) => {
   const { buttonStyles } = useStyles()
   const { text, activateWeb3Account, activeWeb3Account, disabled, onClick, confirmed, setConfirmed } = props
-  console.log(activeWeb3Account)
 
   const buttonBgColor = disabled
     ? colors.primaryButtonBgDisabled
