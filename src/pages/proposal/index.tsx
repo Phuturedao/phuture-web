@@ -3,12 +3,14 @@ import { Container, FormControl, IconButton, makeStyles, RadioGroup, Typography 
 import { useWeb3React } from '@web3-react/core'
 import BackArrow from 'assets/icons/BackArrow.svg'
 import Big from 'big.js'
-import { RadioButton } from 'components/buttons'
+import { RadioButton, VotingButton } from 'components/buttons'
 import ProposalCard from 'components/proposal_card'
+import ModalVote from 'components/vote_vpt'
 import React, { useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { GOVERNANCE } from 'routes'
 import { colors } from 'utils/mui'
+import { useStore } from 'utils/store'
 
 const useStyles = makeStyles({
   titleContainer: {
@@ -33,8 +35,8 @@ const useStyles = makeStyles({
 })
 
 const Proposal = (): JSX.Element => {
+  const { web3Account, setWeb3Account } = useStore()
   const [openVote, setOpenVote] = useState(false)
-  const [openClaim, setOpenClaim] = useState(false)
 
   const handleOpenVote = () => {
     setOpenVote(true)
@@ -43,20 +45,11 @@ const Proposal = (): JSX.Element => {
   const handleCloseVote = () => {
     setOpenVote(false)
   }
-
-  const handleOpenClaim = () => {
-    setOpenClaim(true)
-  }
-
-  const handleCloseClaim = () => {
-    setOpenClaim(false)
-  }
   const { account, library } = useWeb3React()
   const classes = useStyles()
   const history = useHistory()
   const currentId = useParams<{ id: string }>()
   const [selectedOption, setSelectedOption] = useState<number>()
-  const [currentBlock, setCurrentBlock] = useState<number>()
   const id = currentId.id.substring(1)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -106,33 +99,16 @@ const Proposal = (): JSX.Element => {
             ))}
         </RadioGroup>
       </FormControl>
-      {/* <div style={{ marginTop: '8px' }}>
+      <div style={{ marginTop: '8px' }}>
         {Boolean(selectedOption) && (
           <VotingButton
-            account={(web3Account as unknown) as string}
-            onClick={async () => {
-              await getAllowance()
-              handleOpenVote()
-            }}
+            web3Account={account ? account : ''}
+            setWeb3Account={setWeb3Account}
+            onClick={() => handleOpenVote()}
           />
         )}
-      </div> */}
-      {/* <ModalVoteVPT
-        getProposal={getProposal}
-        getBalance={getBalance}
-        balance={vptBalance}
-        open={openVote}
-        handleClose={handleCloseVote}
-        selectedOption={selectedOption}
-      />
-      <ModalClaimVPT
-        open={openClaim}
-        handleClose={handleCloseClaim}
-        titleContent={'modal_claim_vpt_title_content'.localized()}
-        titleModal={'modal_claim_vpt_title_modal'.localized()}
-        titleButton={'modal_claim_vpt_title_button'.localized()}
-        value={'voting_vpt_template'.localized({ v1: unclaimed ? new Big(unclaimed).div(VPT_PRECISION).toFixed() : 0 })}
-      /> */}
+      </div>
+      <ModalVote balance={1000000} open={openVote} handleClose={handleCloseVote} selectedOption={selectedOption} />
     </Container>
   )
 }

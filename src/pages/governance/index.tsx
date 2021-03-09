@@ -28,36 +28,16 @@ const useStyles = makeStyles({
     maxWidth: '700px',
     textAlign: 'center',
   },
-  defaultButton: {
-    width: '203px',
-    height: '46px',
-    marginTop: '40px',
-    backgroundColor: colors.primaryGreen,
-    borderRadius: '66px',
-    textTransform: 'none',
-    fontWeight: 500,
-    fontSize: '16px',
-    fontFamily: 'Rubik, sans-serif',
-    cursor: 'pointer',
-    '&:hover': {
-      backgroundColor: colors.primaryGreen,
-      opacity: 0.6,
-    },
-    '&:active': {
-      backgroundColor: colors.primaryGreen,
-      opacity: 0.3,
-    },
-  },
   categoryTitle: {
-    fontSize: '18px',
+    fontSize: '24px',
     marginTop: '10px',
     color: colors.votingCategoryTitleColor,
     userSelect: 'none',
   },
   historyButton: {
-    fontSize: '18px',
+    fontSize: '16px',
     marginTop: '10px',
-    color: colors.claimButtonBg,
+    color: colors.primaryButtonBgColor,
     userSelect: 'none',
     cursor: 'pointer',
     transition: 'all 0.4s',
@@ -96,7 +76,7 @@ const Governance = (): JSX.Element => {
   return (
     <Container className={classes.rootContainer}>
       <div style={{ width: '100%', padding: '10px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end' }}>
           <Typography className={classes.categoryTitle}>{'governance_governance_first_title'.localized()}</Typography>
           <Typography onClick={() => history.push(PROPOSALS)} className={classes.historyButton}>
             {'governance_governance_first_subtitle'.localized()}
@@ -110,6 +90,28 @@ const Governance = (): JSX.Element => {
                 onClick={() => history.push(PROPOSAL)}
                 id={item.id}
                 isActive={true}
+                positiveVotes={item.amount !== undefined ? item.amount.positive : '0'}
+                negativeVotes={item.amount !== undefined ? item.amount.negative : '0'}
+                title={item.title}
+                endTitle={Number.parseInt(item.deadlineBlock)}
+              />
+            )
+          )
+        })}
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+          <Typography className={classes.categoryTitle}>{'governance_governance_second'.localized()}</Typography>
+          <Typography onClick={() => history.push(PROPOSALS)} className={classes.historyButton}>
+            {'governance_governance_second_subtitle'.localized()}
+          </Typography>
+        </div>
+        {activeProposals.map((item: any, index: number) => {
+          return (
+            index <= 4 && (
+              <ProposalPreviewCard
+                key={index}
+                onClick={() => history.push(PROPOSAL)}
+                id={item.id}
+                isActive={false}
                 positiveVotes={item.amount !== undefined ? item.amount.positive : '0'}
                 negativeVotes={item.amount !== undefined ? item.amount.negative : '0'}
                 title={item.title}

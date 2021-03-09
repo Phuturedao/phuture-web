@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { makeStyles } from '@material-ui/core/styles'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { injectedConnector } from 'services/Provider'
 import { colors } from 'utils/mui'
 import { Header } from './header'
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
+import { useStore } from 'utils/store'
 
 const useStyles = makeStyles({
   landingContent: {
@@ -31,6 +32,11 @@ const useStyles = makeStyles({
 export const Layout = ({ children }: any) => {
   const { account, activate } = useWeb3React<Web3Provider>()
   const { content, contentWrap } = useStyles()
+  const { web3Account, setWeb3Account } = useStore()
+
+  useEffect(() => {
+    account && setWeb3Account(account)
+  }, [setWeb3Account])
   return (
     <>
       <div className={contentWrap}>
