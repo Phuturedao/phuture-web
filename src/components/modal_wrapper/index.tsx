@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography'
 import ModalCloseIcon from 'assets/icons/ModalCloseIcon.svg'
 import React from 'react'
 import { colors } from 'utils/mui'
+import InfoIcon from 'assets/icons/InfoIcon.svg'
+import { IconButton } from '@material-ui/core'
 
 const useStyles = makeStyles({
   root: {
@@ -13,9 +15,9 @@ const useStyles = makeStyles({
   },
   closeButton: {
     position: 'absolute',
-    right: 15,
-    top: 15,
-    cursor: 'pointer',
+    right: 5,
+    top: 5,
+    padding: '4px !important',
   },
   paperWidthSm: {
     backgroundColor: colors.defaultCardBg,
@@ -45,7 +47,9 @@ export const ModalWrapper = ({ handleClose, open, children, titleText }: ModalWi
     <Dialog classes={{ paperWidthSm: paperWidthSm }} maxWidth="sm" onClose={handleClose} open={open}>
       <MuiDialogTitle disableTypography className={root}>
         <Typography classes={{ root: title }}>{titleText}</Typography>
-        <img onClick={handleClose} className={closeButton} src={ModalCloseIcon} alt="close-modal" />
+        <IconButton classes={{ root: closeButton }}>
+          <img src={InfoIcon} />
+        </IconButton>
       </MuiDialogTitle>
       <MuiDialogContent classes={{ root: dialogContent }}>{children}</MuiDialogContent>
     </Dialog>

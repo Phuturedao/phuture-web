@@ -3,7 +3,7 @@ import { colors } from 'utils/mui'
 
 export const useStyles = makeStyles({
   rootTextField: {
-    border: `1px solid ${colors.secondaryCardText}`,
+    border: `1px solid ${colors.primaryButtonBgColor}`,
     marginTop: 8,
     height: '95px',
     width: '100%',
@@ -43,6 +43,12 @@ export const useStyles = makeStyles({
     flexDirection: 'row',
     alignItems: 'center',
     cursor: 'pointer',
+  },
+  endTextWithoutDropdown: {
+    color: colors.tableTextColor,
+    fontSize: '30px',
+    fontWeight: 400,
+    marginLeft: '8px',
   },
   endAdornmentIconText: {
     color: colors.tableTextColor,

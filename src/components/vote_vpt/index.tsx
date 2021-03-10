@@ -25,8 +25,11 @@ export default function ModalVote({ open, handleClose, balance, selectedOption }
   const [approved, setApproved] = useState<boolean>(false)
 
   return (
-    <ModalWrapper open={open} handleClose={handleClose} titleText={'modal_vote_vpt_title_modal'.localized()}>
+    <ModalWrapper open={open} handleClose={handleClose} titleText={'vote_modal_title'.localized()}>
       <>
+        <div style={{ width: '100%', padding: '0 20px' }}>
+          <LiquidityInput currency={CurrencyTypes.eth} label={'vote_modal_input_title'.localized()} />
+        </div>
         <div className={blockInputHeader}>
           <Typography className={title}>{'modal_vote_vpt_label_input'.localized()}</Typography>
           <div className={blockBalance}>
@@ -34,7 +37,6 @@ export default function ModalVote({ open, handleClose, balance, selectedOption }
             <span>{'voting_vpt_template'.localized({ v1: balance ? balance : 0 })}</span>
           </div>
         </div>
-        <LiquidityInput currency={CurrencyTypes.eth} label={'Input 1'} />
         {/* <LiquidityInput currency={CurrencyTypes.usdt} label={'Input 2'} /> */}
         {/* <Input
           endIcon={EndIconType.VPT}

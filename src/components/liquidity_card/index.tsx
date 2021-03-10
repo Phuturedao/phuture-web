@@ -38,8 +38,8 @@ const LiquidityCard = () => {
           <img src={InfoIcon} />
         </IconButton>
       </div>
-      <LiquidityInput currency={CurrencyTypes.eth} label={'Input 1'} />
-      <LiquidityInput currency={CurrencyTypes.usdt} label={'Input 2'} />
+      <LiquidityInput dropdown currency={CurrencyTypes.eth} label={'Input 1'} />
+      <LiquidityInput dropdown currency={CurrencyTypes.usdt} label={'Input 2'} />
       <div className={sliderContainer}>
         <LiquiditySlider
           value={value}
