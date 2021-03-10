@@ -6,7 +6,6 @@ import { ConfirmationButton } from 'components/buttons'
 import LiquidityInput, { CurrencyTypes } from 'components/liquidity_input'
 import { LiquiditySlider } from 'components/liquidity_slider'
 import React, { useState } from 'react'
-import { injectedConnector } from 'services/Provider'
 import { useStyles } from './styles'
 
 const LiquidityCard = () => {
@@ -24,6 +23,7 @@ const LiquidityCard = () => {
   const { account, activate } = useWeb3React<Web3Provider>()
 
   const [value, setValue] = useState<number>(50)
+  const [textValue, setTextValue] = useState<string>('')
   const [confirmed, setConfirmed] = useState<boolean>(false)
 
   const handleSliderChange = (event: any, newValue: number) => {
@@ -38,8 +38,20 @@ const LiquidityCard = () => {
           <img src={InfoIcon} />
         </IconButton>
       </div>
-      <LiquidityInput dropdown currency={CurrencyTypes.eth} label={'Input 1'} />
-      <LiquidityInput dropdown currency={CurrencyTypes.usdt} label={'Input 2'} />
+      <LiquidityInput
+        value={textValue}
+        setValue={setTextValue}
+        dropdown
+        currency={CurrencyTypes.eth}
+        label={'Input 1'}
+      />
+      <LiquidityInput
+        value={textValue}
+        setValue={setTextValue}
+        dropdown
+        currency={CurrencyTypes.usdt}
+        label={'Input 2'}
+      />
       <div className={sliderContainer}>
         <LiquiditySlider
           value={value}
@@ -63,20 +75,11 @@ const LiquidityCard = () => {
       </div>
       <div className={bottomButtonsContainer}>
         <ConfirmationButton
-          activateWeb3Account={() => activate(injectedConnector)}
-          activeWeb3Account={account ? account : ''}
           text={account ? 'Confirm' : 'header_top-right_button_state_1'.localized()}
-          confirmed={confirmed}
-          setConfirmed={setConfirmed}
+          approved={confirmed}
+          setApproved={setConfirmed}
         />
-        {account && (
-          <ConfirmationButton
-            activateWeb3Account={() => activate(injectedConnector)}
-            activeWeb3Account={account ? account : ''}
-            text={'pools_add_liquidity_button'.localized()}
-            disabled={!confirmed}
-          />
-        )}
+        {account && <ConfirmationButton text={'Text'} disabled={!confirmed} />}
       </div>
     </div>
   )

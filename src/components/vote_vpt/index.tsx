@@ -1,9 +1,10 @@
-import { Typography } from '@material-ui/core'
-import { useWeb3React } from '@web3-react/core'
+import { Slider, Tooltip, Typography } from '@material-ui/core'
+import { ConfirmationButton } from 'components/buttons'
 import LiquidityInput, { CurrencyTypes } from 'components/liquidity_input'
 import { ModalWrapper } from 'components/modal_wrapper'
 import React, { ReactElement, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import { STAKING } from 'routes'
 import { useStyles } from './styles'
 
 interface ModalProps {
@@ -13,59 +14,105 @@ interface ModalProps {
   selectedOption?: number
 }
 
+interface ValueLabelComponentProps {
+  children: React.ReactElement
+  open: boolean
+  value: number
+}
+
+const ValueLabelComponent = (props: ValueLabelComponentProps) => {
+  const { children, open, value } = props
+  const { rootTooltip } = useStyles()
+
+  return (
+    <Tooltip
+      classes={{ tooltip: rootTooltip }}
+      open={open}
+      enterTouchDelay={0}
+      placement="top"
+      title={'common_percent_template'.localized({ v1: value })}
+    >
+      {children}
+    </Tooltip>
+  )
+}
+
 export default function ModalVote({ open, handleClose, balance, selectedOption }: ModalProps): ReactElement {
-  const { blockInputHeader, title, blockBalance } = useStyles()
+  const {
+    rootSlider,
+    railSlider,
+    trackSlider,
+    thumbColorPrimary,
+    percentsBox,
+    percentText,
+    stakedContainer,
+    staked,
+    stakedTitle,
+    stakedValue,
+  } = useStyles()
 
-  const [voteCount, setVoteCount] = useState<string>('')
-  const [loading, setLoading] = useState<boolean>(false)
-  const { account, library } = useWeb3React()
-  const currentId = useParams<{ id: string }>()
-  const id = currentId.id.substring(1)
-
+  const [voteValue, setVoteValue] = useState<string>('10')
+  const [voteValuePercent, setVoteValuePercent] = useState<number>(0)
+  // const currentId = useParams<{ id: string }>()
+  // const id = currentId.id.substring(1)
+  const history = useHistory()
+  const testBalance = '985.095'
   const [approved, setApproved] = useState<boolean>(false)
+
+  const handleSliderChange = (event: any, newValue: number) => {
+    setVoteValuePercent(newValue)
+    if (newValue === 100) {
+      setVoteValue(testBalance)
+    } else {
+      setVoteValue(Math.round((Number(testBalance) / 100) * newValue).toString())
+    }
+  }
 
   return (
     <ModalWrapper open={open} handleClose={handleClose} titleText={'vote_modal_title'.localized()}>
       <>
         <div style={{ width: '100%', padding: '0 20px' }}>
-          <LiquidityInput currency={CurrencyTypes.eth} label={'vote_modal_input_title'.localized()} />
-        </div>
-        <div className={blockInputHeader}>
-          <Typography className={title}>{'modal_vote_vpt_label_input'.localized()}</Typography>
-          <div className={blockBalance}>
-            <Typography className={title}>{'modal_vote_vpt_title_balance'.localized()}</Typography>
-            <span>{'voting_vpt_template'.localized({ v1: balance ? balance : 0 })}</span>
+          <LiquidityInput
+            value={voteValue}
+            setValue={setVoteValue}
+            currency={CurrencyTypes.eth}
+            label={'vote_modal_input_title'.localized()}
+          />
+          <Slider
+            value={Math.round((100 * Number(voteValue)) / Number(testBalance))}
+            ValueLabelComponent={ValueLabelComponent}
+            classes={{ root: rootSlider, rail: railSlider, track: trackSlider, thumbColorPrimary: thumbColorPrimary }}
+            aria-labelledby="input-slider"
+            step={1}
+            onChange={(e, value) => handleSliderChange(e, value as number)}
+          />
+          <div className={percentsBox}>
+            <Typography className={percentText}>{'common_percent_template'.localized({ v1: 0 })}</Typography>
+            <span className={percentText}>{'common_percent_template'.localized({ v1: 100 })}</span>
+          </div>
+          <div className={stakedContainer}>
+            <div className={staked}>
+              <Typography className={stakedTitle}>{'vote_modal_staked_text'.localized()}</Typography>
+              <Typography className={stakedValue}>{'common_phtr_template'.localized({ v1: 10000 })}</Typography>
+            </div>
+            <div className={staked}>
+              <Typography className={stakedTitle}>{'vote_modal_total_text'.localized()}</Typography>
+              <Typography className={stakedValue}>{'common_phtr_template'.localized({ v1: 1000 })}</Typography>
+            </div>
+          </div>
+          <div className={stakedContainer}>
+            <ConfirmationButton
+              text={approved ? 'vote_modal_vote_button_text'.localized() : 'vote_modal_approve_button_text'.localized()}
+              approved={approved}
+              setApproved={setApproved}
+            />
+            <ConfirmationButton
+              onClick={() => history.push(STAKING)}
+              darkType
+              text={'vote_modal_stake_button_text'.localized()}
+            />
           </div>
         </div>
-        {/* <LiquidityInput currency={CurrencyTypes.usdt} label={'Input 2'} /> */}
-        {/* <Input
-          endIcon={EndIconType.VPT}
-          value={voteCount}
-          balance={balance ? new Big(balance).div(1e18).toFixed() : '0'}
-          onUserInput={setVoteCount}
-        /> */}
-        {/* <PrimaryButton
-          onClick={() => {
-            approved || new Big(voteCount).mul(VPT_PRECISION).lte(new Big(vptAllowance)) ? vote() : approve()
-          }}
-          disabled={
-            loading ||
-            voteCount.length === 0 ||
-            (Boolean(voteCount) &&
-              Boolean(vptAllowance) &&
-              (new Big(voteCount).toString() == '0' || new Big(voteCount).gt(new Big(vptBalance))))
-          }
-          title={
-            loading
-              ? ''
-              : approved ||
-                (voteCount && vptAllowance && new Big(voteCount).mul(VPT_PRECISION).lte(new Big(vptAllowance)))
-              ? 'modal_vote_vpt_title_btn_vote'.localized()
-              : 'modal_vote_vpt_title_btn_approve'.localized()
-          }
-        >
-          {loading && <CircularProgress style={{ height: '20px', width: '20px' }} color="inherit" />}
-        </PrimaryButton> */}
       </>
     </ModalWrapper>
   )

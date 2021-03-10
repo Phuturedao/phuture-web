@@ -2,33 +2,68 @@ import { makeStyles } from '@material-ui/core/styles'
 import { colors } from 'utils/mui'
 
 export const useStyles = makeStyles({
-  title: {
-    fontSize: '14px',
-    lineHeight: '17px',
-    color: colors.primaryGrayTextColor,
-  },
-  blockInputHeader: {
-    marginTop: 50,
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  blockBalance: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    '&>span': {
-      fontSize: 14,
-      lineHeight: '17px',
-      color: colors.white,
-    },
-  },
   rootTooltip: {
-    background: colors.optionCardBg,
+    background: colors.defaultCardBg,
     border: `1px solid ${colors.white}`,
     boxSizing: 'border-box',
     borderRadius: 6,
     padding: '4px 12px',
     marginBottom: 5,
+    fontSize: '12px',
+  },
+
+  rootSlider: {
+    marginTop: 50,
+    color: colors.primaryButtonBgColor,
+    opacity: 1,
+  },
+  railSlider: {
+    height: 6,
+    borderRadius: 30,
+  },
+  trackSlider: {
+    height: 6,
+    borderRadius: 30,
+    background: colors.primaryButtonBgColor,
+  },
+  thumbColorPrimary: {
+    background: colors.primaryButtonBgColor,
+    boxShadow: `0px 0px 1px 0.5px rgba(0, 0, 0, 0.2), 0px 0px 4px rgba(0, 0, 0, 0.1)`,
+    boxSizing: 'border-box',
+    width: 20,
+    height: 20,
+    marginTop: -7,
+    marginLeft: -10,
+  },
+  percentsBox: {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-between',
+    marginBottom: '40px',
+  },
+  percentText: {
+    fontSize: '15px',
+    color: colors.white,
+  },
+  stakedContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: '28px',
+  },
+  staked: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  stakedTitle: {
+    color: colors.modalTitleColor,
+    fontSize: '20px',
+    lineHeight: '42px',
+  },
+  stakedValue: {
+    color: colors.white,
+    fontSize: '20px',
+    lineHeight: '42px',
   },
 })

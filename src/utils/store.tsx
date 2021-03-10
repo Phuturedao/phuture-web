@@ -20,6 +20,5 @@ export const [useStore, CtxProvider] = createCtx<StoreProps>()
 
 export const StoreProvider = ({ children }: any) => {
   const [web3Account, setWeb3Account] = useState<string>('')
-
   return <CtxProvider value={{ web3Account, setWeb3Account }}>{children}</CtxProvider>
 }

@@ -16,11 +16,13 @@ interface LiquidityInputProps {
   currency: CurrencyTypes
   label: string
   dropdown?: boolean
+  setValue: React.Dispatch<React.SetStateAction<string>>
+  value: string
 }
 
 //TODO need to fix currencies & add icons-dropdown
 
-const LiquidityInput = ({ currency, label, dropdown }: LiquidityInputProps) => {
+const LiquidityInput = ({ currency, label, dropdown, value, setValue }: LiquidityInputProps) => {
   const {
     rootTextField,
     inputLabel,
@@ -33,10 +35,16 @@ const LiquidityInput = ({ currency, label, dropdown }: LiquidityInputProps) => {
   const [selectedIcon, setSelectedIcon] = useState(currency)
   const [openModal, setOpenModal] = useState(false)
 
+  const handleChange = (e: any) => {
+    setValue(e.target.value)
+  }
+
   return (
     <div>
       <span className={inputLabel}>{label}</span>
       <TextField
+        value={value}
+        onChange={(e: any) => handleChange(e)}
         classes={{ root: rootTextField }}
         variant="outlined"
         placeholder={'0.0'}
@@ -56,7 +64,7 @@ const LiquidityInput = ({ currency, label, dropdown }: LiquidityInputProps) => {
                 </>
               ) : (
                 <>
-                  <span style={{ color: colors.tableTextColor, fontSize: '14px', fontWeight: 500, textAlign: 'end' }}>
+                  <span style={{ color: colors.white, fontSize: '15px', fontWeight: 500, textAlign: 'end' }}>
                     {'Phuture'}
                   </span>
                   <div className={endAdornmentIconContainer}>

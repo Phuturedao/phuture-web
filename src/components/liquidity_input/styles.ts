@@ -3,7 +3,7 @@ import { colors } from 'utils/mui'
 
 export const useStyles = makeStyles({
   rootTextField: {
-    border: `1px solid ${colors.primaryButtonBgColor}`,
+    border: `1px solid ${colors.inputBorderColor}`,
     marginTop: 8,
     height: '95px',
     width: '100%',
@@ -16,7 +16,7 @@ export const useStyles = makeStyles({
         marginTop: '30px',
         fontSize: '38px',
         fontFamily: 'Inter sans-serif',
-        color: colors.tableTitleColor,
+        color: colors.white,
         //INFO: I need it fontFeatureSettings: `"smcp" 1, "zero" 1`,
       },
       '&>fieldset': {
@@ -28,9 +28,9 @@ export const useStyles = makeStyles({
     position: 'absolute',
     marginTop: '24px',
     marginLeft: '16px',
-    fontSize: '14px',
+    fontSize: '15px',
     fontWeight: 500,
-    color: colors.tableTitleColor,
+    color: colors.white,
   },
   endAdornmentContainer: {
     height: '100%',
@@ -45,13 +45,13 @@ export const useStyles = makeStyles({
     cursor: 'pointer',
   },
   endTextWithoutDropdown: {
-    color: colors.tableTextColor,
+    color: colors.white,
     fontSize: '30px',
     fontWeight: 400,
     marginLeft: '8px',
   },
   endAdornmentIconText: {
-    color: colors.tableTextColor,
+    color: colors.white,
     fontSize: '30px',
     fontWeight: 400,
     marginRight: '12px',
