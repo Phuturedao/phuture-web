@@ -16,7 +16,7 @@ const BackButton = (props: ButtonProps) => {
   return (
     <div className={buttonContainer}>
       <IconButton onClick={navigate} classes={{ root: buttonStyles }} {...props}>
-        <img src={BackArrow} />
+        <img src={BackArrow} alt="back-icon" />
       </IconButton>
       <span className={textContainer}>{text}</span>
     </div>

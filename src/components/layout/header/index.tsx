@@ -1,10 +1,10 @@
+import HeaderLogo from 'assets/icons/HeaderLogo.svg'
+import SearchIcon from 'assets/icons/SearchIcon.svg'
+import { WalletButton } from 'components/buttons'
 import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
 import { GOVERNANCE, INDICES, STAKING, VAULT } from 'routes'
 import { useStyles } from './styles'
-import HeaderLogo from 'assets/icons/HeaderLogo.svg'
-import { WalletButton } from 'components/buttons'
-import SearchIcon from 'assets/icons/SearchIcon.svg'
 
 interface HeaderProps {
   activeWeb3Account: string
@@ -24,7 +24,7 @@ export const Header: FC<HeaderProps> = ({ activeWeb3Account, activateWeb3Account
   return (
     <header className={wrap}>
       <div className={logoContainer}>
-        <img src={HeaderLogo} />
+        <img alt="header-logo" src={HeaderLogo} />
       </div>
       <nav className={navBarContainer}>
         <ul className={ulList}>
@@ -39,12 +39,12 @@ export const Header: FC<HeaderProps> = ({ activeWeb3Account, activateWeb3Account
             </NavLink>
           </li>
           <li style={{ marginRight: '30px' }}>
-            <NavLink exact to={GOVERNANCE} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
+            <NavLink to={GOVERNANCE} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
               <span>{'header_menu_governance'.localized()}</span>
             </NavLink>
           </li>
           <li>
-            <NavLink exact to={VAULT} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
+            <NavLink to={VAULT} className={navLinkContainer} activeClassName={navLinkActiveContainer}>
               <span>{'header_menu_vault'.localized()}</span>
             </NavLink>
           </li>
@@ -52,7 +52,7 @@ export const Header: FC<HeaderProps> = ({ activeWeb3Account, activateWeb3Account
       </nav>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <div className={searchIcon}>
-          <img src={SearchIcon} alt="" />
+          <img src={SearchIcon} alt="search-icon" />
         </div>
         <WalletButton activateWeb3Account={activateWeb3Account} activeWeb3Account={activeWeb3Account} />
       </div>

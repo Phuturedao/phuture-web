@@ -14,6 +14,7 @@ export const colors: { [key: string]: string } = {
   tableTextColor: '#D1DEE6',
   tableTitleColor: '#95B3C3',
   tablePositiveGreenColor: '#60E2A3',
+  tableNegativeRedColor: '#FF4242',
   //buttons
   primaryButtonTextColor: '#1D2E3E',
   primaryButtonBgColor: '#4CC9F0',
@@ -21,8 +22,16 @@ export const colors: { [key: string]: string } = {
   primaryButtonBgDisabled: '#466474',
   walletButtonBorderColor: '#95B3C2',
   walletButtonBorderHoverColor: '#AAE5F8',
+  voteButtonDarkBg: '#27576C',
   //cards
   defaultCardBg: '#1A2C3C',
+  secondaryCardText: '#5C7684',
+  cardEndTextColor: '#5C7684',
+  proposalCardTextColor: '#B2B2B2',
+  proposalCardSubtitleColor: '#808080',
+  //modal
+  inputBorderColor: '#2E6C84',
+  modalTitleColor: '#5F6B76',
 }
 export const color = (c: string): string => colors[c]
 export const buildVariant = (fontWeight: number, fontSize: number, color: string): unknown => ({

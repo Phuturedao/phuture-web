@@ -5,14 +5,14 @@ export const useStyles = makeStyles({
   buttonStyles: {
     textDecoration: 'none',
     textTransform: 'none',
-    fontSize: '16px',
-    lineHeight: '20px',
+    fontSize: '20px',
+    lineHeight: '34px',
     borderRadius: '10px',
     transition: 'all 0.4s',
     width: '100%',
-    height: '48px',
+    height: '56px',
     border: 'none',
-    margin: '4px 0',
+    margin: '6px 0',
     '&:hover': {
       backgroundColor: colors.primaryButtonBgHoverColor,
     },

@@ -8,7 +8,7 @@ export const LandingHeader = (): JSX.Element => {
   return (
     <header className={wrap}>
       <div className={logoContainer}>
-        <img className={logo} src={HeaderLogo} />
+        <img className={logo} src={HeaderLogo} alt="header-logo" />
       </div>
       <Button variant="outlined" classes={{ root: buttonStyles }}>
         App Сoming Soon

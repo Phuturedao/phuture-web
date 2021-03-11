@@ -11,14 +11,14 @@ export const useStyles = makeStyles({
     paddingRight: '20px',
   },
   input: {
-    border: '1px solid #5C7684',
-    color: '#5C7684',
+    border: `1px solid ${colors.secondaryCardText}`,
+    color: colors.secondaryCardText,
     borderRadius: '2px',
     width: '100%',
     '&>div': {
       boxShadow: 'none',
       '&>input': {
-        color: '#5C7684',
+        color: colors.secondaryCardText,
       },
       '&>fieldset': {
         borderWidth: '0px !important',
