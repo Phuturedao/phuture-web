@@ -13,7 +13,6 @@ export interface ProposalCardProps {
 
 const ProposalCard: FC<ProposalCardProps> = ({ title, votes, text, endTitle, link }: ProposalCardProps) => {
   const classes = useStyles()
-  // const voted = new Big(votes).toFormat(new Big(votes), 6)
   return (
     <Card style={{ borderColor: colors.claimCardBorderColor }} className={classes.root} variant="outlined">
       <CardContent>

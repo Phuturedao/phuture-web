@@ -24,7 +24,7 @@ export const Header: FC<HeaderProps> = ({ activeWeb3Account, activateWeb3Account
   return (
     <header className={wrap}>
       <div className={logoContainer}>
-        <img src={HeaderLogo} />
+        <img alt="header-logo" src={HeaderLogo} />
       </div>
       <nav className={navBarContainer}>
         <ul className={ulList}>
@@ -52,7 +52,7 @@ export const Header: FC<HeaderProps> = ({ activeWeb3Account, activateWeb3Account
       </nav>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <div className={searchIcon}>
-          <img src={SearchIcon} alt="" />
+          <img src={SearchIcon} alt="search-icon" />
         </div>
         <WalletButton activateWeb3Account={activateWeb3Account} activeWeb3Account={activeWeb3Account} />
       </div>

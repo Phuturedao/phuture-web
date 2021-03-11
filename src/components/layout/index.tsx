@@ -34,9 +34,6 @@ export const Layout = ({ children }: any) => {
   const { content, contentWrap } = useStyles()
   const { web3Account, setWeb3Account } = useStore()
 
-  useEffect(() => {
-    account && setWeb3Account(account)
-  }, [setWeb3Account])
   return (
     <>
       <div className={contentWrap}>

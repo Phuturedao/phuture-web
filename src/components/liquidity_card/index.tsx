@@ -35,7 +35,7 @@ const LiquidityCard = () => {
       <div className={cardTitleContainer}>
         <Typography classes={{ root: cardTitleText }}>Liquidity</Typography>
         <IconButton classes={{ root: cardTitleIcon }}>
-          <img src={InfoIcon} />
+          <img src={InfoIcon} alt="info-icon" />
         </IconButton>
       </div>
       <LiquidityInput
@@ -76,8 +76,7 @@ const LiquidityCard = () => {
       <div className={bottomButtonsContainer}>
         <ConfirmationButton
           text={account ? 'Confirm' : 'header_top-right_button_state_1'.localized()}
-          approved={confirmed}
-          setApproved={setConfirmed}
+          onClick={() => setConfirmed(!confirmed)}
         />
         {account && <ConfirmationButton text={'Text'} disabled={!confirmed} />}
       </div>

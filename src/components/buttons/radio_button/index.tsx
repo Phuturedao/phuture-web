@@ -11,7 +11,6 @@ const CustomRadio = withStyles({
     marginRight: '12px',
   },
 })((props: RadioProps) => {
-  const { defaultCircle, circleContainer } = useStyles()
   return <Radio color="default" {...props} />
 })
 
@@ -37,7 +36,6 @@ const RadioButton = (
     labelContentRight,
     voteLabel,
     vptText,
-    vptMyText,
     vptPercent,
   } = useStyles()
   const [activeCard, setActiveCard] = useState<number>()
@@ -45,7 +43,6 @@ const RadioButton = (
   const votesInPercent =
     props.voted && props.total !== '0' ? new Big(props.voted).mul(100).div(props.total).toFixed(2) : '0.00'
   const isActiveBorder = (Boolean(props.active) && activeCard === props.active) || props.winner
-  // const votes = new Big(props.voted).toFormat(new Big(props.voted), 6)
   return (
     <div
       style={{

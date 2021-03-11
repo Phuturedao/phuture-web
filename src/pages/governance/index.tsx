@@ -50,8 +50,7 @@ const useStyles = makeStyles({
 const Governance = (): JSX.Element => {
   const classes = useStyles()
   const history = useHistory()
-  const { account, library, activate } = useWeb3React()
-  const [currentBlock, setCurrentBlock] = useState<number>()
+  const PREVIEW_LAST_INDEX = 4
   const activeProposals = [
     {
       id: 1,
@@ -84,14 +83,14 @@ const Governance = (): JSX.Element => {
         </div>
         {activeProposals.map((item: any, index: number) => {
           return (
-            index <= 4 && (
+            index <= PREVIEW_LAST_INDEX && (
               <ProposalPreviewCard
                 key={index}
                 onClick={() => history.push(PROPOSAL)}
                 id={item.id}
                 isActive={true}
-                positiveVotes={item.amount !== undefined ? item.amount.positive : '0'}
-                negativeVotes={item.amount !== undefined ? item.amount.negative : '0'}
+                positiveVotes={item.amount.positive}
+                negativeVotes={item.amount.negative}
                 title={item.title}
                 endTitle={Number.parseInt(item.deadlineBlock)}
               />
@@ -106,47 +105,20 @@ const Governance = (): JSX.Element => {
         </div>
         {activeProposals.map((item: any, index: number) => {
           return (
-            index <= 4 && (
+            index <= PREVIEW_LAST_INDEX && (
               <ProposalPreviewCard
                 key={index}
                 onClick={() => history.push(PROPOSAL)}
                 id={item.id}
                 isActive={false}
-                positiveVotes={item.amount !== undefined ? item.amount.positive : '0'}
-                negativeVotes={item.amount !== undefined ? item.amount.negative : '0'}
+                positiveVotes={item.amount.positive}
+                negativeVotes={item.amount.negative}
                 title={item.title}
                 endTitle={Number.parseInt(item.deadlineBlock)}
               />
             )
           )
         })}
-        {/* {inactiveProposalPreview && inactiveProposalPreview.length >= 1 && (
-          <>
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Typography className={classes.categoryTitle}>
-                {'voting_proposals_history_category'.localized()}
-              </Typography>
-              <Typography onClick={() => history.push(HISTORY)} className={classes.historyButton}>
-                {'voting_all_history_button'.localized()}
-              </Typography>
-            </div>
-            {inactiveProposalPreview.map((item: any, index: number) => {
-              return (
-                index <= 4 && (
-                  <ProposalPreviewCard
-                    key={index}
-                    onClick={async () => await getProposal(item.id)}
-                    id={item.id}
-                    isActive={false}
-                    votes={item.amount !== undefined ? votesFormatter(item.amount) : '0'}
-                    title={item.title}
-                    endTitle={Number.parseInt(item.deadlineBlock)}
-                  />
-                )
-              )
-            })}
-          </>
-        )} */}
       </div>
     </Container>
   )

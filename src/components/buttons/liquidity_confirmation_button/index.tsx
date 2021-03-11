@@ -5,19 +5,15 @@ import { useStyles } from './styles'
 
 interface ButtonProps extends MuiButtonProps {
   text: string
-  approved?: boolean
   darkType?: boolean
-  setApproved?: Dispatch<SetStateAction<boolean>>
 }
 
 const ConfirmationButton = (props: ButtonProps) => {
   const { buttonStyles } = useStyles()
-  const { text, onClick, approved, setApproved, darkType, disabled } = props
+  const { text, darkType, disabled } = props
 
   const buttonBgColor = darkType ? colors.voteButtonDarkBg : disabled ? 'transparent' : colors.primaryButtonBgColor
   const buttonTextColor = darkType || disabled ? colors.white : colors.primaryButtonTextColor
-
-  const handleClick = setApproved ? () => setApproved(!approved) : onClick
 
   return (
     <Button
@@ -27,7 +23,6 @@ const ConfirmationButton = (props: ButtonProps) => {
       }}
       variant="outlined"
       className={buttonStyles}
-      onClick={handleClick}
     >
       <span
         style={{

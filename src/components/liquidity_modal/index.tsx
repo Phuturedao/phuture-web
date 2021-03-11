@@ -31,7 +31,7 @@ const ModalLiquidity = ({ open, handleClose, titleModal, setSelectedIcon }: Moda
               className={card}
             >
               <div className={iconContainer}>
-                <img className={icon} src={EthIcon} />
+                <img className={icon} src={EthIcon} alt="currency-icon" />
                 <Typography classes={{ root: iconTitle }}>EthIcon</Typography>
               </div>
               <Typography classes={{ root: iconTitle }}>0.124 CHAI</Typography>
@@ -44,7 +44,7 @@ const ModalLiquidity = ({ open, handleClose, titleModal, setSelectedIcon }: Moda
               className={card}
             >
               <div className={iconContainer}>
-                <img className={icon} src={UsdcIcon} />
+                <img className={icon} src={UsdcIcon} alt="currency-icon" />
                 <Typography classes={{ root: iconTitle }}>UsdcIcon</Typography>
               </div>
               <Typography classes={{ root: iconTitle }}>0</Typography>

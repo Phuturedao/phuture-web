@@ -50,7 +50,7 @@ export const ModalWrapper = ({ handleClose, open, children, titleText }: ModalWi
       <MuiDialogTitle disableTypography className={root}>
         <Typography classes={{ root: title }}>{titleText}</Typography>
         <IconButton classes={{ root: closeButton }}>
-          <img src={InfoIcon} />
+          <img src={InfoIcon} alt="info-icon" />
         </IconButton>
       </MuiDialogTitle>
       <MuiDialogContent classes={{ root: dialogContent }}>{children}</MuiDialogContent>

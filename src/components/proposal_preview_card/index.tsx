@@ -34,8 +34,6 @@ const ProposalPreviewCard: FC<ProposalPreviewCardProps> = ({
     })
   }
 
-  // const voted = new Big(votes).toFormat(new Big(votes), 6)
-
   return (
     <Card
       style={{ borderColor: isActive ? colors.primaryButtonBgColor : colors.proposalCardBg }}
@@ -48,10 +46,10 @@ const ProposalPreviewCard: FC<ProposalPreviewCardProps> = ({
           <Typography className={classes.title}>{title}</Typography>
           <div className={classes.votesContainer}>
             <Typography className={classes.subtitlePositive}>
-              {'governance_governance_card_votes'.localized({ v1: positiveVotes })}
+              {'governance_governance_card_votes'.localized({ v1: positiveVotes || 0 })}
             </Typography>
             <Typography className={classes.subtitleNegative}>
-              {'governance_governance_card_votes'.localized({ v1: negativeVotes })}
+              {'governance_governance_card_votes'.localized({ v1: negativeVotes || 0 })}
             </Typography>
           </div>
         </div>

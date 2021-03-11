@@ -46,19 +46,6 @@ export const useStyles = makeStyles({
     fontWeight: 400,
     color: colors.claimCardBorderColor,
   },
-  defaultCircle: {
-    height: '16px',
-    width: '16px',
-    margin: '2px',
-    borderRadius: '50%',
-    border: `2px solid ${colors.primaryGreen}`,
-  },
-  circleContainer: {
-    height: '24px',
-    width: '24px',
-    borderRadius: '50%',
-    backgroundColor: colors.primaryGreen,
-  },
   circleSmall: {
     height: '14px',
     width: '14px',

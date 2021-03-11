@@ -65,11 +65,10 @@ const Proposal = (): JSX.Element => {
     <Container style={{ padding: '20px', maxWidth: '650px' }}>
       <div className={classes.titleContainer}>
         <IconButton onClick={() => history.push(GOVERNANCE)}>
-          <img src={BackArrow} />
+          <img src={BackArrow} alt="arrow-icon" />
         </IconButton>
         <Typography className={classes.title}>{'proposal_back_button_text'.localized()}</Typography>
       </div>
-      {/* {proposal !== undefined && ( */}
       <ProposalCard
         votes={new Big(20005).div(1e18).toFixed()}
         title={'Proposal #1'}

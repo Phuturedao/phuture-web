@@ -6,6 +6,7 @@ import React, { ReactElement, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { STAKING } from 'routes'
 import { useStyles } from './styles'
+import Big from 'big.js'
 
 interface ModalProps {
   open: boolean
@@ -60,13 +61,18 @@ export default function ModalVote({ open, handleClose, balance, selectedOption }
   const [approved, setApproved] = useState<boolean>(false)
 
   const handleSliderChange = (event: any, newValue: number) => {
-    setVoteValuePercent(newValue)
     if (newValue === 100) {
       setVoteValue(testBalance)
     } else {
-      setVoteValue(Math.round((Number(testBalance) / 100) * newValue).toString())
+      setVoteValue(percentsToValue(newValue))
     }
   }
+  const valueToPercent =
+    voteValue.length > 0
+      ? new Big(new Big(new Big(100).times(new Big(voteValue).div(testBalance)))).round().toNumber()
+      : 0
+
+  const percentsToValue = (percent: number) => new Big(new Big(testBalance).div(100)).times(percent).round().toString()
 
   return (
     <ModalWrapper open={open} handleClose={handleClose} titleText={'vote_modal_title'.localized()}>
@@ -79,7 +85,7 @@ export default function ModalVote({ open, handleClose, balance, selectedOption }
             label={'vote_modal_input_title'.localized()}
           />
           <Slider
-            value={Math.round((100 * Number(voteValue)) / Number(testBalance))}
+            value={valueToPercent}
             ValueLabelComponent={ValueLabelComponent}
             classes={{ root: rootSlider, rail: railSlider, track: trackSlider, thumbColorPrimary: thumbColorPrimary }}
             aria-labelledby="input-slider"
@@ -103,8 +109,7 @@ export default function ModalVote({ open, handleClose, balance, selectedOption }
           <div className={stakedContainer}>
             <ConfirmationButton
               text={approved ? 'vote_modal_vote_button_text'.localized() : 'vote_modal_approve_button_text'.localized()}
-              approved={approved}
-              setApproved={setApproved}
+              onClick={() => setApproved(!approved)}
             />
             <ConfirmationButton
               onClick={() => history.push(STAKING)}

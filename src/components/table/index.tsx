@@ -110,7 +110,9 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   }
 
   const SortIcon: FC<any> = (order: string) => {
-    return <img style={{ transform: order === 'asc' ? 'none' : 'rotate(180deg)' }} src={SortTableIcon} />
+    return (
+      <img style={{ transform: order === 'asc' ? 'none' : 'rotate(180deg)' }} src={SortTableIcon} alt="sort-icon" />
+    )
   }
 
   return (
@@ -187,7 +189,7 @@ const PoolsTable = () => {
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                             <div style={{ zIndex: 10, height: 42 }}>
-                              <img src={row.icon} />
+                              <img src={row.icon} alt="currency-icon" />
                             </div>
                           </div>
                           <span style={{ marginLeft: '24px' }}>{row.name}</span>

@@ -20,7 +20,7 @@ interface LiquidityInputProps {
   value: string
 }
 
-//TODO need to fix currencies & add icons-dropdown
+//TODO need to fix currencies & add icons-dropdown(nm we will get it from backend)
 
 const LiquidityInput = ({ currency, label, dropdown, value, setValue }: LiquidityInputProps) => {
   const {
@@ -57,18 +57,18 @@ const LiquidityInput = ({ currency, label, dropdown, value, setValue }: Liquidit
                     {selectedIcon === CurrencyTypes.usdt ? 'Tether' : 'Ethereum'}
                   </span>
                   <div onClick={() => setOpenModal(!openModal)} className={endAdornmentIconContainer}>
-                    <img src={selectedIcon === CurrencyTypes.usdt ? UsdcIcon : EthIcon} />
+                    <img alt="currency-icon" src={selectedIcon === CurrencyTypes.usdt ? UsdcIcon : EthIcon} />
                     <span className={endAdornmentIconText}>{selectedIcon === CurrencyTypes.usdt ? 'USDT' : 'ETH'}</span>
-                    <img src={LiquidityCardArrow} />
+                    <img alt="arrow-icon" src={LiquidityCardArrow} />
                   </div>
                 </>
               ) : (
                 <>
                   <span style={{ color: colors.white, fontSize: '15px', fontWeight: 500, textAlign: 'end' }}>
-                    {'Phuture'}
+                    {'common_app_name'.localized()}
                   </span>
                   <div className={endAdornmentIconContainer}>
-                    <img src={selectedIcon === CurrencyTypes.usdt ? UsdcIcon : EthIcon} />
+                    <img alt="currency-icon" src={selectedIcon === CurrencyTypes.usdt ? UsdcIcon : EthIcon} />
                     <span className={endTextWithoutDropdown}>{'PHTR'}</span>
                   </div>
                 </>
