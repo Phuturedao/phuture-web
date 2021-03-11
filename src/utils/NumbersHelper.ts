@@ -33,3 +33,9 @@ Big.prototype.toFormat = (n: Big, precision: number) => {
   }
   return newNumber
 }
+
+export const valueToPercent = (value: string, balance: string) =>
+  value.length > 0 ? new Big(new Big(new Big(100).times(new Big(value).div(balance)))).round().toNumber() : 0
+
+export const percentsToValue = (percent: number, balance: string) =>
+  new Big(new Big(balance).div(100)).times(percent).round().toString()

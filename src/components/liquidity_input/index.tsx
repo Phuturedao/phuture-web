@@ -6,6 +6,7 @@ import ModalLiquidity from 'components/liquidity_modal'
 import React, { useState } from 'react'
 import { colors } from 'utils/mui'
 import { useStyles } from './styles'
+import Big from 'big.js'
 
 export enum CurrencyTypes {
   eth = 'eth',
@@ -18,11 +19,12 @@ interface LiquidityInputProps {
   dropdown?: boolean
   setValue: React.Dispatch<React.SetStateAction<string>>
   value: string
+  balance?: string
 }
 
 //TODO need to fix currencies & add icons-dropdown(nm we will get it from backend)
 
-const LiquidityInput = ({ currency, label, dropdown, value, setValue }: LiquidityInputProps) => {
+const LiquidityInput = ({ currency, label, dropdown, value, setValue, balance }: LiquidityInputProps) => {
   const {
     rootTextField,
     inputLabel,
@@ -36,7 +38,11 @@ const LiquidityInput = ({ currency, label, dropdown, value, setValue }: Liquidit
   const [openModal, setOpenModal] = useState(false)
 
   const handleChange = (e: any) => {
-    setValue(e.target.value)
+    if (balance && e.target.value.length !== 0 && new Big(e.target.value).gt(balance)) {
+      setValue(balance)
+    } else {
+      setValue(e.target.value)
+    }
   }
 
   return (

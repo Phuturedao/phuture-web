@@ -6,7 +6,7 @@ import React, { ReactElement, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { STAKING } from 'routes'
 import { useStyles } from './styles'
-import Big from 'big.js'
+import { percentsToValue, valueToPercent } from 'utils/NumbersHelper'
 
 interface ModalProps {
   open: boolean
@@ -38,7 +38,7 @@ const ValueLabelComponent = (props: ValueLabelComponentProps) => {
   )
 }
 
-export default function ModalVote({ open, handleClose, balance, selectedOption }: ModalProps): ReactElement {
+export default function ModalVote({ open, handleClose }: ModalProps): ReactElement {
   const {
     rootSlider,
     railSlider,
@@ -53,7 +53,6 @@ export default function ModalVote({ open, handleClose, balance, selectedOption }
   } = useStyles()
 
   const [voteValue, setVoteValue] = useState<string>('10')
-  const [voteValuePercent, setVoteValuePercent] = useState<number>(0)
   // const currentId = useParams<{ id: string }>()
   // const id = currentId.id.substring(1)
   const history = useHistory()
@@ -64,15 +63,9 @@ export default function ModalVote({ open, handleClose, balance, selectedOption }
     if (newValue === 100) {
       setVoteValue(testBalance)
     } else {
-      setVoteValue(percentsToValue(newValue))
+      setVoteValue(percentsToValue(newValue, testBalance))
     }
   }
-  const valueToPercent =
-    voteValue.length > 0
-      ? new Big(new Big(new Big(100).times(new Big(voteValue).div(testBalance)))).round().toNumber()
-      : 0
-
-  const percentsToValue = (percent: number) => new Big(new Big(testBalance).div(100)).times(percent).round().toString()
 
   return (
     <ModalWrapper open={open} handleClose={handleClose} titleText={'vote_modal_title'.localized()}>
@@ -83,9 +76,10 @@ export default function ModalVote({ open, handleClose, balance, selectedOption }
             setValue={setVoteValue}
             currency={CurrencyTypes.eth}
             label={'vote_modal_input_title'.localized()}
+            balance={testBalance}
           />
           <Slider
-            value={valueToPercent}
+            value={valueToPercent(voteValue, testBalance)}
             ValueLabelComponent={ValueLabelComponent}
             classes={{ root: rootSlider, rail: railSlider, track: trackSlider, thumbColorPrimary: thumbColorPrimary }}
             aria-labelledby="input-slider"
