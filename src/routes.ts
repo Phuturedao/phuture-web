@@ -1,5 +1,6 @@
 export const INDICES = '/indices'
 export const LIQUIDITY = '/indices/liquidity'
+export const CREATE_INDEX = '/indices/create'
 export const STAKING = '/staking'
 export const GOVERNANCE = '/governance'
 export const PROPOSAL = '/governance/proposal'

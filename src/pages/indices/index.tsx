@@ -1,25 +1,21 @@
-import { AppBar, Box, Button, Container, Tab, Tabs, Typography } from '@material-ui/core'
+import { Container, Typography } from '@material-ui/core'
 import { PrimaryButton, TabButton } from 'components/buttons'
 import PoolsTable from 'components/table'
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { CREATE_INDEX } from 'routes'
 import { useStyles } from './styles'
 
-interface TabPanelProps {
-  children?: React.ReactNode
-  index: any
-  value: any
-}
-
 const Indices = (): JSX.Element => {
-  const { subtitle, title, buttonContainer } = useStyles()
+  const { title, buttonContainer } = useStyles()
   const [index, setIndex] = useState(1)
-  const [activeScreen, setActiveScreen] = useState()
+  const history = useHistory()
 
   return (
     <Container>
       <Typography className={title}>{'indices_call_to_action_text'.localized()}</Typography>
       <div className={buttonContainer}>
-        <PrimaryButton text={'indices_button'.localized()} />
+        <PrimaryButton onClick={() => history.push(CREATE_INDEX)} text={'indices_button'.localized()} />
       </div>
       <Typography className={title}>{'indices_call_to_action_text_2'.localized()}</Typography>
       <div
