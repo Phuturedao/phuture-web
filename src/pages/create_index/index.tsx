@@ -206,7 +206,7 @@ const SelectWeightState = ({ setPageState }: StatesSelectorProps) => {
   return (
     <>
       <BackButton
-        navigate={() => setPageState(CreateIndexStates.SelectSector)}
+        navigate={() => setPageState(CreateIndexStates.SelectSectorCurrencies)}
         text={'creating_index_back_button_text'.localized()}
       />
     </>
