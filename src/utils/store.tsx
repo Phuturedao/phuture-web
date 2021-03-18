@@ -1,9 +1,12 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { createContext, ReactElement, useState } from 'react'
+import { CreateIndexStates } from 'pages/create_index'
+import React, { useState } from 'react'
 
 export interface StoreProps {
   web3Account: string
   setWeb3Account: React.Dispatch<React.SetStateAction<string>>
+  creatingIndexState: CreateIndexStates
+  setCreatingIndexState: React.Dispatch<React.SetStateAction<CreateIndexStates>>
 }
 
 export function createCtx<ContextType>() {
@@ -20,5 +23,10 @@ export const [useStore, CtxProvider] = createCtx<StoreProps>()
 
 export const StoreProvider = ({ children }: any) => {
   const [web3Account, setWeb3Account] = useState<string>('')
-  return <CtxProvider value={{ web3Account, setWeb3Account }}>{children}</CtxProvider>
+  const [creatingIndexState, setCreatingIndexState] = useState<CreateIndexStates>(CreateIndexStates.SelectSector)
+  return (
+    <CtxProvider value={{ web3Account, setWeb3Account, creatingIndexState, setCreatingIndexState }}>
+      {children}
+    </CtxProvider>
+  )
 }

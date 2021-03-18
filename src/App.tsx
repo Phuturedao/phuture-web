@@ -4,7 +4,7 @@ import { Web3ReactProvider } from '@web3-react/core'
 import { Layout } from 'components/layout'
 import React from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
-import { GOVERNANCE, INDICES, LIQUIDITY, PROPOSAL_ID, STAKING, VAULT, PROPOSALS, HISTORY } from 'routes'
+import { GOVERNANCE, INDICES, LIQUIDITY, PROPOSAL_ID, STAKING, VAULT, PROPOSALS, HISTORY, CREATE_INDEX } from 'routes'
 import 'services/i18n'
 import { themeConfig } from 'utils/mui'
 import Staking from './pages/staking'
@@ -15,6 +15,7 @@ import Governance from './pages/governance'
 import Proposal from './pages/proposal'
 import Proposals from './pages/proposals'
 import History from './pages/history'
+import CreateIndex from './pages/create_index'
 
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,6 +39,8 @@ const App = () => {
               <Route exact path={PROPOSALS} component={Proposals} />
               <Route exact path={HISTORY} component={History} />
               <Route exact path={VAULT} component={Vault} />
+              <Route exact path={VAULT} component={Vault} />
+              <Route exact path={CREATE_INDEX} component={CreateIndex} />
               <Redirect to={INDICES} />
             </Switch>
           </Layout>

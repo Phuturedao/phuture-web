@@ -11,12 +11,12 @@ interface ButtonProps extends MuiButtonProps {
 
 const PrimaryButton = (props: ButtonProps) => {
   const { buttonStyles } = useStyles()
-  const { text, width, height } = props
+  const { text, width, height, disabled } = props
 
   return (
     <Button
       {...props}
-      style={{ width: width ? width : '170px', height: height ? height : '36px' }}
+      style={{ width: width ? width : '170px', height: height ? height : '36px', opacity: disabled ? 0.5 : 1 }}
       variant="outlined"
       classes={{ root: buttonStyles }}
     >
