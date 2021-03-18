@@ -37,6 +37,8 @@ export enum IndexSectorsStates {
 
 export interface StatesSelectorProps {
   setPageState: React.Dispatch<React.SetStateAction<CreateIndexStates>>
+  selectedSector: IndexSectorsStates
+  setSelectedSector: React.Dispatch<React.SetStateAction<IndexSectorsStates>>
 }
 
 interface ItemProps {
@@ -45,7 +47,7 @@ interface ItemProps {
   id: number
 }
 
-const SelectSectorState = ({ setPageState }: StatesSelectorProps) => {
+const SelectSectorState = ({ setPageState, selectedSector, setSelectedSector }: StatesSelectorProps) => {
   const classes = useStyles()
   const history = useHistory()
   const arr: ItemProps[] = [
@@ -59,7 +61,6 @@ const SelectSectorState = ({ setPageState }: StatesSelectorProps) => {
     { id: 4, icon: DefiIcon, name: 'Decentralised Finance' },
   ]
 
-  const [selectedSector, setSelectedSector] = useState<IndexSectorsStates>(IndexSectorsStates.Empty)
   return (
     <>
       <BackButton navigate={() => history.push(INDICES)} text={'creating_index_back_button_text'.localized()} />
@@ -110,19 +111,31 @@ interface SelectCurrenciesProps {
   selected: boolean
 }
 
-const SelectSectorCurrenciesState = ({ setPageState }: StatesSelectorProps) => {
+const SelectSectorCurrenciesState = ({
+  setPageState,
+  selectedSector,
+}: {
+  selectedSector: IndexSectorsStates
+  setPageState: React.Dispatch<React.SetStateAction<CreateIndexStates>>
+}) => {
   const classes = useStyles()
   const [index, setIndex] = useState(10)
-  const coinsArr: SelectCurrenciesProps[] = [
+  const coinsTestArr: SelectCurrenciesProps[] = [
     { id: 1, icon: UsdcIcon, name: 'USDC', selected: false },
     { id: 2, icon: DaiIcon, name: 'DAI', selected: false },
     { id: 3, icon: UniswapIcon, name: 'UNI', selected: false },
     { id: 4, icon: EthIcon, name: 'ETH', selected: false },
-    { id: 5, icon: AmplIcon, name: 'AMPL', selected: true },
+    { id: 5, icon: AmplIcon, name: 'AMPL', selected: false },
     { id: 6, icon: LinkIcon, name: 'LINK', selected: false },
     { id: 7, icon: UsdtIcon, name: 'USDT', selected: false },
   ]
-  const [textArr, setTestArr] = useState<SelectCurrenciesProps[]>(coinsArr)
+  const selectedTestArr = [selectedSector, selectedSector + 2]
+  const preFilteredItems = coinsTestArr.map((obj: SelectCurrenciesProps) =>
+    obj.id === selectedTestArr.find((el) => el === obj.id) && selectedSector !== IndexSectorsStates.All
+      ? { ...obj, selected: true }
+      : obj,
+  )
+  const [textArr, setTestArr] = useState<SelectCurrenciesProps[]>(preFilteredItems)
   const selectCurrencies = (id: number, value: boolean) => {
     const newState = textArr.map((obj: SelectCurrenciesProps) => (obj.id === id ? { ...obj, selected: !value } : obj))
     setTestArr(newState)
@@ -179,14 +192,8 @@ const SelectSectorCurrenciesState = ({ setPageState }: StatesSelectorProps) => {
                 <img src={item.icon} />
                 <span className={classes.currenciesItemText}>{item.name}</span>
               </div>
-              <div>
-                {!item.selected ? (
-                  <div className={classes.checkboxContainer}></div>
-                ) : (
-                  <div className={classes.checkboxContainer}>
-                    <img style={{ margin: '-2px' }} src={CheckboxIcon} />
-                  </div>
-                )}
+              <div style={{ width: '20px', height: '20px' }}>
+                {!item.selected ? <div className={classes.checkboxContainer}></div> : <img src={CheckboxIcon} />}
               </div>
             </div>
           )
@@ -202,33 +209,49 @@ const SelectSectorCurrenciesState = ({ setPageState }: StatesSelectorProps) => {
     </>
   )
 }
-const SelectWeightState = ({ setPageState }: StatesSelectorProps) => {
+const SelectWeightState = ({
+  setPageState,
+}: {
+  setPageState: React.Dispatch<React.SetStateAction<CreateIndexStates>>
+}) => {
   return (
     <>
       <BackButton
         navigate={() => setPageState(CreateIndexStates.SelectSectorCurrencies)}
         text={'creating_index_back_button_text'.localized()}
       />
+      <span>SelectWeight</span>
     </>
   )
 }
-const DefineWeightsState = ({ setPageState }: StatesSelectorProps) => {
+const DefineWeightsState = ({
+  setPageState,
+}: {
+  setPageState: React.Dispatch<React.SetStateAction<CreateIndexStates>>
+}) => {
   return <span>DefineWeights</span>
 }
-const InvestState = ({ setPageState }: StatesSelectorProps) => {
+const InvestState = ({ setPageState }: { setPageState: React.Dispatch<React.SetStateAction<CreateIndexStates>> }) => {
   return <span>Invest</span>
 }
 
 const CreateIndex = (): JSX.Element => {
   const classes = useStyles()
   const [pageState, setPageState] = useState<CreateIndexStates>(CreateIndexStates.SelectSector)
+  const [selectedSector, setSelectedSector] = useState<IndexSectorsStates>(IndexSectorsStates.Empty)
 
   const StatesSwitch = () => {
     switch (pageState) {
       case CreateIndexStates.SelectSector:
-        return <SelectSectorState setPageState={setPageState} />
+        return (
+          <SelectSectorState
+            selectedSector={selectedSector}
+            setSelectedSector={setSelectedSector}
+            setPageState={setPageState}
+          />
+        )
       case CreateIndexStates.SelectSectorCurrencies:
-        return <SelectSectorCurrenciesState setPageState={setPageState} />
+        return <SelectSectorCurrenciesState selectedSector={selectedSector} setPageState={setPageState} />
       case CreateIndexStates.SelectWeight:
         return <SelectWeightState setPageState={setPageState} />
       case CreateIndexStates.DefineWeights:
