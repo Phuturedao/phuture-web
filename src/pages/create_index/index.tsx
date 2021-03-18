@@ -60,6 +60,7 @@ const SelectSectorState = ({ setPageState, selectedSector, setSelectedSector }: 
     { id: 3, icon: ExchangeIcon, name: 'Exchange' },
     { id: 4, icon: DefiIcon, name: 'Decentralised Finance' },
   ]
+  setSelectedSector(IndexSectorsStates.Empty)
 
   return (
     <>

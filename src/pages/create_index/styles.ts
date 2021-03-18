@@ -75,13 +75,12 @@ export const useStyles = makeStyles({
   },
   input: {
     border: `1px solid ${colors.secondaryCardText}`,
-    color: colors.secondaryCardText,
     borderRadius: '2px',
     width: '100%',
     '&>div': {
       boxShadow: 'none',
       '&>input': {
-        color: colors.secondaryCardText,
+        color: colors.white,
         padding: '8px 12px',
       },
       '&>fieldset': {
