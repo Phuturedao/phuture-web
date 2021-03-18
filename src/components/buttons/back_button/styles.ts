@@ -13,9 +13,9 @@ export const useStyles = makeStyles({
     marginRight: '8px',
   },
   textContainer: {
-    fontSize: '16px',
+    fontSize: '20px',
     fontWeight: 500,
     color: colors.tableTextColor,
-    lineHeight: '20px',
+    lineHeight: '22px',
   },
 })
