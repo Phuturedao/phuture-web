@@ -57,6 +57,17 @@
   "creating_index_option_top10": "Top-10",
   "creating_index_found_assets_template": "Found assets ({{v1}}):",
   "creating_index_continue_button_template": "Continue ({{v1}})",
+  "select_weighting_back_button_text": "Select weighting method",
+  "select_weighting_first_option_text": "Weight by marketcap",
+  "select_weighting_second_option_text": "Weight by price",
+  "select_weighting_manually_text": "Define weights manually",
+  "define_weights_back_button_text": "Define weights",
+  "define_weights_assets_text": "Assets:",
+  "define_weights_percents_template": "{{v1}}   %",
+  "invest_back_button_text": "Invest",
+  "invest_fees_template": "Fees: {{v1}} ETH",
+  "invest_overview_title": "Index overview",
+  "invest_current_method": "Weighting Method: {{v1}}",
   "common_day_template": {
     "one": "{{count}} Day old",
     "other": "{{count}} Days old"
