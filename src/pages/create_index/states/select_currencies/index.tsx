@@ -1,55 +1,33 @@
 import { TextField } from '@material-ui/core'
 import CheckboxIcon from 'assets/icons/CheckboxIcon.svg'
-import AmplIcon from 'assets/icons/tokens/AmplIcon.svg'
-import DaiIcon from 'assets/icons/tokens/DaiIcon.svg'
-import EthIcon from 'assets/icons/tokens/EthIcon.svg'
-import LinkIcon from 'assets/icons/tokens/LinkIcon.svg'
-import UniswapIcon from 'assets/icons/tokens/UniswapIcon.svg'
-import UsdcIcon from 'assets/icons/tokens/UsdcIcon.svg'
-import UsdtIcon from 'assets/icons/tokens/UsdtIcon.svg'
 import { BackButton, PrimaryButton, TabButton } from 'components/buttons'
-import { CreateIndexStates, IndexSectorsStates } from 'pages/create_index'
+import { CreateIndexStates, IndexSectorsStates, SelectCurrenciesProps } from 'pages/create_index'
 import React, { useState } from 'react'
 import { useStyles } from './styles'
-
-interface SelectCurrenciesProps {
-  icon: any
-  name: string
-  id: number
-  selected: boolean
-}
 
 const SelectSectorCurrenciesState = ({
   setPageState,
   selectedSector,
+  currencies,
+  setSelectedCurrencies,
+  selectedCurrencies,
 }: {
   selectedSector: IndexSectorsStates
   setPageState: React.Dispatch<React.SetStateAction<CreateIndexStates>>
+  currencies: SelectCurrenciesProps[]
+  selectedCurrencies: SelectCurrenciesProps[]
+  setSelectedCurrencies: React.Dispatch<React.SetStateAction<SelectCurrenciesProps[]>>
 }) => {
   const classes = useStyles()
   const [index, setIndex] = useState(10)
-  const coinsTestArr: SelectCurrenciesProps[] = [
-    { id: 1, icon: UsdcIcon, name: 'USDC', selected: false },
-    { id: 2, icon: DaiIcon, name: 'DAI', selected: false },
-    { id: 3, icon: UniswapIcon, name: 'UNI', selected: false },
-    { id: 4, icon: EthIcon, name: 'ETH', selected: false },
-    { id: 5, icon: AmplIcon, name: 'AMPL', selected: false },
-    { id: 6, icon: LinkIcon, name: 'LINK', selected: false },
-    { id: 7, icon: UsdtIcon, name: 'USDT', selected: false },
-  ]
-  const selectedTestArr = [selectedSector, selectedSector + 2]
-  const preFilteredItems = coinsTestArr.map((obj: SelectCurrenciesProps) =>
-    obj.id === selectedTestArr.find((el) => el === obj.id) && selectedSector !== IndexSectorsStates.All
-      ? { ...obj, selected: true }
-      : obj,
-  )
-  const [textArr, setTestArr] = useState<SelectCurrenciesProps[]>(preFilteredItems)
   const selectCurrencies = (id: number, value: boolean) => {
-    const newState = textArr.map((obj: SelectCurrenciesProps) => (obj.id === id ? { ...obj, selected: !value } : obj))
-    setTestArr(newState)
+    const newState = selectedCurrencies.map((obj: SelectCurrenciesProps) =>
+      obj.id === id ? { ...obj, selected: !value } : obj,
+    )
+    setSelectedCurrencies(newState)
   }
-  const filteredArr = textArr.slice(0, index)
-  const selectedItems = textArr.filter((item) => item.selected)
+  const filteredArr = selectedCurrencies.slice(0, index)
+  const selectedItems = selectedCurrencies.filter((item) => item.selected)
   return (
     <>
       <BackButton
@@ -86,7 +64,7 @@ const SelectSectorCurrenciesState = ({
         </div>
         <div style={{ marginBottom: '12px' }}>
           <span style={{ marginBottom: '12px' }} className={classes.selectCurrenciesOption}>
-            {'creating_index_found_assets_template'.localized({ v1: textArr.length })}
+            {'creating_index_found_assets_template'.localized({ v1: selectedCurrencies.length })}
           </span>
         </div>
         {filteredArr.map((item: SelectCurrenciesProps, index: number) => {

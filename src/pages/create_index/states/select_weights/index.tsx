@@ -1,14 +1,16 @@
-import { BackButton } from 'components/buttons'
-import React from 'react'
-import { useStyles } from './styles'
 import FinanceIcon from 'assets/icons/FinanceIcon.svg'
 import PieChartIcon from 'assets/icons/PieChartIcon.svg'
-import { CreateIndexStates } from 'pages/create_index'
+import { BackButton } from 'components/buttons'
+import { CreateIndexStates, WeightMethodState } from 'pages/create_index'
+import React from 'react'
+import { useStyles } from './styles'
 
 const SelectWeightState = ({
   setPageState,
+  setWeightType,
 }: {
   setPageState: React.Dispatch<React.SetStateAction<CreateIndexStates>>
+  setWeightType: React.Dispatch<React.SetStateAction<WeightMethodState | undefined>>
 }) => {
   const classes = useStyles()
   return (
@@ -21,7 +23,8 @@ const SelectWeightState = ({
         <div className={classes.cardsContainer}>
           <div
             onClick={() => {
-              setPageState(CreateIndexStates.DefineWeights)
+              setWeightType(WeightMethodState.Marketcap)
+              setPageState(CreateIndexStates.Invest)
             }}
             className={classes.card}
           >
@@ -39,7 +42,8 @@ const SelectWeightState = ({
         </div>
         <div
           onClick={() => {
-            setPageState(CreateIndexStates.Invest)
+            setWeightType(WeightMethodState.Manual)
+            setPageState(CreateIndexStates.DefineWeights)
           }}
           className={classes.manuallyBox}
         >
