@@ -3,7 +3,7 @@ import ExchangeIcon from 'assets/icons/ExchangeIconSquare.svg'
 import LendingIcon from 'assets/icons/LendingIconSquare.svg'
 import NftIcon from 'assets/icons/NftIconSquare.svg'
 import { BackButton } from 'components/buttons'
-import { CreateIndexStates, IndexSectorsStates, StatesSelectorProps } from 'pages/create_index'
+import { CreateIndexStates, IndexSectorsStates, preFilterItems, StatesSelectorProps } from 'pages/create_index'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { INDICES } from 'routes'
@@ -16,7 +16,13 @@ interface ItemProps {
   id: number
 }
 
-const SelectSectorState = ({ setPageState, selectedSector, setSelectedSector }: StatesSelectorProps) => {
+const SelectSectorState = ({
+  setPageState,
+  selectedSector,
+  setSelectedSector,
+  selectedCurrencies,
+  setSelectedCurrencies,
+}: StatesSelectorProps) => {
   const classes = useStyles()
   const history = useHistory()
   const arr: ItemProps[] = [
@@ -33,7 +39,11 @@ const SelectSectorState = ({ setPageState, selectedSector, setSelectedSector }: 
 
   return (
     <>
-      <BackButton navigate={() => history.push(INDICES)} text={'creating_index_back_button_text'.localized()} />
+      <BackButton
+        navigate={() => history.push(INDICES)}
+        text={'creating_index_back_button_text'.localized()}
+        width={434}
+      />
       <div className={classes.sectorCard}>
         {arr.map((item: ItemProps, index: number) => {
           return (
@@ -47,6 +57,7 @@ const SelectSectorState = ({ setPageState, selectedSector, setSelectedSector }: 
               onClick={() => {
                 setSelectedSector(item.id)
                 setPageState(CreateIndexStates.SelectSectorCurrencies)
+                preFilterItems(item.id, setSelectedCurrencies)
               }}
               className={classes.cardItem}
               key={index}
@@ -63,6 +74,7 @@ const SelectSectorState = ({ setPageState, selectedSector, setSelectedSector }: 
             onClick={() => {
               setSelectedSector(IndexSectorsStates.All)
               setPageState(CreateIndexStates.SelectSectorCurrencies)
+              preFilterItems(IndexSectorsStates.All, setSelectedCurrencies)
             }}
             className={classes.continueText}
           >

@@ -19,6 +19,7 @@ const InvestState = ({
               : CreateIndexStates.DefineWeights,
           )
         }
+        width={434}
         text={'invest_back_button_text'.localized()}
       />
       <span>Invest</span>

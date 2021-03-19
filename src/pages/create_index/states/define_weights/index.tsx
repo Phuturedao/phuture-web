@@ -24,6 +24,7 @@ const DefineWeightsState = ({
       <BackButton
         navigate={() => setPageState(CreateIndexStates.SelectWeight)}
         text={'define_weights_back_button_text'.localized()}
+        width={660}
       />
       <div className={classes.card}>
         <span>{'define_weights_assets_text'.localized()}</span>

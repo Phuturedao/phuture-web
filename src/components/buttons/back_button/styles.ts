@@ -6,7 +6,6 @@ export const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    width: '434px',
   },
   buttonStyles: {
     padding: '4px !important',

@@ -2,7 +2,7 @@ import { TextField } from '@material-ui/core'
 import CheckboxIcon from 'assets/icons/CheckboxIcon.svg'
 import { BackButton, PrimaryButton, TabButton } from 'components/buttons'
 import { CreateIndexStates, IndexSectorsStates, SelectCurrenciesProps } from 'pages/create_index'
-import React, { useState } from 'react'
+import React from 'react'
 import { useStyles } from './styles'
 
 const SelectSectorCurrenciesState = ({
@@ -11,28 +11,41 @@ const SelectSectorCurrenciesState = ({
   currencies,
   setSelectedCurrencies,
   selectedCurrencies,
+  tabIndex,
+  setTabIndex,
 }: {
   selectedSector: IndexSectorsStates
   setPageState: React.Dispatch<React.SetStateAction<CreateIndexStates>>
   currencies: SelectCurrenciesProps[]
   selectedCurrencies: SelectCurrenciesProps[]
   setSelectedCurrencies: React.Dispatch<React.SetStateAction<SelectCurrenciesProps[]>>
-}) => {
+  tabIndex?: number
+  setTabIndex: React.Dispatch<React.SetStateAction<number | undefined>>
+}): any => {
   const classes = useStyles()
-  const [index, setIndex] = useState(10)
   const selectCurrencies = (id: number, value: boolean) => {
     const newState = selectedCurrencies.map((obj: SelectCurrenciesProps) =>
-      obj.id === id ? { ...obj, selected: !value } : obj,
+      obj.id === id ? { ...obj, selected: !obj.selected } : obj,
     )
     setSelectedCurrencies(newState)
   }
-  const filteredArr = selectedCurrencies.slice(0, index)
+
+  const filteredArr = selectedCurrencies.slice(0, tabIndex)
   const selectedItems = selectedCurrencies.filter((item) => item.selected)
+
+  const onTab = (tab: number) => {
+    if (tabIndex === tab) {
+      setTabIndex(undefined)
+    } else {
+      setTabIndex(tab)
+    }
+  }
   return (
     <>
       <BackButton
         navigate={() => setPageState(CreateIndexStates.SelectSector)}
         text={'creating_index_back_button_text'.localized()}
+        width={434}
       />
       <div className={classes.selectCurrenciesCard}>
         <div className={classes.inputContainer}>
@@ -46,19 +59,19 @@ const SelectSectorCurrenciesState = ({
           <span className={classes.selectCurrenciesOption}>{'creating_index_options_title'.localized()}</span>
           <div className={classes.selectCurrenciesTabs}>
             <TabButton
-              onClick={() => setIndex(3)}
+              onClick={() => onTab(3)}
               text={'creating_index_option_top3'.localized()}
-              isActive={index === 3}
+              isActive={tabIndex === 3}
             />
             <TabButton
-              onClick={() => setIndex(5)}
+              onClick={() => onTab(5)}
               text={'creating_index_option_top5'.localized()}
-              isActive={index === 5}
+              isActive={tabIndex === 5}
             />
             <TabButton
-              onClick={() => setIndex(10)}
+              onClick={() => onTab(10)}
               text={'creating_index_option_top10'.localized()}
-              isActive={index === 10}
+              isActive={tabIndex === 10}
             />
           </div>
         </div>

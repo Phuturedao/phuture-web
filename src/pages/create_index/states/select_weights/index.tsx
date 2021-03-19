@@ -18,6 +18,7 @@ const SelectWeightState = ({
       <BackButton
         navigate={() => setPageState(CreateIndexStates.SelectSectorCurrencies)}
         text={'select_weighting_back_button_text'.localized()}
+        width={474}
       />
       <div className={classes.sectorCard}>
         <div className={classes.cardsContainer}>
