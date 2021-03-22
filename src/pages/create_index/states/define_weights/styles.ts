@@ -32,6 +32,7 @@ export const useStyles = makeStyles({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    width: '100%',
   },
   currenciesItemText: {
     color: colors.tableTextColor,
@@ -63,5 +64,24 @@ export const useStyles = makeStyles({
     height: 20,
     marginTop: -7,
     marginLeft: -10,
+  },
+  rootTextField: {
+    border: `1px solid ${colors.inputBorderColor}`,
+    height: '32px',
+    width: '80px',
+    boxSizing: 'border-box',
+    borderRadius: 6,
+    '&>div': {
+      height: '32px',
+      boxShadow: 'none',
+      '&>input': {
+        fontSize: '16px',
+        fontFamily: 'Inter',
+        color: colors.white,
+      },
+      '&>fieldset': {
+        borderWidth: '0px !important',
+      },
+    },
   },
 })

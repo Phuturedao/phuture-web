@@ -1,7 +1,7 @@
-import { Slider } from '@material-ui/core'
+import { Slider, TextField } from '@material-ui/core'
 import { BackButton } from 'components/buttons'
 import { CreateIndexStates, SelectCurrenciesProps } from 'pages/create_index'
-import React from 'react'
+import React, { useState } from 'react'
 import { useStyles } from './styles'
 import DeleteIcon from 'assets/icons/DeleteIcon.svg'
 
@@ -19,6 +19,41 @@ const DefineWeightsState = ({
   const filteredArr = selectedCurrencies.filter((item) => item.selected)
   const fullPercentage = 100
 
+  interface ValuesProps {
+    id: number
+    value: number
+  }
+
+  const testArr = filteredArr.map((item) => {
+    return { id: item.id, value: 0 }
+  })
+
+  const testValues = testArr as ValuesProps[]
+
+  const [values, setValues] = useState<ValuesProps[]>(testValues)
+
+  const handleSliderChange = (newValue: number, index: number) => {
+    const initialState = values.map((obj: ValuesProps) => (obj.id === index ? { ...obj, value: newValue } : obj))
+
+    const allValues = initialState
+      .map((el) => el.value)
+      .reduce((accumulator, currentValue) => {
+        return accumulator + currentValue
+      })
+    const newState = values.map((obj: ValuesProps) =>
+      obj.id === index
+        ? { ...obj, value: newValue >= 100 ? 100 : newValue }
+        : allValues > 100
+        ? {
+            ...obj,
+            value: obj.value > 0 ? obj.value - Math.ceil((allValues - 100) / (values.length - 1)) : 0,
+          }
+        : obj,
+    )
+
+    setValues(newState)
+  }
+
   return (
     <>
       <BackButton
@@ -33,12 +68,13 @@ const DefineWeightsState = ({
             return (
               <div className={classes.currenciesListItem} key={index}>
                 <div className={classes.currencyIconContainer}>
-                  <img src={item.icon} />
-                  <span className={classes.currenciesItemText}>{item.name}</span>
+                  <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                    <img src={item.icon} />
+                    <span className={classes.currenciesItemText}>{item.name}</span>
+                  </div>
 
-                  <div>
+                  <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                     <Slider
-                      value={10}
                       classes={{
                         root: classes.rootSlider,
                         rail: classes.railSlider,
@@ -47,7 +83,25 @@ const DefineWeightsState = ({
                       }}
                       aria-labelledby="input-slider"
                       step={1}
+                      value={Number(values.filter((el) => el.id === item.id)[0].value)}
+                      onChange={(e, value) => handleSliderChange(value as number, item.id)}
+                      max={fullPercentage}
                     />
+                    <div>
+                      <TextField
+                        value={values.filter((el) => el.id === item.id)[0].value.toString()}
+                        onChange={(e: any) =>
+                          handleSliderChange(Number(e.target.value) <= 100 ? Number(e.target.value) : 100, item.id)
+                        }
+                        classes={{ root: classes.rootTextField }}
+                        variant="outlined"
+                        placeholder={'0'}
+                        InputProps={{
+                          endAdornment: <div>%</div>,
+                        }}
+                        type="number"
+                      />
+                    </div>
                     <img src={DeleteIcon} />
                   </div>
                 </div>
