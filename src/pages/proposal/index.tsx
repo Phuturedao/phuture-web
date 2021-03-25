@@ -64,7 +64,7 @@ const Proposal = (): JSX.Element => {
   return (
     <Container style={{ padding: '20px', maxWidth: '650px' }}>
       <div className={classes.titleContainer}>
-        <IconButton onClick={() => history.push(GOVERNANCE)}>
+        <IconButton onClick={() => history.goBack()}>
           <img src={BackArrow} alt="arrow-icon" />
         </IconButton>
         <Typography className={classes.title}>{'proposal_back_button_text'.localized()}</Typography>

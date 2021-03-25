@@ -25,21 +25,13 @@ const ProposalPreviewCard: FC<ProposalPreviewCardProps> = ({
   onClick,
 }: ProposalPreviewCardProps) => {
   const classes = useStyles()
-  const history = useHistory()
-
-  const handleClick = async (onClick: () => void) => {
-    await onClick()
-    await history.push({
-      pathname: `${PROPOSAL}/:${id}`,
-    })
-  }
 
   return (
     <Card
       style={{ borderColor: isActive ? colors.primaryButtonBgColor : colors.proposalCardBg }}
       className={classes.root}
       variant="outlined"
-      onClick={onClick ? () => handleClick(onClick) : undefined}
+      onClick={onClick}
     >
       <CardContent className={classes.cardContainer}>
         <div>
