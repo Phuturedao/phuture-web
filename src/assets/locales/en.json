@@ -64,10 +64,12 @@
   "define_weights_back_button_text": "Define weights",
   "define_weights_assets_text": "Assets:",
   "define_weights_percents_template": "{{v1}}   %",
+  "define_weights_continue_button_text": "Continue",
   "invest_back_button_text": "Invest",
-  "invest_fees_template": "Fees: {{v1}} ETH",
+  "invest_fees_text": "Fees: ",
+  "invest_input_title": "Enter amount",
   "invest_overview_title": "Index overview",
-  "invest_current_method": "Weighting Method: {{v1}}",
+  "invest_current_method": "Weighting Method:",
   "common_day_template": {
     "one": "{{count}} Day old",
     "other": "{{count}} Days old"

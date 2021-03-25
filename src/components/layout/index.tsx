@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
   contentWrap: {
     height: '100vh',
-    background: `radial-gradient(${colors.firstGradientColor},${colors.secondGradientColor})`,
+    background: `radial-gradient(192.14% 212.11% at 50% 212.11%, ${colors.firstGradientColor} 0%,${colors.secondGradientColor} 100%)`,
   },
 })
 

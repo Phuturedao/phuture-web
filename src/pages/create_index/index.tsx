@@ -32,6 +32,7 @@ export interface SelectCurrenciesProps {
   name: string
   id: number
   selected: boolean
+  weight: number
 }
 
 export interface StatesSelectorProps {
@@ -48,13 +49,13 @@ export enum WeightMethodState {
 }
 
 export const allCurrenciesTestArr: SelectCurrenciesProps[] = [
-  { id: 1, icon: UsdcIcon, name: 'USDC', selected: false },
-  { id: 2, icon: DaiIcon, name: 'DAI', selected: false },
-  { id: 3, icon: UniswapIcon, name: 'UNI', selected: false },
-  { id: 4, icon: EthIcon, name: 'ETH', selected: false },
-  { id: 5, icon: AmplIcon, name: 'AMPL', selected: false },
-  { id: 6, icon: LinkIcon, name: 'LINK', selected: false },
-  { id: 7, icon: UsdtIcon, name: 'USDT', selected: false },
+  { id: 1, icon: UsdcIcon, name: 'USDC', selected: false, weight: 0 },
+  { id: 2, icon: DaiIcon, name: 'DAI', selected: false, weight: 0 },
+  { id: 3, icon: UniswapIcon, name: 'UNI', selected: false, weight: 0 },
+  { id: 4, icon: EthIcon, name: 'ETH', selected: false, weight: 0 },
+  { id: 5, icon: AmplIcon, name: 'AMPL', selected: false, weight: 0 },
+  { id: 6, icon: LinkIcon, name: 'LINK', selected: false, weight: 0 },
+  { id: 7, icon: UsdtIcon, name: 'USDT', selected: false, weight: 0 },
 ]
 
 const preSelectArray = (id: number) => {
@@ -118,7 +119,14 @@ const CreateIndex = (): JSX.Element => {
           />
         )
       case CreateIndexStates.Invest:
-        return <InvestState weightType={weightType} setPageState={setPageState} />
+        return (
+          <InvestState
+            weightType={weightType}
+            setPageState={setPageState}
+            setSelectedCurrencies={setSelectedCurrencies}
+            selectedCurrencies={selectedCurrencies}
+          />
+        )
     }
   }
 

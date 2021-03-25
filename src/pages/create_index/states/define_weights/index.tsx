@@ -1,5 +1,5 @@
-import { Slider, TextField } from '@material-ui/core'
-import { BackButton } from 'components/buttons'
+import { IconButton, Slider, TextField } from '@material-ui/core'
+import { BackButton, PrimaryButton } from 'components/buttons'
 import { CreateIndexStates, SelectCurrenciesProps } from 'pages/create_index'
 import React, { useState } from 'react'
 import { useStyles } from './styles'
@@ -54,6 +54,24 @@ const DefineWeightsState = ({
     setValues(newState)
   }
 
+  const handleDelete = (id: number) => {
+    const newState = selectedCurrencies.map((obj: SelectCurrenciesProps) =>
+      obj.id === id ? { ...obj, selected: !obj.selected } : obj,
+    )
+    setSelectedCurrencies(newState)
+  }
+
+  const handleNavigate = () => {
+    const newState = selectedCurrencies.map((obj: SelectCurrenciesProps) => {
+      const currentWeight =
+        values.find((el) => el.id === obj.id) !== undefined ? values.find((el) => el.id === obj.id)!.value : 0
+      const state = values.filter((el) => el.id === obj.id) ? { ...obj, weight: currentWeight } : obj
+      return state
+    })
+    setSelectedCurrencies(newState)
+    setPageState(CreateIndexStates.Invest)
+  }
+
   return (
     <>
       <BackButton
@@ -62,7 +80,9 @@ const DefineWeightsState = ({
         width={660}
       />
       <div className={classes.card}>
-        <span>{'define_weights_assets_text'.localized()}</span>
+        <div className={classes.titleBox}>
+          <span>{'define_weights_assets_text'.localized()}</span>
+        </div>
         <div>
           {filteredArr.map((item: SelectCurrenciesProps, index: number) => {
             return (
@@ -97,17 +117,31 @@ const DefineWeightsState = ({
                         variant="outlined"
                         placeholder={'0'}
                         InputProps={{
-                          endAdornment: <div>%</div>,
+                          endAdornment: <div className={classes.endInputIcon}>%</div>,
                         }}
                         type="number"
                       />
                     </div>
-                    <img src={DeleteIcon} />
+                    <IconButton
+                      onClick={() => handleDelete(item.id)}
+                      style={{
+                        padding: '4px !important',
+                      }}
+                    >
+                      <img src={DeleteIcon} />
+                    </IconButton>
                   </div>
                 </div>
               </div>
             )
           })}
+          <div className={classes.currenciesContinueButton}>
+            <PrimaryButton
+              disabled={filteredArr.length < 1}
+              text={'define_weights_continue_button_text'.localized()}
+              onClick={handleNavigate}
+            />
+          </div>
         </div>
       </div>
     </>

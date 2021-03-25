@@ -9,6 +9,11 @@ export const useStyles = makeStyles({
     padding: '8px 0',
     margin: '10px',
   },
+  titleBox: {
+    color: colors.tableTitleColor,
+    fontSize: '14px',
+    margin: '12px 16px',
+  },
   currenciesListItem: {
     display: 'flex',
     flexDirection: 'row',
@@ -19,13 +24,6 @@ export const useStyles = makeStyles({
     padding: '12px 18px 12px 16px',
     transition: 'all 0.4s',
     cursor: 'pointer',
-    '&:hover': {
-      background: `rgba(76, 201, 240, 0.1)`,
-    },
-    '&:active': {
-      opacity: 0.6,
-      background: `rgba(76, 201, 240, 0.1)`,
-    },
   },
   currencyIconContainer: {
     display: 'flex',
@@ -44,6 +42,7 @@ export const useStyles = makeStyles({
     // marginTop: 50,
     color: colors.primaryButtonBgColor,
     width: '200px',
+    margin: '0 10px',
     opacity: 1,
   },
   railSlider: {
@@ -54,10 +53,10 @@ export const useStyles = makeStyles({
     height: 6,
     borderRadius: 30,
     background: colors.primaryButtonBgColor,
-    // width: '200px',
   },
   thumbColorPrimary: {
     background: colors.primaryButtonBgColor,
+    border: `2px solid ${colors.defaultCardBg}`,
     boxShadow: `0px 0px 1px 0.5px rgba(0, 0, 0, 0.2), 0px 0px 4px rgba(0, 0, 0, 0.1)`,
     boxSizing: 'border-box',
     width: 20,
@@ -66,22 +65,34 @@ export const useStyles = makeStyles({
     marginLeft: -10,
   },
   rootTextField: {
-    border: `1px solid ${colors.inputBorderColor}`,
+    border: `1px solid ${colors.cardEndTextColor}`,
     height: '32px',
     width: '80px',
     boxSizing: 'border-box',
     borderRadius: 6,
+    margin: '0 20px',
     '&>div': {
       height: '32px',
       boxShadow: 'none',
       '&>input': {
         fontSize: '16px',
         fontFamily: 'Inter',
-        color: colors.white,
+        color: colors.tableTitleColor,
       },
       '&>fieldset': {
         borderWidth: '0px !important',
       },
     },
+  },
+  endInputIcon: {
+    color: colors.cardEndTextColor,
+    fontSize: '16px',
+    lineHeight: '20px',
+  },
+  currenciesContinueButton: {
+    borderTop: `1px solid ${colors.cardEndTextColor}`,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    padding: '16px',
   },
 })
