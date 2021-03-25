@@ -7,14 +7,14 @@ import { useStyles } from './styles'
 import BackArrow from 'assets/icons/BackArrow.svg'
 import ProposalPreviewCard from 'components/proposal_preview_card'
 import { Pagination } from 'components/pagination'
+import { CARDS_PER_PAGE } from '../history'
 
 const Proposals = (): JSX.Element => {
   const history = useHistory()
   const classes = useStyles()
   const [page, setPage] = React.useState(1)
 
-  const cardsPerPage = 6
-  const maxPage = Math.ceil(activeProposals.length / cardsPerPage)
+  const maxPage = Math.ceil(activeProposals.length / CARDS_PER_PAGE)
   const handleChange = (value: number) => {
     setPage(value)
   }
@@ -44,7 +44,7 @@ const Proposals = (): JSX.Element => {
           />
         )
       })}
-      {activeProposals.length > cardsPerPage && (
+      {activeProposals.length > CARDS_PER_PAGE && (
         <div className={classes.paginationBox}>
           <Pagination page={page} maxPage={maxPage} onChange={handleChange} />
         </div>
