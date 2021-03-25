@@ -11,7 +11,7 @@ const Liquidity = (): JSX.Element => {
   const { container } = useStyles()
   return (
     <Container className={container}>
-      <BackButton navigate={() => history.push(INDICES)} text={'pools_add_liquidity_button'.localized()} width={394} />
+      <BackButton navigate={() => history.push(INDICES)} text={'pools_add_liquidity_button'.localized()} />
       <LiquidityCard />
     </Container>
   )

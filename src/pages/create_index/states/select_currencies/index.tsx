@@ -7,20 +7,16 @@ import { useStyles } from './styles'
 
 const SelectSectorCurrenciesState = ({
   setPageState,
-  selectedSector,
-  currencies,
   setSelectedCurrencies,
   selectedCurrencies,
   tabIndex,
   setTabIndex,
 }: {
-  selectedSector: IndexSectorsStates
   setPageState: React.Dispatch<React.SetStateAction<CreateIndexStates>>
-  currencies: SelectCurrenciesProps[]
   selectedCurrencies: SelectCurrenciesProps[]
   setSelectedCurrencies: React.Dispatch<React.SetStateAction<SelectCurrenciesProps[]>>
-  tabIndex?: number
-  setTabIndex: React.Dispatch<React.SetStateAction<number | undefined>>
+  tabIndex: number | null
+  setTabIndex: React.Dispatch<React.SetStateAction<number | null>>
 }): any => {
   const classes = useStyles()
   const selectCurrencies = (id: number, value: boolean) => {
@@ -30,22 +26,21 @@ const SelectSectorCurrenciesState = ({
     setSelectedCurrencies(newState)
   }
 
-  const filteredArr = selectedCurrencies.slice(0, tabIndex)
+  const filteredArr = selectedCurrencies.slice(0, tabIndex === null ? undefined : tabIndex)
   const selectedItems = selectedCurrencies.filter((item) => item.selected)
 
   const onTab = (tab: number) => {
     if (tabIndex === tab) {
-      setTabIndex(undefined)
+      setTabIndex(null)
     } else {
       setTabIndex(tab)
     }
   }
   return (
-    <>
+    <div style={{ width: '434px' }}>
       <BackButton
         navigate={() => setPageState(CreateIndexStates.SelectSector)}
         text={'creating_index_back_button_text'.localized()}
-        width={434}
       />
       <div className={classes.selectCurrenciesCard}>
         <div className={classes.inputContainer}>
@@ -105,7 +100,7 @@ const SelectSectorCurrenciesState = ({
           />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 export default SelectSectorCurrenciesState

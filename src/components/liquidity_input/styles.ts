@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
         //INFO: I need it fontFeatureSettings: `"smcp" 1, "zero" 1`,
       },
       '&>fieldset': {
-        borderWidth: '0px !important',
+        border: 'none !important',
       },
     },
   },

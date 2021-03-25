@@ -28,7 +28,7 @@ export const useStyles = makeStyles({
   },
   thumbColorPrimary: {
     background: colors.primaryButtonBgColor,
-    boxShadow: `0px 0px 1px 0.5px rgba(0, 0, 0, 0.2), 0px 0px 4px rgba(0, 0, 0, 0.1)`,
+    boxShadow: colors.thumbShadow,
     boxSizing: 'border-box',
     width: 20,
     height: 20,

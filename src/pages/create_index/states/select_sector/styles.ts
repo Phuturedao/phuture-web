@@ -4,11 +4,11 @@ import { colors } from 'utils/mui'
 export const useStyles = makeStyles({
   sectorCard: {
     backgroundColor: colors.defaultCardBg,
-    width: '434px',
+    width: '100%',
     borderRadius: '10px',
     padding: '8px',
     textAlign: 'center',
-    margin: '10px',
+    marginTop: '10px',
   },
   cardItem: {
     display: 'flex',
@@ -21,11 +21,11 @@ export const useStyles = makeStyles({
     transition: 'all 0.4s',
     cursor: 'pointer',
     '&:hover': {
-      background: `rgba(76, 201, 240, 0.1)`,
+      background: colors.itemHoverBg,
       border: `1px solid ${colors.primaryButtonBgHoverColor}`,
     },
     '&:active': {
-      background: `rgba(76, 201, 240, 0.1)`,
+      background: colors.itemHoverBg,
       border: `1px solid ${colors.primaryButtonBgHoverColor}`,
       opacity: 0.3,
     },

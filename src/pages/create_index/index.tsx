@@ -82,7 +82,7 @@ const CreateIndex = (): JSX.Element => {
   const [selectedCurrencies, setSelectedCurrencies] = useState<SelectCurrenciesProps[]>(allCurrenciesTestArr)
   const [weightType, setWeightType] = useState<WeightMethodState>()
 
-  const [tabIndex, setTabIndex] = useState<number>()
+  const [tabIndex, setTabIndex] = useState<number | null>(null)
 
   const StatesSwitch = () => {
     switch (pageState) {
@@ -99,8 +99,6 @@ const CreateIndex = (): JSX.Element => {
       case CreateIndexStates.SelectSectorCurrencies:
         return (
           <SelectCurrenciesState
-            currencies={allCurrenciesTestArr}
-            selectedSector={selectedSector}
             setPageState={setPageState}
             setSelectedCurrencies={setSelectedCurrencies}
             selectedCurrencies={selectedCurrencies}

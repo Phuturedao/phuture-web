@@ -17,7 +17,7 @@ const DefineWeightsState = ({
   const classes = useStyles()
 
   const filteredArr = selectedCurrencies.filter((item) => item.selected)
-  const fullPercentage = 100
+  const FULL_PERCENTAGE = 100
 
   interface ValuesProps {
     id: number
@@ -42,11 +42,11 @@ const DefineWeightsState = ({
       })
     const newState = values.map((obj: ValuesProps) =>
       obj.id === index
-        ? { ...obj, value: newValue >= 100 ? 100 : newValue }
-        : allValues > 100
+        ? { ...obj, value: newValue >= FULL_PERCENTAGE ? FULL_PERCENTAGE : newValue }
+        : allValues > FULL_PERCENTAGE
         ? {
             ...obj,
-            value: obj.value > 0 ? obj.value - Math.ceil((allValues - 100) / (values.length - 1)) : 0,
+            value: obj.value > 0 ? obj.value - Math.ceil((allValues - FULL_PERCENTAGE) / (values.length - 1)) : 0,
           }
         : obj,
     )
@@ -63,8 +63,7 @@ const DefineWeightsState = ({
 
   const handleNavigate = () => {
     const newState = selectedCurrencies.map((obj: SelectCurrenciesProps) => {
-      const currentWeight =
-        values.find((el) => el.id === obj.id) !== undefined ? values.find((el) => el.id === obj.id)!.value : 0
+      const currentWeight = values.find((el) => el.id === obj.id)?.value ?? 0
       const state = values.filter((el) => el.id === obj.id) ? { ...obj, weight: currentWeight } : obj
       return state
     })
@@ -72,12 +71,13 @@ const DefineWeightsState = ({
     setPageState(CreateIndexStates.Invest)
   }
 
+  const getCurrentValue = (id: number) => Number(values.filter((el) => el.id === id)[0].value)
+
   return (
-    <>
+    <div style={{ width: '660px' }}>
       <BackButton
         navigate={() => setPageState(CreateIndexStates.SelectWeight)}
         text={'define_weights_back_button_text'.localized()}
-        width={660}
       />
       <div className={classes.card}>
         <div className={classes.titleBox}>
@@ -103,15 +103,18 @@ const DefineWeightsState = ({
                       }}
                       aria-labelledby="input-slider"
                       step={1}
-                      value={Number(values.filter((el) => el.id === item.id)[0].value)}
+                      value={getCurrentValue(item.id)}
                       onChange={(e, value) => handleSliderChange(value as number, item.id)}
-                      max={fullPercentage}
+                      max={FULL_PERCENTAGE}
                     />
                     <div>
                       <TextField
-                        value={values.filter((el) => el.id === item.id)[0].value.toString()}
+                        value={getCurrentValue(item.id).toString()}
                         onChange={(e: any) =>
-                          handleSliderChange(Number(e.target.value) <= 100 ? Number(e.target.value) : 100, item.id)
+                          handleSliderChange(
+                            Number(e.target.value) <= FULL_PERCENTAGE ? Number(e.target.value) : FULL_PERCENTAGE,
+                            item.id,
+                          )
                         }
                         classes={{ root: classes.rootTextField }}
                         variant="outlined"
@@ -144,7 +147,7 @@ const DefineWeightsState = ({
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -14,11 +14,10 @@ const SelectWeightState = ({
 }) => {
   const classes = useStyles()
   return (
-    <>
+    <div style={{ width: '474px' }}>
       <BackButton
         navigate={() => setPageState(CreateIndexStates.SelectSectorCurrencies)}
         text={'select_weighting_back_button_text'.localized()}
-        width={474}
       />
       <div className={classes.sectorCard}>
         <div className={classes.cardsContainer}>
@@ -51,7 +50,7 @@ const SelectWeightState = ({
           <span className={classes.manuallyText}>{'select_weighting_manually_text'.localized()}</span>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

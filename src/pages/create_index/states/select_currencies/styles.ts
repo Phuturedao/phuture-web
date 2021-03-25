@@ -4,10 +4,10 @@ import { colors } from 'utils/mui'
 export const useStyles = makeStyles({
   selectCurrenciesCard: {
     backgroundColor: colors.defaultCardBg,
-    width: '434px',
+    width: '100%',
     borderRadius: '10px',
     padding: '8px 0',
-    margin: '10px',
+    marginTop: '10px',
   },
   inputContainer: {
     padding: '16px',
@@ -23,7 +23,7 @@ export const useStyles = makeStyles({
         padding: '8px 12px',
       },
       '&>fieldset': {
-        borderWidth: '0px !important',
+        border: 'none !important',
       },
     },
   },
@@ -50,11 +50,11 @@ export const useStyles = makeStyles({
     transition: 'all 0.4s',
     cursor: 'pointer',
     '&:hover': {
-      background: `rgba(76, 201, 240, 0.1)`,
+      background: colors.itemHoverBg,
     },
     '&:active': {
       opacity: 0.6,
-      background: `rgba(76, 201, 240, 0.1)`,
+      background: colors.itemHoverBg,
     },
   },
   currencyIconContainer: {

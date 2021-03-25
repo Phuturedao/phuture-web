@@ -24,7 +24,7 @@ const InvestState = ({
   const [value, setValue] = useState('')
   const history = useHistory()
   return (
-    <>
+    <div style={{ width: '434px' }}>
       <BackButton
         navigate={() =>
           setPageState(
@@ -33,7 +33,6 @@ const InvestState = ({
               : CreateIndexStates.DefineWeights,
           )
         }
-        width={434}
         text={'invest_back_button_text'.localized()}
       />
       <div className={classes.card}>
@@ -83,7 +82,7 @@ const InvestState = ({
         })}
         <div style={{ borderTop: `1px solid ${colors.cardEndTextColor}` }} />
       </div>
-    </>
+    </div>
   )
 }
 

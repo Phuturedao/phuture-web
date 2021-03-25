@@ -4,10 +4,10 @@ import { colors } from 'utils/mui'
 export const useStyles = makeStyles({
   card: {
     backgroundColor: colors.defaultCardBg,
-    width: '660px',
+    width: '100%',
     borderRadius: '10px',
     padding: '8px 0',
-    margin: '10px',
+    marginTop: '10px',
   },
   titleBox: {
     color: colors.tableTitleColor,
@@ -39,7 +39,6 @@ export const useStyles = makeStyles({
     lineHeight: '20px',
   },
   rootSlider: {
-    // marginTop: 50,
     color: colors.primaryButtonBgColor,
     width: '200px',
     margin: '0 10px',
@@ -57,7 +56,7 @@ export const useStyles = makeStyles({
   thumbColorPrimary: {
     background: colors.primaryButtonBgColor,
     border: `2px solid ${colors.defaultCardBg}`,
-    boxShadow: `0px 0px 1px 0.5px rgba(0, 0, 0, 0.2), 0px 0px 4px rgba(0, 0, 0, 0.1)`,
+    boxShadow: colors.thumbShadow,
     boxSizing: 'border-box',
     width: 20,
     height: 20,
@@ -80,7 +79,7 @@ export const useStyles = makeStyles({
         color: colors.tableTitleColor,
       },
       '&>fieldset': {
-        borderWidth: '0px !important',
+        border: 'none !important',
       },
     },
   },

@@ -21,7 +21,7 @@ export const useStyles = makeStyles({
         color: colors.secondaryCardText,
       },
       '&>fieldset': {
-        borderWidth: '0px !important',
+        border: 'none !important',
       },
     },
   },

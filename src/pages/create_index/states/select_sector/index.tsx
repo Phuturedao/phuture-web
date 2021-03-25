@@ -38,12 +38,8 @@ const SelectSectorState = ({
   setSelectedSector(IndexSectorsStates.Empty)
 
   return (
-    <>
-      <BackButton
-        navigate={() => history.push(INDICES)}
-        text={'creating_index_back_button_text'.localized()}
-        width={434}
-      />
+    <div style={{ width: '434px' }}>
+      <BackButton navigate={() => history.push(INDICES)} text={'creating_index_back_button_text'.localized()} />
       <div className={classes.sectorCard}>
         {arr.map((item: ItemProps, index: number) => {
           return (
@@ -82,7 +78,7 @@ const SelectSectorState = ({
           </span>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

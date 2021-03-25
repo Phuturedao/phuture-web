@@ -7,7 +7,6 @@ import IconButton, { IconButtonProps } from '@material-ui/core/IconButton'
 interface ButtonProps extends IconButtonProps {
   text: string
   navigate: () => void
-  width: number
 }
 
 const BackButton = (props: ButtonProps) => {
@@ -15,7 +14,7 @@ const BackButton = (props: ButtonProps) => {
   const { text, navigate } = props
 
   return (
-    <div style={{ width: `${props.width}px` }} className={buttonContainer}>
+    <div style={{ width: '100%' }} className={buttonContainer}>
       <IconButton onClick={navigate} classes={{ root: buttonStyles }} {...props}>
         <img src={BackArrow} alt="back-icon" />
       </IconButton>

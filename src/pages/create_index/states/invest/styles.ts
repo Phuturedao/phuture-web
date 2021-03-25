@@ -4,15 +4,15 @@ import { colors } from 'utils/mui'
 export const useStyles = makeStyles({
   card: {
     backgroundColor: colors.defaultCardBg,
-    width: '434px',
+    width: '100%',
     borderRadius: '10px',
     padding: '8px',
-    margin: '10px',
+    marginTop: '10px',
   },
   title: {
     display: 'flex',
     justifyContent: 'flex-start',
-    width: '434px',
+    width: '100%',
     color: colors.tableTextColor,
     fontSize: '20px',
     margin: '12px 0',
@@ -35,11 +35,11 @@ export const useStyles = makeStyles({
     cursor: 'pointer',
     '&:hover': {
       opacity: 0.7,
-      background: `rgba(76, 201, 240, 0.1)`,
+      background: colors.itemHoverBg,
     },
     '&:active': {
       opacity: 0.2,
-      background: `rgba(76, 201, 240, 0.1)`,
+      background: colors.itemHoverBg,
     },
   },
   currencyIconContainer: {
@@ -56,7 +56,7 @@ export const useStyles = makeStyles({
   },
   table: {
     padding: '16px 0',
-    width: '434px',
+    width: '100%',
     borderRadius: '10px',
     border: `1px solid ${colors.tableTitleColor}`,
   },
