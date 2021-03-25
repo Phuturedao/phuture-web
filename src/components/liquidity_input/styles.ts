@@ -3,7 +3,7 @@ import { colors } from 'utils/mui'
 
 export const useStyles = makeStyles({
   rootTextField: {
-    border: `1px solid ${colors.inputBorderColor}`,
+    border: `1px solid ${colors.secondaryCardText}`,
     marginTop: 8,
     height: '95px',
     width: '100%',
@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
         //INFO: I need it fontFeatureSettings: `"smcp" 1, "zero" 1`,
       },
       '&>fieldset': {
-        borderWidth: '0px !important',
+        border: 'none !important',
       },
     },
   },
@@ -30,7 +30,7 @@ export const useStyles = makeStyles({
     marginLeft: '16px',
     fontSize: '15px',
     fontWeight: 500,
-    color: colors.white,
+    color: colors.tableTitleColor,
   },
   endAdornmentContainer: {
     height: '100%',

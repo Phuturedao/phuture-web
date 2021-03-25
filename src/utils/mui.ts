@@ -29,9 +29,12 @@ export const colors: { [key: string]: string } = {
   cardEndTextColor: '#5C7684',
   proposalCardTextColor: '#B2B2B2',
   proposalCardSubtitleColor: '#808080',
+  itemHoverBg: `rgba(76, 201, 240, 0.1)`,
   //modal
   inputBorderColor: '#2E6C84',
   modalTitleColor: '#5F6B76',
+  //slider
+  thumbShadow: `0px 0px 1px 0.5px rgba(0, 0, 0, 0.2), 0px 0px 4px rgba(0, 0, 0, 0.1)`,
 }
 export const color = (c: string): string => colors[c]
 export const buildVariant = (fontWeight: number, fontSize: number, color: string): unknown => ({

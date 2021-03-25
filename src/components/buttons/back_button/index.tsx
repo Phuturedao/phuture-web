@@ -14,7 +14,7 @@ const BackButton = (props: ButtonProps) => {
   const { text, navigate } = props
 
   return (
-    <div className={buttonContainer}>
+    <div style={{ width: '100%' }} className={buttonContainer}>
       <IconButton onClick={navigate} classes={{ root: buttonStyles }} {...props}>
         <img src={BackArrow} alt="back-icon" />
       </IconButton>
