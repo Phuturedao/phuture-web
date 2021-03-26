@@ -1,9 +1,11 @@
 import HeaderLogo from 'assets/icons/HeaderLogo.svg'
 import SearchIcon from 'assets/icons/SearchIcon.svg'
 import { WalletButton } from 'components/buttons'
-import React, { FC } from 'react'
+import ModalFunds from 'components/funds_modal'
+import React, { FC, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { GOVERNANCE, INDICES, STAKING, VAULT } from 'routes'
+import { colors } from 'utils/mui'
 import { useStyles } from './styles'
 
 interface HeaderProps {
@@ -20,7 +22,21 @@ export const Header: FC<HeaderProps> = ({ activeWeb3Account, activateWeb3Account
     navBarContainer,
     ulList,
     searchIcon,
+    balanceBox,
+    blueBox,
+    balanceText,
   } = useStyles()
+
+  const [openModal, setOpenModal] = useState(false)
+
+  const handleOpenModal = () => {
+    setOpenModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setOpenModal(false)
+  }
+
   return (
     <header className={wrap}>
       <div className={logoContainer}>
@@ -50,12 +66,19 @@ export const Header: FC<HeaderProps> = ({ activeWeb3Account, activateWeb3Account
           </li>
         </ul>
       </nav>
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
+      <div style={{ display: 'flex', flexDirection: 'row', width: '320px', justifyContent: 'flex-end' }}>
+        {activeWeb3Account && (
+          <div className={balanceBox} onClick={handleOpenModal}>
+            <div className={blueBox} />
+            <span className={balanceText}>100 PHTR</span>
+          </div>
+        )}
         <div className={searchIcon}>
           <img src={SearchIcon} alt="search-icon" />
         </div>
         <WalletButton activateWeb3Account={activateWeb3Account} activeWeb3Account={activeWeb3Account} />
       </div>
+      <ModalFunds balance={1000000} open={openModal} handleClose={handleCloseModal} />
     </header>
   )
 }

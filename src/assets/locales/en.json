@@ -74,6 +74,11 @@
   "invest_input_title": "Enter amount",
   "invest_overview_title": "Index overview",
   "invest_current_method": "Weighting Method:",
+  "overview_title": "PHTR Overview",
+  "overview_balance_text": "Your balance",
+  "overview_balance_template": "Your balance:",
+  "overview_unclaimed_template": "Unclaimed:",
+  "overview_stake_funds_button": "Stake Funds",
   "common_day_template": {
     "one": "{{count}} Day old",
     "other": "{{count}} Days old"
