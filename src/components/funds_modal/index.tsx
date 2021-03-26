@@ -9,7 +9,6 @@ interface ModalProps {
   open: boolean
   handleClose: () => void
   balance: number
-  selectedOption?: number
 }
 
 export default function ModalFunds({ open, handleClose }: ModalProps): ReactElement {
