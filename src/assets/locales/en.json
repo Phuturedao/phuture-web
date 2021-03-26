@@ -79,6 +79,17 @@
   "overview_balance_template": "Your balance:",
   "overview_unclaimed_template": "Unclaimed:",
   "overview_stake_funds_button": "Stake Funds",
+  "vault_overview_title": "Phuture Overview",
+  "vault_index_overview_title": "Index Overview",
+  "vault_total_index_title": "Total index value",
+  "vault_staking_title": "PHTR Staking",
+  "vault_governance_staking_title": "Governance staking",
+  "vault_indices_title": "Your Indices",
+  "vault_column_invested_text": "Total invested",
+  "vault_balance_text": "Current balance",
+  "vault_profit_loss_text": "Profit/loss",
+  "vault_gain_loss_text": "24h Gain/loss",
+  "vault_total_gain_loss_text": "Total Gain/loss",
   "common_day_template": {
     "one": "{{count}} Day old",
     "other": "{{count}} Days old"
