@@ -40,18 +40,21 @@ type ModalWindowWrapperProps = {
   handleClose: () => void
   open: boolean
   titleText: JSX.Element | string
+  showedIcon?: boolean
   children: JSX.Element
 }
 
-export const ModalWrapper = ({ handleClose, open, children, titleText }: ModalWindowWrapperProps) => {
+export const ModalWrapper = ({ handleClose, open, children, titleText, showedIcon }: ModalWindowWrapperProps) => {
   const { paperWidthSm, closeButton, root, title, dialogContent } = useStyles()
   return (
     <Dialog classes={{ paperWidthSm: paperWidthSm }} maxWidth="sm" onClose={handleClose} open={open}>
       <MuiDialogTitle disableTypography className={root}>
         <Typography classes={{ root: title }}>{titleText}</Typography>
-        <IconButton classes={{ root: closeButton }}>
-          <img src={InfoIcon} alt="info-icon" />
-        </IconButton>
+        {showedIcon && (
+          <IconButton classes={{ root: closeButton }}>
+            <img src={InfoIcon} alt="info-icon" />
+          </IconButton>
+        )}
       </MuiDialogTitle>
       <MuiDialogContent classes={{ root: dialogContent }}>{children}</MuiDialogContent>
     </Dialog>

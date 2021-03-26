@@ -13,8 +13,9 @@ export const useStyles = makeStyles({
   },
   logoContainer: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
+    width: '320px',
   },
   navBarContainer: {
     width: '35vw',
@@ -80,5 +81,35 @@ export const useStyles = makeStyles({
     '&:active': {
       opacity: 0.3,
     },
+  },
+  balanceBox: {
+    height: '33px',
+    backgroundColor: colors.defaultCardBg,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: '8px',
+    padding: '0 10px',
+    margin: '0 8px',
+    cursor: 'pointer',
+    transition: 'all 0.4s',
+    '&:hover': {
+      opacity: 0.6,
+    },
+    '&:active': {
+      opacity: 0.3,
+    },
+  },
+  blueBox: {
+    height: '5px',
+    width: '5px',
+    borderRadius: '50%',
+    backgroundColor: colors.primaryButtonBgColor,
+  },
+  balanceText: {
+    fontSize: '16px',
+    lineHeight: '20px',
+    color: colors.white,
+    marginLeft: '6px',
   },
 })

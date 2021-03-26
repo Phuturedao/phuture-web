@@ -68,7 +68,7 @@ export default function ModalVote({ open, handleClose }: ModalProps): ReactEleme
   }
 
   return (
-    <ModalWrapper open={open} handleClose={handleClose} titleText={'vote_modal_title'.localized()}>
+    <ModalWrapper showedIcon open={open} handleClose={handleClose} titleText={'vote_modal_title'.localized()}>
       <>
         <div style={{ width: '100%', padding: '0 20px' }}>
           <LiquidityInput

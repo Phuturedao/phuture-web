@@ -17,7 +17,7 @@ interface ModalProps {
 const ModalLiquidity = ({ open, handleClose, titleModal, setSelectedIcon }: ModalProps): ReactElement => {
   const { content, input, cardsTitle, cards, card, iconContainer, icon, iconTitle } = useStyles()
   return (
-    <ModalWrapper open={open} handleClose={handleClose} titleText={titleModal}>
+    <ModalWrapper showedIcon open={open} handleClose={handleClose} titleText={titleModal}>
       <>
         <div className={content}>
           <TextField classes={{ root: input }} placeholder={'Search token by name or address'} variant="outlined" />
