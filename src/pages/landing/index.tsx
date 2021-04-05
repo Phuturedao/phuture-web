@@ -67,7 +67,7 @@ const Landing = (): JSX.Element => {
           <Link target="_blank" href="https://twitter.com/phuturedao">
             <img className={iconsMargin} src={TwitterIcon} alt="twitter-icon" />
           </Link>
-          <Link target={'_blank'} href="https://phuturedao.medium.com/">
+          <Link target={'_blank'} href="https://phuture-finance.medium.com/">
             <img className={iconsMargin} src={MediumIcon} alt="medium-icon" />
           </Link>
           <Link target={'_blank'} href="https://discord.com/invite/frRD3Ck">
