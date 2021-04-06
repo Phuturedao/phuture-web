@@ -4,9 +4,6 @@ export const colors: { [key: string]: string } = {
   white: '#FFFFFF',
   //landing
   textShadowColor: 'rgba(255, 255, 255, 0.55)',
-  //BG gradient
-  firstGradientColor: '#508676',
-  secondGradientColor: '#3D5066',
   //search icon
   searchIconBg: '#4F6579',
   searchIconHoverBg: '#61798C',
@@ -35,6 +32,13 @@ export const colors: { [key: string]: string } = {
   modalTitleColor: '#5F6B76',
   //slider
   thumbShadow: `0px 0px 1px 0.5px rgba(0, 0, 0, 0.2), 0px 0px 4px rgba(0, 0, 0, 0.1)`,
+
+  //Phuture v.2 colors
+  grayTitleColor: '#C4C4C4',
+  defaultBlueColor: '#00A8E8',
+  //BG gradient
+  firstGradientColor: '#464951',
+  secondGradientColor: '#131722',
 }
 export const color = (c: string): string => colors[c]
 export const buildVariant = (fontWeight: number, fontSize: number, color: string): unknown => ({
