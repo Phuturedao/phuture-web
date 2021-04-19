@@ -2,11 +2,14 @@ import { ThemeOptions } from '@material-ui/core'
 
 export const colors: { [key: string]: string } = {
   white: '#FFFFFF',
+  mainGreen: '#60E2A3',
   //landing
   textShadowColor: 'rgba(255, 255, 255, 0.55)',
   //BG gradient
-  firstGradientColor: '#508676',
-  secondGradientColor: '#3D5066',
+  firstGradientColor: '#464951',
+  secondGradientColor: '#131722',
+  //blue button gradient
+  blueButtonGradient: 'linear-gradient(180deg, #00ACEE 0%, #006DD1 100%)',
   //wallet button
   walletButtonBorderColor: '#95B3C2',
   walletButtonBorderHoverColor: '#AAE5F8',
@@ -30,4 +33,8 @@ export const buildVariant = (fontWeight: number, fontSize: number, color: string
   color: colors[color],
 })
 
-export const themeConfig: ThemeOptions | undefined = {}
+export const themeConfig: ThemeOptions | undefined = {
+  typography: {
+    fontFamily: 'GTWalsheim',
+  },
+}
