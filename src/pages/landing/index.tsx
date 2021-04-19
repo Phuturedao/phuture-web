@@ -1,68 +1,81 @@
-import { Button, Container, Typography, Link } from '@material-ui/core'
+import { Button, Container, Link } from '@material-ui/core'
+import DiscordIcon from 'assets/icons/landing/DiscordIcon.svg'
+import FirstBoxIcon from 'assets/icons/landing/FirstBoxIcon.svg'
+import FourthBoxIcon from 'assets/icons/landing/FourthBoxIcon.svg'
+import GithubIcon from 'assets/icons/landing/GithubIcon.svg'
+import MediumIcon from 'assets/icons/landing/MediumIcon.svg'
+import SecondBoxIcon from 'assets/icons/landing/SecondBoxIcon.svg'
+import ThirdBoxIcon from 'assets/icons/landing/ThirdBoxIcon.svg'
+import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
 import React from 'react'
 import { useStyles } from './styles'
-import StrategiesIcon from 'assets/icons/landing/StrategiesIcon.svg'
-import PermissionIcon from 'assets/icons/landing/PermissionIcon.svg'
-import RebalancingIcon from 'assets/icons/landing/RebalancingIcon.svg'
-import LiquidityLogo from 'assets/icons/landing/LiquidityLogo.svg'
-
-import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
-import MediumIcon from 'assets/icons/landing/MediumIcon.svg'
-import DiscordIcon from 'assets/icons/landing/DiscordIcon.svg'
-import GithubIcon from 'assets/icons/landing/GithubIcon.svg'
 
 const Landing = (): JSX.Element => {
   const {
     container,
-    headContainer,
-    title,
+    firstContainer,
+    firstLeftContainer,
+    firstTitle,
     buttonContainer,
     button,
-    cards,
-    cardContainer,
-    cardTitle,
-    cardText,
+    secondContainer,
+    secondTopContainer,
+    secondTopText,
+    secondTopTitle,
+    thirdContainer,
+    thirdLeftContainer,
+    thirdLeftTitle,
+    thirdLeftText,
+    fourthContainer,
+    fourthRightContainer,
+    fourthRightTitle,
+    fourthRightText,
+    fourthRightButtons,
+    emailButton,
+    subscribeButton,
     footer,
-    footerEmail,
     footerIconsContainer,
     iconsMargin,
   } = useStyles()
   return (
     <Container className={container}>
-      <div className={headContainer}>
-        <Typography className={title}>{'landing_title'.localized()}</Typography>
-        <Link className={buttonContainer} target={'_blank'} href="https://phuture.gitbook.io/phuture/">
-          <Button variant="outlined" classes={{ root: button }}>
-            {'landing_learn_button_text'.localized()}
-          </Button>
-        </Link>
+      <div className={firstContainer}>
+        <div className={firstLeftContainer}>
+          <p className={firstTitle}>{'landing_first_block_title'.localized()}</p>
+          <Link className={buttonContainer} target={'_blank'} href="https://phuture.gitbook.io/phuture/">
+            <Button variant="outlined" classes={{ root: button }}>
+              {'landing_first_block_button'.localized()}
+            </Button>
+          </Link>
+        </div>
+        <img style={{ width: '453px' }} src={FirstBoxIcon} alt={'tokens-icon'} />
       </div>
-      <div className={cards}>
-        <div className={cardContainer}>
-          <img src={StrategiesIcon} alt="strategies-icon" />
-          <Typography className={cardTitle}>{'landing_card1_title'.localized()}</Typography>
-          <Typography className={cardText}>{'landing_card1_text'.localized()}</Typography>
+      <div className={secondContainer}>
+        <div className={secondTopContainer}>
+          <span className={secondTopText}>{'landing_second_block_text'.localized()}</span>
+          <span className={secondTopTitle}>{'landing_second_block_title'.localized()}</span>
         </div>
-        <div className={cardContainer}>
-          <img src={PermissionIcon} alt="permission-icon" />
-          <Typography className={cardTitle}>{'landing_card2_title'.localized()}</Typography>
-          <Typography className={cardText}>{'landing_card2_text'.localized()}</Typography>
+        <img style={{ marginTop: '-20px' }} src={SecondBoxIcon} alt={'chart-icon'} />
+      </div>
+      <div className={thirdContainer}>
+        <div className={thirdLeftContainer}>
+          <span className={thirdLeftTitle}>{'landing_third_block_title'.localized()}</span>
+          <span className={thirdLeftText}>{'landing_third_block_text'.localized()}</span>
         </div>
-        <div className={cardContainer}>
-          <img src={RebalancingIcon} alt="rebalancing-icon" />
-          <Typography className={cardTitle}>{'landing_card3_title'.localized()}</Typography>
-          <Typography className={cardText}>{'landing_card3_text'.localized()}</Typography>
-        </div>
-        <div className={cardContainer}>
-          <img src={LiquidityLogo} alt="fees-icon" />
-          <Typography className={cardTitle}>{'landing_card4_title'.localized()}</Typography>
-          <Typography className={cardText}>{'landing_card4_text'.localized()}</Typography>
+        <img style={{ width: '627px', marginTop: '-100px' }} src={ThirdBoxIcon} alt={'liquidity-icon'} />
+      </div>
+      <div className={fourthContainer}>
+        <img style={{ width: '700px' }} src={FourthBoxIcon} alt={'protocol-lego-icon'} />
+        <div className={fourthRightContainer}>
+          <span className={fourthRightTitle}>{'landing_fourth_block_title'.localized()}</span>
+          <span className={fourthRightText}>{'landing_fourth_block_text'.localized()}</span>
+          <div className={fourthRightButtons}>
+            <Button className={emailButton}>{'landing_fourth_block_email_button'.localized()}</Button>
+            <Button className={subscribeButton}>{'landing_fourth_block_subscribe_button'.localized()}</Button>
+          </div>
         </div>
       </div>
       <div className={footer}>
-        <a href="mailto:info@phuture.finance" className={footerEmail}>
-          {'landing_mail_text'.localized()}
-        </a>
         <div className={footerIconsContainer}>
           <Link target="_blank" href="https://twitter.com/phuturedao">
             <img className={iconsMargin} src={TwitterIcon} alt="twitter-icon" />
