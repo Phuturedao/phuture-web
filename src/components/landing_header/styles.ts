@@ -5,21 +5,30 @@ export const useStyles = makeStyles({
   wrap: {
     display: 'flex',
     justifyContent: 'space-between',
+    flexDirection: 'row',
     alignItems: 'center',
     height: '52px',
     padding: '20px 30px',
     margin: 'auto',
     userSelect: 'none',
     fontFamily: 'GTWalsheim',
+    '@media (max-width: 575px)': {
+      flexDirection: 'column',
+      height: 'auto',
+    },
   },
   logoContainer: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  logo: {
-    ['@media (max-width:425px)']: {
-      width: '120px',
+  buttonsContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    '@media (max-width: 575px)': {
+      flexDirection: 'column',
+      alignItems: 'center',
+      width: '100%',
     },
   },
   blogButton: {
@@ -43,6 +52,11 @@ export const useStyles = makeStyles({
       background: 'transparent',
       opacity: 0.3,
     },
+    '@media (max-width: 575px)': {
+      width: '100%',
+      marginRight: 0,
+      margin: '16px 0',
+    },
   },
   appButton: {
     textDecoration: 'none',
@@ -65,17 +79,18 @@ export const useStyles = makeStyles({
       background: colors.blueButtonGradient,
       opacity: 0.3,
     },
-    ['@media (max-width:425px)']: {
-      fontSize: '12px',
-      width: '130px',
+    '@media (max-width: 575px)': {
+      width: '100%',
     },
   },
-  buttonContainer: {
+  blogButtonContainer: {
     textTransform: 'none',
     textDecoration: 'none',
-    marginTop: '40px',
     '&:hover': {
       textDecoration: 'none',
+    },
+    '@media (max-width: 575px)': {
+      width: '100%',
     },
   },
 })
