@@ -1,13 +1,16 @@
-import { Button, Container, Link } from '@material-ui/core'
-import DiscordIcon from 'assets/icons/landing/DiscordIcon.svg'
+import { Button, Container, Input, Link } from '@material-ui/core'
 import FirstBoxIcon from 'assets/icons/landing/FirstBoxIcon.svg'
 import FourthBoxIcon from 'assets/icons/landing/FourthBoxIcon.svg'
-import GithubIcon from 'assets/icons/landing/GithubIcon.svg'
 import MediumIcon from 'assets/icons/landing/MediumIcon.svg'
 import SecondBoxIcon from 'assets/icons/landing/SecondBoxIcon.svg'
+import SecondBoxIconSmall from 'assets/icons/landing/SecondBoxIconSmall.svg'
 import ThirdBoxIcon from 'assets/icons/landing/ThirdBoxIcon.svg'
+import LinkedInIcon from 'assets/icons/landing/LinkedInIcon.svg'
 import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
+import TelegramIcon from 'assets/icons/landing/TelegramIcon.svg'
+import { CustomCheckbox } from 'components/landing_checkbox'
 import React from 'react'
+import useWindowDimensions from 'services/resizeManager'
 import { useStyles } from './styles'
 
 const Landing = (): JSX.Element => {
@@ -18,25 +21,36 @@ const Landing = (): JSX.Element => {
     firstTitle,
     buttonContainer,
     button,
+    firstImg,
     secondContainer,
     secondTopContainer,
     secondTopText,
     secondTopTitle,
+    secondImg,
     thirdContainer,
     thirdLeftContainer,
     thirdLeftTitle,
     thirdLeftText,
+    thirdImg,
     fourthContainer,
     fourthRightContainer,
     fourthRightTitle,
     fourthRightText,
     fourthRightButtons,
+    fourthImg,
     emailButton,
     subscribeButton,
+    updatesBox,
+    updatesText,
+    updatesTextBold,
+    updatesCheckbox,
     footer,
     footerIconsContainer,
     iconsMargin,
   } = useStyles()
+
+  const { width } = useWindowDimensions()
+
   return (
     <Container className={container}>
       <div className={firstContainer}>
@@ -48,46 +62,61 @@ const Landing = (): JSX.Element => {
             </Button>
           </Link>
         </div>
-        <img style={{ width: '453px' }} src={FirstBoxIcon} alt={'tokens-icon'} />
+        <img className={firstImg} src={FirstBoxIcon} alt={'tokens-icon'} />
       </div>
       <div className={secondContainer}>
         <div className={secondTopContainer}>
           <span className={secondTopText}>{'landing_second_block_text'.localized()}</span>
           <span className={secondTopTitle}>{'landing_second_block_title'.localized()}</span>
         </div>
-        <img style={{ marginTop: '-20px' }} src={SecondBoxIcon} alt={'chart-icon'} />
+        <img className={secondImg} src={width > 575 ? SecondBoxIcon : SecondBoxIconSmall} alt={'chart-icon'} />
       </div>
       <div className={thirdContainer}>
         <div className={thirdLeftContainer}>
           <span className={thirdLeftTitle}>{'landing_third_block_title'.localized()}</span>
           <span className={thirdLeftText}>{'landing_third_block_text'.localized()}</span>
         </div>
-        <img style={{ width: '627px', marginTop: '-100px' }} src={ThirdBoxIcon} alt={'liquidity-icon'} />
+        <img className={thirdImg} src={ThirdBoxIcon} alt={'liquidity-icon'} />
       </div>
       <div className={fourthContainer}>
-        <img style={{ width: '700px' }} src={FourthBoxIcon} alt={'protocol-lego-icon'} />
+        {width > 575 && <img className={fourthImg} src={FourthBoxIcon} alt={'protocol-lego-icon'} />}
         <div className={fourthRightContainer}>
           <span className={fourthRightTitle}>{'landing_fourth_block_title'.localized()}</span>
           <span className={fourthRightText}>{'landing_fourth_block_text'.localized()}</span>
+          {width <= 575 && <img className={fourthImg} src={FourthBoxIcon} alt={'protocol-lego-icon'} />}
           <div className={fourthRightButtons}>
-            <Button className={emailButton}>{'landing_fourth_block_email_button'.localized()}</Button>
+            <Input
+              type={'email'}
+              inputProps={{ min: 0, style: { textAlign: 'center' } }}
+              className={emailButton}
+              placeholder={'landing_fourth_block_email_button'.localized()}
+            ></Input>
             <Button className={subscribeButton}>{'landing_fourth_block_subscribe_button'.localized()}</Button>
+          </div>
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+            <div className={updatesBox}>
+              <span className={updatesText}>
+                Yes, send me updates and information relating to <span className={updatesTextBold}>Phuture</span> and
+                its ecosystem
+              </span>
+              <CustomCheckbox className={updatesCheckbox} />
+            </div>
           </div>
         </div>
       </div>
       <div className={footer}>
         <div className={footerIconsContainer}>
-          <Link target="_blank" href="https://twitter.com/phuturedao">
-            <img className={iconsMargin} src={TwitterIcon} alt="twitter-icon" />
+          <Link target="_blank" href="https://www.linkedin.com/company/phuture-finance/">
+            <img className={iconsMargin} src={LinkedInIcon} alt="linked-in-icon" />
           </Link>
           <Link target={'_blank'} href="https://phuture-finance.medium.com/">
             <img className={iconsMargin} src={MediumIcon} alt="medium-icon" />
           </Link>
-          <Link target={'_blank'} href="https://discord.com/invite/frRD3Ck">
-            <img className={iconsMargin} src={DiscordIcon} alt="discord-icon" />
+          <Link target="_blank" href="https://t.me/phuture_group">
+            <img className={iconsMargin} src={TelegramIcon} alt="telegram-icon" />
           </Link>
-          <Link target={'_blank'} href="https://github.com/Phuturedao/">
-            <img src={GithubIcon} alt="github-icon" />
+          <Link target="_blank" href="https://twitter.com/phuturedao">
+            <img className={iconsMargin} src={TwitterIcon} alt="twitter-icon" />
           </Link>
         </div>
       </div>
