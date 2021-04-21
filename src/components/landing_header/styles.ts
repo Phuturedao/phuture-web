@@ -8,13 +8,18 @@ export const useStyles = makeStyles({
     flexDirection: 'row',
     alignItems: 'center',
     height: '52px',
-    padding: '20px 30px',
+    padding: '78px 0',
     margin: 'auto',
     userSelect: 'none',
     fontFamily: 'GTWalsheim',
-    '@media (max-width: 575px)': {
+    maxWidth: '1200px',
+    '@media (max-width: 900px)': {
+      padding: '40px 0',
+    },
+    '@media (max-width: 670px)': {
       flexDirection: 'column',
       height: 'auto',
+      padding: '20px 0',
     },
   },
   logoContainer: {
@@ -25,7 +30,7 @@ export const useStyles = makeStyles({
   buttonsContainer: {
     display: 'flex',
     flexDirection: 'row',
-    '@media (max-width: 575px)': {
+    '@media (max-width: 670px)': {
       flexDirection: 'column',
       alignItems: 'center',
       width: '100%',
@@ -52,7 +57,7 @@ export const useStyles = makeStyles({
       background: 'transparent',
       opacity: 0.3,
     },
-    '@media (max-width: 575px)': {
+    '@media (max-width: 670px)': {
       width: '100%',
       marginRight: 0,
       margin: '16px 0',
@@ -79,7 +84,7 @@ export const useStyles = makeStyles({
       background: colors.blueButtonGradient,
       opacity: 0.3,
     },
-    '@media (max-width: 575px)': {
+    '@media (max-width: 670px)': {
       width: '100%',
     },
   },
@@ -89,7 +94,7 @@ export const useStyles = makeStyles({
     '&:hover': {
       textDecoration: 'none',
     },
-    '@media (max-width: 575px)': {
+    '@media (max-width: 670px)': {
       width: '100%',
     },
   },

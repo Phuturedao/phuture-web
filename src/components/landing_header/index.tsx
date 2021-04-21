@@ -1,5 +1,5 @@
 import { Button, Link } from '@material-ui/core'
-import HeaderLogo from 'assets/icons/HeaderLogo.svg'
+import HeaderLogo from 'assets/icons/headerIcon.svg'
 import React from 'react'
 import { useStyles } from './styles'
 

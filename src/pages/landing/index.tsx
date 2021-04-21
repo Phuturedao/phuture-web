@@ -1,4 +1,4 @@
-import { Button, Container, Input, Link } from '@material-ui/core'
+import { Button, Container, FormControlLabel, Input, Link } from '@material-ui/core'
 import FirstBoxIcon from 'assets/icons/landing/FirstBoxIcon.svg'
 import FourthBoxIcon from 'assets/icons/landing/FourthBoxIcon.svg'
 import MediumIcon from 'assets/icons/landing/MediumIcon.svg'
@@ -9,9 +9,10 @@ import LinkedInIcon from 'assets/icons/landing/LinkedInIcon.svg'
 import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
 import TelegramIcon from 'assets/icons/landing/TelegramIcon.svg'
 import { CustomCheckbox } from 'components/landing_checkbox'
-import React from 'react'
+import React, { useState } from 'react'
 import useWindowDimensions from 'services/resizeManager'
 import { useStyles } from './styles'
+import { LandingHeader } from 'components/landing_header'
 
 const Landing = (): JSX.Element => {
   const {
@@ -44,18 +45,21 @@ const Landing = (): JSX.Element => {
     updatesText,
     updatesTextBold,
     updatesCheckbox,
+    labelStyles,
     footer,
     footerIconsContainer,
     iconsMargin,
   } = useStyles()
 
   const { width } = useWindowDimensions()
+  const [checked, setChecked] = useState<boolean>(false)
 
   return (
     <Container className={container}>
+      <LandingHeader />
       <div className={firstContainer}>
         <div className={firstLeftContainer}>
-          <p className={firstTitle}>{'landing_first_block_title'.localized()}</p>
+          <h1 className={firstTitle}>{'landing_first_block_title'.localized()}</h1>
           <Link className={buttonContainer} target={'_blank'} href="https://phuture.gitbook.io/phuture/">
             <Button variant="outlined" classes={{ root: button }}>
               {'landing_first_block_button'.localized()}
@@ -95,11 +99,25 @@ const Landing = (): JSX.Element => {
           </div>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
             <div className={updatesBox}>
-              <span className={updatesText}>
-                Yes, send me updates and information relating to <span className={updatesTextBold}>Phuture</span> and
-                its ecosystem
-              </span>
-              <CustomCheckbox className={updatesCheckbox} />
+              <FormControlLabel
+                labelPlacement="start"
+                classes={{ labelPlacementStart: labelStyles }}
+                control={
+                  <CustomCheckbox
+                    className={updatesCheckbox}
+                    checked={checked}
+                    onChange={() => setChecked(!checked)}
+                    name="checkedB"
+                    color="primary"
+                  />
+                }
+                label={
+                  <div className={updatesText}>
+                    Yes, send me updates and information relating to <span className={updatesTextBold}>Phuture</span>{' '}
+                    and its ecosystem
+                  </div>
+                }
+              />
             </div>
           </div>
         </div>
