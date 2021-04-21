@@ -1,81 +1,381 @@
-import { Button, Container, Typography, Link } from '@material-ui/core'
-import React from 'react'
-import { useStyles } from './styles'
-import StrategiesIcon from 'assets/icons/landing/StrategiesIcon.svg'
-import PermissionIcon from 'assets/icons/landing/PermissionIcon.svg'
-import RebalancingIcon from 'assets/icons/landing/RebalancingIcon.svg'
-import LiquidityLogo from 'assets/icons/landing/LiquidityLogo.svg'
-
-import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
+import { Button, Container, FormControlLabel, Input, Link } from '@material-ui/core'
+import FirstBoxIcon from 'assets/icons/landing/FirstBoxIcon.svg'
+import FourthBoxIcon from 'assets/icons/landing/FourthBoxIcon.svg'
 import MediumIcon from 'assets/icons/landing/MediumIcon.svg'
+import SecondBoxIcon from 'assets/icons/landing/SecondBoxIcon.svg'
+import SecondBoxIconSmall from 'assets/icons/landing/SecondBoxIconSmall.svg'
+import ThirdBoxIcon from 'assets/icons/landing/ThirdBoxIcon.svg'
+import LinkedInIcon from 'assets/icons/landing/LinkedInIcon.svg'
+import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
+import TelegramIcon from 'assets/icons/landing/TelegramIcon.svg'
+import GitbookIcon from 'assets/icons/landing/GitbookIcon.svg'
+import GitIcon from 'assets/icons/landing/GitIcon.svg'
 import DiscordIcon from 'assets/icons/landing/DiscordIcon.svg'
-import GithubIcon from 'assets/icons/landing/GithubIcon.svg'
+import { CustomCheckbox } from 'components/landing_checkbox'
+import React, { useState } from 'react'
+import useWindowDimensions from 'services/resizeManager'
+import { useStyles } from './styles'
+import { LandingHeader } from 'components/landing_header'
+import { notifyError, notifySuccess } from 'App'
+import logo_1 from 'assets/icons/landing/partners/logo_1.svg'
+import logo_2 from 'assets/icons/landing/partners/logo_2.svg'
+import logo_3 from 'assets/icons/landing/partners/logo_3.svg'
+import logo_4 from 'assets/icons/landing/partners/logo_4.svg'
+import logo_5 from 'assets/icons/landing/partners/logo_5.svg'
+import logo_6 from 'assets/icons/landing/partners/logo_6.svg'
+import logo_7 from 'assets/icons/landing/partners/logo_7.svg'
+import logo_8 from 'assets/icons/landing/partners/logo_8.svg'
+import logo_9 from 'assets/icons/landing/partners/logo_9.svg'
+import logo_10 from 'assets/icons/landing/partners/logo_10.svg'
+import angel_1 from 'assets/icons/landing/partners/angel_1.svg'
+import angel_2 from 'assets/icons/landing/partners/angel_2.svg'
+import { colors } from 'utils/mui'
 
 const Landing = (): JSX.Element => {
   const {
     container,
-    headContainer,
-    title,
+    firstContainer,
+    firstLeftContainer,
+    firstTitle,
     buttonContainer,
     button,
-    cards,
-    cardContainer,
-    cardTitle,
-    cardText,
+    firstImg,
+    secondContainer,
+    secondTopContainer,
+    secondTopText,
+    secondTopTitle,
+    secondImg,
+    thirdContainer,
+    thirdLeftContainer,
+    thirdLeftTitle,
+    thirdLeftText,
+    thirdImg,
+    fourthContainer,
+    fourthRightContainer,
+    fourthRightTitle,
+    fourthRightText,
+    fourthRightButtons,
+    fourthImg,
+    emailButton,
+    subscribeButton,
+    updatesBox,
+    updatesText,
+    updatesTextBold,
+    updatesCheckbox,
+    labelStyles,
+    partnersContainer,
+    partnersTitle,
+    partnerItem,
+    threeItemsRow,
+    fourItemsRow,
+    twoItemsRow,
+    oneItem,
+    angelsContainer,
+    angelItem,
     footer,
-    footerEmail,
     footerIconsContainer,
     iconsMargin,
   } = useStyles()
+
+  const { width, height } = useWindowDimensions()
+  const [checked, setChecked] = useState<boolean>(false)
+  const [email, setEmail] = useState<string>('')
+  const partnersArr = [
+    {
+      name: 'landing_partners_item_1'.localized(),
+      link: 'https://ascensiveassets.com',
+      isClickable: true,
+      logo: logo_1,
+    },
+    { name: 'landing_partners_item_2'.localized(), link: 'https://www.ngc.fund/', isClickable: true, logo: logo_2 },
+    { name: 'landing_partners_item_3'.localized(), link: 'http://www.7xvc.com/', isClickable: true, logo: logo_3 },
+    {
+      name: 'landing_partners_item_4'.localized(),
+      link: 'https://www.theorigincapital.com/',
+      isClickable: true,
+      logo: logo_4,
+    },
+    { name: 'landing_partners_item_5'.localized(), link: 'http://waterdrip.io/', isClickable: true, logo: logo_5 },
+    {
+      name: 'landing_partners_item_6'.localized(),
+      link: 'https://www.moonrockcapital.io/',
+      isClickable: true,
+      logo: logo_6,
+    },
+    { name: 'landing_partners_item_7'.localized(), link: 'https://d64.vc/', isClickable: true, logo: logo_7 },
+    { name: 'landing_partners_item_8'.localized(), link: 'https://genblock.capital/', isClickable: true, logo: logo_8 },
+    { name: 'landing_partners_item_9'.localized(), link: '', isClickable: false, logo: logo_9 },
+    {
+      name: 'landing_partners_item_10'.localized(),
+      link: 'https://www.vendetta.capital/',
+      isClickable: true,
+      logo: logo_10,
+    },
+  ]
+
+  const sendSubscribe = (email: string) => {
+    fetch('https://phuture.pragma-dev.space/subscribe', {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+      }),
+    })
+      .then((response) => {
+        console.log('response: ', response)
+        if (response.status !== 201) {
+          notifyError()
+        } else {
+          notifySuccess()
+        }
+        return response.json()
+      })
+      .then((data) => console.log('data: ', data))
+  }
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value)
+  }
+
+  console.log('width: ', width)
+
   return (
     <Container className={container}>
-      <div className={headContainer}>
-        <Typography className={title}>{'landing_title'.localized()}</Typography>
-        <Link className={buttonContainer} target={'_blank'} href="https://phuture.gitbook.io/phuture/">
-          <Button variant="outlined" classes={{ root: button }}>
-            {'landing_learn_button_text'.localized()}
-          </Button>
-        </Link>
+      <LandingHeader />
+      <div style={{ marginTop: height < 750 ? '2%' : '7%' }} className={firstContainer}>
+        <div className={firstLeftContainer}>
+          <h1 className={firstTitle}>{'landing_first_block_title'.localized()}</h1>
+          <Link
+            rel="noreferrer"
+            className={buttonContainer}
+            target={'_blank'}
+            href="https://phuture.gitbook.io/phuture/"
+          >
+            <Button variant="outlined" classes={{ root: button }}>
+              {'landing_first_block_button'.localized()}
+            </Button>
+          </Link>
+        </div>
+        <img className={firstImg} src={FirstBoxIcon} alt={'tokens-icon'} />
       </div>
-      <div className={cards}>
-        <div className={cardContainer}>
-          <img src={StrategiesIcon} alt="strategies-icon" />
-          <Typography className={cardTitle}>{'landing_card1_title'.localized()}</Typography>
-          <Typography className={cardText}>{'landing_card1_text'.localized()}</Typography>
+      <div className={secondContainer}>
+        <div className={secondTopContainer}>
+          <span className={secondTopText}>{'landing_second_block_text'.localized()}</span>
+          <span className={secondTopTitle}>{'landing_second_block_title'.localized()}</span>
         </div>
-        <div className={cardContainer}>
-          <img src={PermissionIcon} alt="permission-icon" />
-          <Typography className={cardTitle}>{'landing_card2_title'.localized()}</Typography>
-          <Typography className={cardText}>{'landing_card2_text'.localized()}</Typography>
+        <img className={secondImg} src={width > 575 ? SecondBoxIcon : SecondBoxIconSmall} alt={'chart-icon'} />
+      </div>
+      <div className={thirdContainer}>
+        <div className={thirdLeftContainer}>
+          <span className={thirdLeftTitle}>{'landing_third_block_title'.localized()}</span>
+          <span className={thirdLeftText}>{'landing_third_block_text'.localized()}</span>
         </div>
-        <div className={cardContainer}>
-          <img src={RebalancingIcon} alt="rebalancing-icon" />
-          <Typography className={cardTitle}>{'landing_card3_title'.localized()}</Typography>
-          <Typography className={cardText}>{'landing_card3_text'.localized()}</Typography>
-        </div>
-        <div className={cardContainer}>
-          <img src={LiquidityLogo} alt="fees-icon" />
-          <Typography className={cardTitle}>{'landing_card4_title'.localized()}</Typography>
-          <Typography className={cardText}>{'landing_card4_text'.localized()}</Typography>
+        <img className={thirdImg} src={ThirdBoxIcon} alt={'liquidity-icon'} />
+      </div>
+      <div className={fourthContainer}>
+        {width > 575 && <img className={fourthImg} src={FourthBoxIcon} alt={'protocol-lego-icon'} />}
+        <div className={fourthRightContainer}>
+          <span className={fourthRightTitle}>{'landing_fourth_block_title'.localized()}</span>
+          <span className={fourthRightText}>{'landing_fourth_block_text'.localized()}</span>
+          {width <= 575 && <img className={fourthImg} src={FourthBoxIcon} alt={'protocol-lego-icon'} />}
         </div>
       </div>
+      {/* <div className={partnersContainer}>
+        <span>{'landing_partners_title'.localized()}</span>
+        <div>
+          {partnersArr.map((item) =>
+            item.isClickable ? (
+              <Link className={partnerItem} target="_blank" rel="noreferrer" href={item.link}>
+                <img src={item.logo} />
+              </Link>
+            ) : (
+              <img src={item.logo} />
+            ),
+          )}
+        </div>
+      </div> */}
+      {width > 1070 ? (
+        <div className={partnersContainer}>
+          <span className={partnersTitle}>{'landing_partners_title'.localized()}</span>
+          <div className={threeItemsRow}>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[0].link}>
+              <img src={partnersArr[0].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[1].link}>
+              <img src={partnersArr[1].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[2].link}>
+              <img src={partnersArr[2].logo} />
+            </Link>
+          </div>
+          <div className={threeItemsRow}>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[3].link}>
+              <img src={partnersArr[3].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[4].link}>
+              <img src={partnersArr[4].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[5].link}>
+              <img src={partnersArr[5].logo} />
+            </Link>
+          </div>
+          <div className={fourItemsRow}>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[6].link}>
+              <img src={partnersArr[6].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[7].link}>
+              <img src={partnersArr[7].logo} />
+            </Link>
+            <div className={partnerItem}>
+              <img src={partnersArr[8].logo} />
+            </div>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[9].link}>
+              <img src={partnersArr[9].logo} />
+            </Link>
+          </div>
+        </div>
+      ) : width > 870 && width < 1070 ? (
+        <div className={partnersContainer}>
+          <span className={partnersTitle}>{'landing_partners_title'.localized()}</span>
+          <div className={twoItemsRow}>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[0].link}>
+              <img src={partnersArr[0].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[1].link}>
+              <img src={partnersArr[1].logo} />
+            </Link>
+          </div>
+          <div className={twoItemsRow}>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[2].link}>
+              <img src={partnersArr[2].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[3].link}>
+              <img src={partnersArr[3].logo} />
+            </Link>
+          </div>
+          <div className={twoItemsRow}>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[4].link}>
+              <img src={partnersArr[4].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[5].link}>
+              <img src={partnersArr[5].logo} />
+            </Link>
+          </div>
+          <div className={twoItemsRow}>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[6].link}>
+              <img src={partnersArr[6].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[7].link}>
+              <img src={partnersArr[7].logo} />
+            </Link>
+          </div>
+          <div className={twoItemsRow}>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[8].link}>
+              <img src={partnersArr[8].logo} />
+            </Link>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[9].link}>
+              <img src={partnersArr[9].logo} />
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div className={partnersContainer}>
+          <span className={partnersTitle}>{'landing_partners_title'.localized()}</span>
+          {partnersArr.map((item, index) => (
+            <Link key={index} className={oneItem} target="_blank" rel="noreferrer" href={item.link}>
+              <img src={item.logo} />
+            </Link>
+          ))}
+        </div>
+      )}
+      <div style={{ textAlign: 'center', width: '100%', marginTop: '50px' }}>
+        <span className={partnersTitle}>{'landing_partners_angels_title'.localized()}</span>
+      </div>
+      <div className={angelsContainer}>
+        <div className={angelItem}>
+          <img src={angel_1} />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontSize: '36px', color: colors.white }}>{'landing_partners_angel_1_name'.localized()}</span>
+            <span style={{ fontSize: '18px', color: colors.white }}>
+              {'landing_partners_angel_1_title'.localized()}
+            </span>
+          </div>
+        </div>
+        <div className={angelItem}>
+          <img src={angel_2} />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontSize: '36px', color: colors.white }}>{'landing_partners_angel_2_name'.localized()}</span>
+            <span style={{ fontSize: '18px', color: colors.white }}>
+              {'landing_partners_angel_2_title'.localized()}
+            </span>
+          </div>
+        </div>
+      </div>
+
       <div className={footer}>
-        <a href="mailto:info@phuture.finance" className={footerEmail}>
-          {'landing_mail_text'.localized()}
-        </a>
         <div className={footerIconsContainer}>
-          <Link target="_blank" href="https://twitter.com/phuturedao">
-            <img className={iconsMargin} src={TwitterIcon} alt="twitter-icon" />
+          <Link target="_blank" rel="noreferrer" href="https://phuture.gitbook.io/phuture/">
+            <img className={iconsMargin} src={GitbookIcon} alt="gitbook-in-icon" />
           </Link>
-          <Link target={'_blank'} href="https://phuture-finance.medium.com/">
-            <img className={iconsMargin} src={MediumIcon} alt="medium-icon" />
+          <Link target="_blank" rel="noreferrer" href="https://github.com/Phuturedao">
+            <img className={iconsMargin} src={GitIcon} alt="github-in-icon" />
           </Link>
-          <Link target={'_blank'} href="https://discord.com/invite/frRD3Ck">
+          <Link target="_blank" rel="noreferrer" href="http://discord.gg/frRD3Ck">
             <img className={iconsMargin} src={DiscordIcon} alt="discord-icon" />
           </Link>
-          <Link target={'_blank'} href="https://github.com/Phuturedao/">
-            <img src={GithubIcon} alt="github-icon" />
+          <Link target="_blank" rel="noreferrer" href="https://www.linkedin.com/company/phuture-finance/">
+            <img className={iconsMargin} src={LinkedInIcon} alt="linked-in-icon" />
           </Link>
+          <Link target={'_blank'} rel="noreferrer" href="https://phuture-finance.medium.com/">
+            <img className={iconsMargin} src={MediumIcon} alt="medium-icon" />
+          </Link>
+          <Link target="_blank" rel="noreferrer" href="https://t.me/phuture_group">
+            <img className={iconsMargin} src={TelegramIcon} alt="telegram-icon" />
+          </Link>
+          <Link target="_blank" rel="noreferrer" href="https://twitter.com/phuturedao">
+            <img className={iconsMargin} src={TwitterIcon} alt="twitter-icon" />
+          </Link>
+        </div>
+        <div>
+          <div className={fourthRightButtons}>
+            <Input
+              type={'email'}
+              inputProps={{ min: 0, style: { textAlign: 'center' } }}
+              className={emailButton}
+              placeholder={'landing_fourth_block_email_button'.localized()}
+              onChange={handleChange}
+              value={email}
+            ></Input>
+            <Button onClick={() => sendSubscribe(email)} className={subscribeButton}>
+              {'landing_fourth_block_subscribe_button'.localized()}
+            </Button>
+          </div>
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+            <div className={updatesBox}>
+              <FormControlLabel
+                labelPlacement="start"
+                classes={{ labelPlacementStart: labelStyles }}
+                control={
+                  <CustomCheckbox
+                    className={updatesCheckbox}
+                    checked={checked}
+                    onChange={() => setChecked(!checked)}
+                    name="checkedB"
+                    color="primary"
+                  />
+                }
+                label={
+                  <div className={updatesText}>
+                    Yes, send me updates and information relating to <span className={updatesTextBold}>Phuture</span>{' '}
+                    and its ecosystem
+                  </div>
+                }
+              />
+            </div>
+          </div>
         </div>
       </div>
     </Container>

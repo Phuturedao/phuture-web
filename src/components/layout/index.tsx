@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { makeStyles } from '@material-ui/core/styles'
-import { LandingHeader } from 'components/landing_header'
 import React from 'react'
 import { colors } from 'utils/mui'
 
@@ -11,7 +10,7 @@ const useStyles = makeStyles({
   },
   landingWrap: {
     height: '100%',
-    background: `radial-gradient(192.14% 212.11% at 50% 212.11%, ${colors.firstGradientColor} 0%, ${colors.secondGradientColor} 100%)`,
+    background: `radial-gradient(50% 50% at 50% 50%, ${colors.firstGradientColor} 0%, ${colors.secondGradientColor} 100%)`,
   },
 })
 
@@ -21,7 +20,6 @@ export const Layout = ({ children }: any) => {
   return (
     <>
       <div className={landingWrap}>
-        <LandingHeader />
         <div className={landingContent}>{children}</div>
       </div>
     </>
