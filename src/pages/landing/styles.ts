@@ -424,6 +424,7 @@ export const useStyles = makeStyles({
     justifyContent: 'space-between',
     maxWidth: '600px',
     marginTop: '20px',
+    margin: '40px auto',
     ['@media (max-width:550px)']: {
       flexDirection: 'column',
     },
