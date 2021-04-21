@@ -13,7 +13,6 @@ export const useStyles = makeStyles({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '7%',
     '@media (max-width: 575px)': {
       flexDirection: 'column',
       justifyContent: 'center',
@@ -86,7 +85,7 @@ export const useStyles = makeStyles({
     },
   },
   secondContainer: {
-    marginTop: '22%',
+    marginTop: '12%',
     display: 'flex',
     flexDirection: 'column',
     '@media (max-width: 575px)': {
@@ -147,7 +146,7 @@ export const useStyles = makeStyles({
   thirdContainer: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: '27%',
+    marginTop: '5%',
     '@media (max-width: 575px)': {
       flexDirection: 'column',
       marginTop: '50px',
@@ -203,7 +202,7 @@ export const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '23%',
+    marginTop: '-3%',
     '@media (max-width: 575px)': {
       marginTop: '50px',
     },
