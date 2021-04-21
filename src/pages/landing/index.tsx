@@ -8,6 +8,9 @@ import ThirdBoxIcon from 'assets/icons/landing/ThirdBoxIcon.svg'
 import LinkedInIcon from 'assets/icons/landing/LinkedInIcon.svg'
 import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
 import TelegramIcon from 'assets/icons/landing/TelegramIcon.svg'
+import GitbookIcon from 'assets/icons/landing/GitbookIcon.svg'
+import GitIcon from 'assets/icons/landing/GitIcon.svg'
+import DiscordIcon from 'assets/icons/landing/DiscordIcon.svg'
 import { CustomCheckbox } from 'components/landing_checkbox'
 import React, { useState } from 'react'
 import useWindowDimensions from 'services/resizeManager'
@@ -51,16 +54,21 @@ const Landing = (): JSX.Element => {
     iconsMargin,
   } = useStyles()
 
-  const { width } = useWindowDimensions()
+  const { width, height } = useWindowDimensions()
   const [checked, setChecked] = useState<boolean>(false)
 
   return (
     <Container className={container}>
       <LandingHeader />
-      <div className={firstContainer}>
+      <div style={{ marginTop: height < 750 ? '2%' : '7%' }} className={firstContainer}>
         <div className={firstLeftContainer}>
           <h1 className={firstTitle}>{'landing_first_block_title'.localized()}</h1>
-          <Link className={buttonContainer} target={'_blank'} href="https://phuture.gitbook.io/phuture/">
+          <Link
+            rel="noreferrer"
+            className={buttonContainer}
+            target={'_blank'}
+            href="https://phuture.gitbook.io/phuture/"
+          >
             <Button variant="outlined" classes={{ root: button }}>
               {'landing_first_block_button'.localized()}
             </Button>
@@ -124,16 +132,25 @@ const Landing = (): JSX.Element => {
       </div>
       <div className={footer}>
         <div className={footerIconsContainer}>
-          <Link target="_blank" href="https://www.linkedin.com/company/phuture-finance/">
+          <Link target="_blank" rel="noreferrer" href="https://phuture.gitbook.io/phuture/">
+            <img className={iconsMargin} src={GitbookIcon} alt="gitbook-in-icon" />
+          </Link>
+          <Link target="_blank" rel="noreferrer" href="https://github.com/Phuturedao">
+            <img className={iconsMargin} src={GitIcon} alt="github-in-icon" />
+          </Link>
+          <Link target="_blank" rel="noreferrer" href="http://discord.gg/frRD3Ck">
+            <img className={iconsMargin} src={DiscordIcon} alt="discord-icon" />
+          </Link>
+          <Link target="_blank" rel="noreferrer" href="https://www.linkedin.com/company/phuture-finance/">
             <img className={iconsMargin} src={LinkedInIcon} alt="linked-in-icon" />
           </Link>
-          <Link target={'_blank'} href="https://phuture-finance.medium.com/">
+          <Link target={'_blank'} rel="noreferrer" href="https://phuture-finance.medium.com/">
             <img className={iconsMargin} src={MediumIcon} alt="medium-icon" />
           </Link>
-          <Link target="_blank" href="https://t.me/phuture_group">
+          <Link target="_blank" rel="noreferrer" href="https://t.me/phuture_group">
             <img className={iconsMargin} src={TelegramIcon} alt="telegram-icon" />
           </Link>
-          <Link target="_blank" href="https://twitter.com/phuturedao">
+          <Link target="_blank" rel="noreferrer" href="https://twitter.com/phuturedao">
             <img className={iconsMargin} src={TwitterIcon} alt="twitter-icon" />
           </Link>
         </div>

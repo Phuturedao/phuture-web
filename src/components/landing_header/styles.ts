@@ -88,6 +88,12 @@ export const useStyles = makeStyles({
       width: '100%',
     },
   },
+  disabledAppButton: {
+    background: colors.defaultGrey,
+    color: `${colors.black} !important`,
+    opacity: 1,
+    border: 'none',
+  },
   blogButtonContainer: {
     textTransform: 'none',
     textDecoration: 'none',
