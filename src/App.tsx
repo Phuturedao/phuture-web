@@ -7,8 +7,13 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import { LANDING } from 'routes'
 import 'services/i18n'
 import { themeConfig } from 'utils/mui'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import Landing from './pages/landing'
+
+export const notifyError = () => toast.error('Email is not valid')
+export const notifySuccess = () => toast.success('You are subscribed')
 
 const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,6 +35,15 @@ const App = () => {
           </Layout>
         </Router>
       </MuiThemeProvider>
+      <ToastContainer
+        position="top-right"
+        hideProgressBar={false}
+        newestOnTop={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Web3ReactProvider>
   )
 }
