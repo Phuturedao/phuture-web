@@ -377,6 +377,12 @@ export const useStyles = makeStyles({
     lineHeight: '79px',
     color: colors.white,
     marginBottom: '40px',
+    marginTop: '20px',
+    '@media (max-width: 575px)': {
+      fontSize: '2.5rem',
+      margin: '30px 0',
+      lineHeight: '50px',
+    },
   },
   partnerItem: {
     display: 'flex',
@@ -386,6 +392,11 @@ export const useStyles = makeStyles({
     width: '-webkit-fill-available',
     color: colors.white,
     marginRight: '50px',
+    transition: 'all 0.4s',
+    '&:hover': {
+      textDecoration: 'none',
+      opacity: 0.6,
+    },
   },
   threeItemsRow: {
     display: 'flex',
@@ -417,6 +428,11 @@ export const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     margin: '20px 0',
+    transition: 'all 0.4s',
+    '&:hover': {
+      textDecoration: 'none',
+      opacity: 0.6,
+    },
   },
   angelsContainer: {
     display: 'flex',
@@ -432,6 +448,11 @@ export const useStyles = makeStyles({
   angelItem: {
     display: 'flex',
     flexDirection: 'column',
+    transition: 'all 0.4s',
+    '&:hover': {
+      textDecoration: 'none',
+      opacity: 0.6,
+    },
     ['@media (max-width:550px)']: {
       margin: '40px',
     },
@@ -456,5 +477,9 @@ export const useStyles = makeStyles({
   },
   iconsMargin: {
     marginRight: '12px',
+    transition: 'all 0.4s',
+    '&:hover': {
+      opacity: 0.6,
+    },
   },
 })

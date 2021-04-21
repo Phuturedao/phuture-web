@@ -84,31 +84,26 @@ const Landing = (): JSX.Element => {
     {
       name: 'landing_partners_item_1'.localized(),
       link: 'https://ascensiveassets.com',
-      isClickable: true,
       logo: logo_1,
     },
-    { name: 'landing_partners_item_2'.localized(), link: 'https://www.ngc.fund/', isClickable: true, logo: logo_2 },
-    { name: 'landing_partners_item_3'.localized(), link: 'http://www.7xvc.com/', isClickable: true, logo: logo_3 },
+    { name: 'landing_partners_item_2'.localized(), link: 'https://www.ngc.fund/', logo: logo_2 },
+    { name: 'landing_partners_item_3'.localized(), link: 'http://www.7xvc.com/', logo: logo_3 },
     {
       name: 'landing_partners_item_4'.localized(),
       link: 'https://www.theorigincapital.com/',
-      isClickable: true,
       logo: logo_4,
     },
-    { name: 'landing_partners_item_5'.localized(), link: 'http://waterdrip.io/', isClickable: true, logo: logo_5 },
+    { name: 'landing_partners_item_5'.localized(), link: 'http://waterdrip.io/', logo: logo_5 },
     {
       name: 'landing_partners_item_6'.localized(),
       link: 'https://www.moonrockcapital.io/',
-      isClickable: true,
       logo: logo_6,
     },
-    { name: 'landing_partners_item_7'.localized(), link: 'https://d64.vc/', isClickable: true, logo: logo_7 },
-    { name: 'landing_partners_item_8'.localized(), link: 'https://genblock.capital/', isClickable: true, logo: logo_8 },
-    { name: 'landing_partners_item_9'.localized(), link: '', isClickable: false, logo: logo_9 },
+    { name: 'landing_partners_item_7'.localized(), link: 'https://d64.vc/', logo: logo_7 },
+    { name: 'landing_partners_item_8'.localized(), link: 'https://genblock.capital/', logo: logo_8 },
     {
       name: 'landing_partners_item_10'.localized(),
       link: 'https://www.vendetta.capital/',
-      isClickable: true,
       logo: logo_10,
     },
   ]
@@ -183,20 +178,6 @@ const Landing = (): JSX.Element => {
           {width <= 575 && <img className={fourthImg} src={FourthBoxIcon} alt={'protocol-lego-icon'} />}
         </div>
       </div>
-      {/* <div className={partnersContainer}>
-        <span>{'landing_partners_title'.localized()}</span>
-        <div>
-          {partnersArr.map((item) =>
-            item.isClickable ? (
-              <Link className={partnerItem} target="_blank" rel="noreferrer" href={item.link}>
-                <img src={item.logo} />
-              </Link>
-            ) : (
-              <img src={item.logo} />
-            ),
-          )}
-        </div>
-      </div> */}
       {width > 1070 ? (
         <div className={partnersContainer}>
           <span className={partnersTitle}>{'landing_partners_title'.localized()}</span>
@@ -222,18 +203,15 @@ const Landing = (): JSX.Element => {
               <img src={partnersArr[5].logo} />
             </Link>
           </div>
-          <div className={fourItemsRow}>
+          <div className={threeItemsRow}>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[6].link}>
               <img src={partnersArr[6].logo} />
             </Link>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[7].link}>
               <img src={partnersArr[7].logo} />
             </Link>
-            <div className={partnerItem}>
+            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[8].link}>
               <img src={partnersArr[8].logo} />
-            </div>
-            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[9].link}>
-              <img src={partnersArr[9].logo} />
             </Link>
           </div>
         </div>
@@ -272,14 +250,9 @@ const Landing = (): JSX.Element => {
               <img src={partnersArr[7].logo} />
             </Link>
           </div>
-          <div className={twoItemsRow}>
-            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[8].link}>
-              <img src={partnersArr[8].logo} />
-            </Link>
-            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[9].link}>
-              <img src={partnersArr[9].logo} />
-            </Link>
-          </div>
+          <Link className={oneItem} target="_blank" rel="noreferrer" href={partnersArr[8].link}>
+            <img src={partnersArr[8].logo} />
+          </Link>
         </div>
       ) : (
         <div className={partnersContainer}>
@@ -295,7 +268,7 @@ const Landing = (): JSX.Element => {
         <span className={partnersTitle}>{'landing_partners_angels_title'.localized()}</span>
       </div>
       <div className={angelsContainer}>
-        <div className={angelItem}>
+        <Link className={angelItem} target="_blank" rel="noreferrer" href={'https://quantstamp.com/'}>
           <img src={angel_1} />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '36px', color: colors.white }}>{'landing_partners_angel_1_name'.localized()}</span>
@@ -303,8 +276,8 @@ const Landing = (): JSX.Element => {
               {'landing_partners_angel_1_title'.localized()}
             </span>
           </div>
-        </div>
-        <div className={angelItem}>
+        </Link>
+        <Link className={angelItem} target="_blank" rel="noreferrer" href={'https://www.bitcoin.com/'}>
           <img src={angel_2} />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '36px', color: colors.white }}>{'landing_partners_angel_2_name'.localized()}</span>
@@ -312,7 +285,7 @@ const Landing = (): JSX.Element => {
               {'landing_partners_angel_2_title'.localized()}
             </span>
           </div>
-        </div>
+        </Link>
       </div>
 
       <div className={footer}>
