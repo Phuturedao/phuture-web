@@ -253,10 +253,8 @@ export const useStyles = makeStyles({
   fourthRightButtons: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: '75px',
     '@media (max-width: 1100px)': {
       flexDirection: 'column',
-      marginTop: '30px',
     },
   },
   fourthImg: {
@@ -270,6 +268,7 @@ export const useStyles = makeStyles({
   emailButton: {
     maxWidth: '385px',
     width: '-webkit-fill-available',
+    minWidth: '320px',
     background: 'transparent',
     border: `2px solid ${colors.primaryButtonBgColor}`,
     color: colors.white,
@@ -368,21 +367,88 @@ export const useStyles = makeStyles({
       lineHeight: '45px',
     },
   },
+  partnersContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  partnersTitle: {
+    fontSize: '4rem',
+    lineHeight: '79px',
+    color: colors.white,
+    marginBottom: '40px',
+  },
+  partnerItem: {
+    display: 'flex',
+    alignItems: 'center',
+    maxWidth: '350px',
+    height: '83px',
+    width: '-webkit-fill-available',
+    color: colors.white,
+    marginRight: '50px',
+  },
+  threeItemsRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    maxWidth: '1010px',
+    width: '-webkit-fill-available',
+    height: '160px',
+  },
+  fourItemsRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    maxWidth: '1200px',
+    width: '-webkit-fill-available',
+    height: '160px',
+  },
+  twoItemsRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    padding: '0 40px',
+    margin: '20px 0',
+  },
+  oneItem: {
+    display: 'flex',
+    justifyContent: 'center',
+    margin: '20px 0',
+  },
+  angelsContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    maxWidth: '600px',
+    marginTop: '20px',
+    ['@media (max-width:550px)']: {
+      flexDirection: 'column',
+    },
+  },
+  angelItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    ['@media (max-width:550px)']: {
+      margin: '40px',
+    },
+  },
   footer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: '32px',
-    ['@media (max-width:550px)']: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
+    justifyContent: 'space-between',
+    marginTop: '150px',
+    '@media (max-width: 870px)': { flexDirection: 'column', alignItems: 'center', marginTop: '50px' },
   },
   footerIconsContainer: {
     height: '30px',
     display: 'flex',
     alignItems: 'center',
+    '@media (max-width: 870px)': {
+      marginBottom: '30px',
+    },
     ['@media (max-width:550px)']: {
       marginTop: '24px',
     },
