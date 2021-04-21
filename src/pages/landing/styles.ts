@@ -3,7 +3,7 @@ import { colors } from 'utils/mui'
 
 export const useStyles = makeStyles({
   container: {
-    padding: '80px 40px 60px 40px',
+    padding: '0 40px 60px 40px',
     ['@media (max-width:550px)']: {
       padding: '20px 20px 40px 20px',
     },
@@ -13,7 +13,7 @@ export const useStyles = makeStyles({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '10%',
+    marginTop: '7%',
     '@media (max-width: 575px)': {
       flexDirection: 'column',
       justifyContent: 'center',
@@ -36,6 +36,10 @@ export const useStyles = makeStyles({
       fontSize: '3rem',
       lineHeight: '59px',
     },
+    '@media (max-width: 670px)': {
+      fontSize: '2.4rem',
+      lineHeight: '40px',
+    },
     '@media (max-width: 575px)': {
       fontSize: '2.2rem',
       lineHeight: '40px',
@@ -56,7 +60,7 @@ export const useStyles = makeStyles({
     width: '190px',
     height: '52px',
     borderRadius: '6px',
-    fontSize: '16px',
+    fontSize: '24px',
     fontWeight: 500,
     color: colors.white,
     lineHeight: '20px',
@@ -75,6 +79,7 @@ export const useStyles = makeStyles({
   },
   firstImg: {
     width: '50%',
+    maxWidth: '453px',
     '@media (max-width: 575px)': {
       width: '80%',
       marginTop: '40px',
@@ -111,15 +116,17 @@ export const useStyles = makeStyles({
       fontSize: '1rem',
       lineHeight: '18px',
       marginTop: '20px',
+      textAlign: 'center',
     },
   },
   secondTopTitle: {
     fontSize: '4rem',
     lineHeight: '78px',
     maxWidth: '525px',
+    width: '-webkit-fill-available',
     color: colors.white,
     '@media (max-width: 1025px)': {
-      fontSize: '3rem',
+      fontSize: '2.5rem',
       lineHeight: '59px',
     },
     '@media (max-width: 575px)': {
@@ -131,6 +138,8 @@ export const useStyles = makeStyles({
   secondImg: {
     marginTop: '-20px',
     width: '100%',
+    maxWidth: '1139px',
+    margin: '0 auto',
     '@media (max-width: 575px)': {
       marginTop: '20px',
     },
@@ -177,11 +186,13 @@ export const useStyles = makeStyles({
       fontSize: '1rem',
       lineHeight: '18px',
       marginTop: '20px',
+      textAlign: 'center',
     },
   },
   thirdImg: {
     width: '50%',
     marginTop: '-100px',
+    maxWidth: '627px',
     '@media (max-width: 575px)': {
       marginTop: '20px',
       width: '80%',
@@ -201,7 +212,7 @@ export const useStyles = makeStyles({
     marginTop: '140px',
     display: 'flex',
     flexDirection: 'column',
-    width: '40%',
+    width: '46%',
     '@media (max-width: 575px)': {
       width: '100%',
       marginTop: 0,
@@ -214,6 +225,9 @@ export const useStyles = makeStyles({
     '@media (max-width: 1025px)': {
       fontSize: '3rem',
       lineHeight: '59px',
+    },
+    '@media (max-width: 740px)': {
+      fontSize: '2.5rem',
     },
     '@media (max-width: 575px)': {
       fontSize: '2.2rem',
@@ -234,19 +248,21 @@ export const useStyles = makeStyles({
       fontSize: '1rem',
       lineHeight: '18px',
       marginTop: '20px',
+      textAlign: 'center',
     },
   },
   fourthRightButtons: {
     display: 'flex',
     flexDirection: 'row',
     marginTop: '75px',
-    '@media (max-width: 769px)': {
+    '@media (max-width: 1100px)': {
       flexDirection: 'column',
       marginTop: '30px',
     },
   },
   fourthImg: {
     width: '50%',
+    maxWidth: '554px',
     '@media (max-width: 575px)': {
       width: '70%',
       margin: '0 auto',
@@ -276,8 +292,10 @@ export const useStyles = makeStyles({
     '&:after': {
       borderBottom: 'none',
     },
-    '@media (max-width: 769px)': {
+    '@media (max-width: 1100px)': {
       marginRight: 0,
+      width: '100%',
+      maxWidth: '100%',
     },
   },
   subscribeButton: {
@@ -298,7 +316,7 @@ export const useStyles = makeStyles({
       background: colors.blueButtonGradient,
       opacity: 0.3,
     },
-    '@media (max-width: 769px)': {
+    '@media (max-width: 1100px)': {
       marginTop: '16px',
       width: '100%',
     },
@@ -309,7 +327,7 @@ export const useStyles = makeStyles({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '169px',
-    '@media (max-width: 769px)': {
+    '@media (max-width: 1100px)': {
       marginTop: '20px',
       width: '100%',
     },
@@ -320,9 +338,10 @@ export const useStyles = makeStyles({
     fontWeight: 400,
     color: colors.white,
     width: '130px',
-    '@media (max-width: 769px)': {
+    '@media (max-width: 1100px)': {
       fontSize: '0.7rem',
       width: '100%',
+      margin: 'auto',
     },
   },
   updatesTextBold: {
@@ -331,6 +350,11 @@ export const useStyles = makeStyles({
   updatesCheckbox: {
     alignSelf: 'flex-start',
     padding: 0,
+  },
+  labelStyles: {
+    justifyContent: 'space-between',
+    marginLeft: '0px',
+    width: '100%',
   },
   title: {
     userSelect: 'none',

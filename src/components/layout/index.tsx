@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { makeStyles } from '@material-ui/core/styles'
-import { LandingHeader } from 'components/landing_header'
 import React from 'react'
 import { colors } from 'utils/mui'
 
@@ -21,7 +20,6 @@ export const Layout = ({ children }: any) => {
   return (
     <>
       <div className={landingWrap}>
-        <LandingHeader />
         <div className={landingContent}>{children}</div>
       </div>
     </>
