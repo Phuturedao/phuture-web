@@ -156,7 +156,7 @@ export const useStyles = makeStyles({
   thirdLeftContainer: {
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: '550px',
+    maxWidth: '560px',
   },
   thirdLeftTitle: {
     fontSize: '4rem',
@@ -189,9 +189,10 @@ export const useStyles = makeStyles({
     },
   },
   thirdImg: {
-    width: '50%',
-    marginTop: '-100px',
+    width: '55%',
+    marginTop: '-140px',
     maxWidth: '627px',
+    maxHeight: '561px',
     '@media (max-width: 575px)': {
       marginTop: '20px',
       width: '80%',
@@ -202,7 +203,7 @@ export const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '-3%',
+    marginTop: '-1%',
     '@media (max-width: 575px)': {
       marginTop: '50px',
     },
@@ -376,7 +377,7 @@ export const useStyles = makeStyles({
     fontSize: '4rem',
     lineHeight: '79px',
     color: colors.white,
-    marginBottom: '40px',
+    marginBottom: '20px',
     marginTop: '20px',
     '@media (max-width: 575px)': {
       fontSize: '2.5rem',
@@ -391,7 +392,7 @@ export const useStyles = makeStyles({
     height: '83px',
     width: '-webkit-fill-available',
     color: colors.white,
-    marginRight: '50px',
+    margin: '30px',
     transition: 'all 0.4s',
     '&:hover': {
       textDecoration: 'none',
@@ -405,7 +406,7 @@ export const useStyles = makeStyles({
     alignItems: 'center',
     maxWidth: '1010px',
     width: '-webkit-fill-available',
-    height: '160px',
+    height: '150px',
   },
   fourItemsRow: {
     display: 'flex',
@@ -414,7 +415,7 @@ export const useStyles = makeStyles({
     alignItems: 'center',
     maxWidth: '1200px',
     width: '-webkit-fill-available',
-    height: '160px',
+    height: '150px',
   },
   twoItemsRow: {
     display: 'flex',
@@ -439,7 +440,7 @@ export const useStyles = makeStyles({
     flexDirection: 'row',
     justifyContent: 'space-between',
     maxWidth: '600px',
-    marginTop: '20px',
+    marginTop: '50px',
     margin: '40px auto',
     ['@media (max-width:550px)']: {
       flexDirection: 'column',

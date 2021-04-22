@@ -78,7 +78,7 @@ const Landing = (): JSX.Element => {
   } = useStyles()
 
   const { width, height } = useWindowDimensions()
-  const [checked, setChecked] = useState<boolean>(false)
+  const [checked, setChecked] = useState<boolean>(true)
   const [email, setEmail] = useState<string>('')
   const partnersArr = [
     {
@@ -322,7 +322,7 @@ const Landing = (): JSX.Element => {
               onChange={handleChange}
               value={email}
             ></Input>
-            <Button onClick={() => sendSubscribe(email)} className={subscribeButton}>
+            <Button disabled={!checked} onClick={() => sendSubscribe(email)} className={subscribeButton}>
               {'landing_fourth_block_subscribe_button'.localized()}
             </Button>
           </div>

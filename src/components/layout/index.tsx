@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     overflow: 'auto',
   },
   landingWrap: {
-    height: '100%',
+    height: '100vh',
     background: `radial-gradient(50% 50% at 50% 50%, ${colors.firstGradientColor} 0%, ${colors.secondGradientColor} 100%)`,
   },
 })
