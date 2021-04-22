@@ -388,11 +388,8 @@ export const useStyles = makeStyles({
   partnerItem: {
     display: 'flex',
     alignItems: 'center',
-    maxWidth: '350px',
     height: '83px',
-    width: '-webkit-fill-available',
     color: colors.white,
-    margin: '30px',
     transition: 'all 0.4s',
     '&:hover': {
       textDecoration: 'none',

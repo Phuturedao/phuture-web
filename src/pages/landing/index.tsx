@@ -118,24 +118,19 @@ const Landing = (): JSX.Element => {
       body: JSON.stringify({
         email: email,
       }),
+    }).then((response) => {
+      if (response.status !== 201) {
+        notifyError()
+      } else {
+        notifySuccess()
+      }
+      return response.json()
     })
-      .then((response) => {
-        console.log('response: ', response)
-        if (response.status !== 201) {
-          notifyError()
-        } else {
-          notifySuccess()
-        }
-        return response.json()
-      })
-      .then((data) => console.log('data: ', data))
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value)
   }
-
-  console.log('width: ', width)
 
   return (
     <Container className={container}>
@@ -185,10 +180,22 @@ const Landing = (): JSX.Element => {
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[0].link}>
               <img src={partnersArr[0].logo} />
             </Link>
-            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[1].link}>
+            <Link
+              style={{ width: '305px' }}
+              className={partnerItem}
+              target="_blank"
+              rel="noreferrer"
+              href={partnersArr[1].link}
+            >
               <img src={partnersArr[1].logo} />
             </Link>
-            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[2].link}>
+            <Link
+              style={{ width: '295px' }}
+              className={partnerItem}
+              target="_blank"
+              rel="noreferrer"
+              href={partnersArr[2].link}
+            >
               <img src={partnersArr[2].logo} />
             </Link>
           </div>
@@ -196,10 +203,22 @@ const Landing = (): JSX.Element => {
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[3].link}>
               <img src={partnersArr[3].logo} />
             </Link>
-            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[4].link}>
+            <Link
+              style={{ width: '375px' }}
+              className={partnerItem}
+              target="_blank"
+              rel="noreferrer"
+              href={partnersArr[4].link}
+            >
               <img src={partnersArr[4].logo} />
             </Link>
-            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[5].link}>
+            <Link
+              style={{ width: '295px' }}
+              className={partnerItem}
+              target="_blank"
+              rel="noreferrer"
+              href={partnersArr[5].link}
+            >
               <img src={partnersArr[5].logo} />
             </Link>
           </div>
@@ -207,10 +226,22 @@ const Landing = (): JSX.Element => {
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[6].link}>
               <img src={partnersArr[6].logo} />
             </Link>
-            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[7].link}>
+            <Link
+              style={{ width: '300px' }}
+              className={partnerItem}
+              target="_blank"
+              rel="noreferrer"
+              href={partnersArr[7].link}
+            >
               <img src={partnersArr[7].logo} />
             </Link>
-            <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[8].link}>
+            <Link
+              style={{ width: '295px' }}
+              className={partnerItem}
+              target="_blank"
+              rel="noreferrer"
+              href={partnersArr[8].link}
+            >
               <img src={partnersArr[8].logo} />
             </Link>
           </div>
