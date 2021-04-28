@@ -311,7 +311,7 @@ const Landing = (): JSX.Element => {
           className={angelItem}
           target="_blank"
           rel="noreferrer"
-          href={'https://www.bitcoin.com/'}
+          href={'https://exchange.bitcoin.com/'}
         >
           <img height={45} src={'https://exchange.bitcoin.com/images/uploads/exchange.png'} />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
