@@ -25,10 +25,8 @@ import logo_5 from 'assets/icons/landing/partners/logo_5.svg'
 import logo_6 from 'assets/icons/landing/partners/logo_6.svg'
 import logo_7 from 'assets/icons/landing/partners/logo_7.svg'
 import logo_8 from 'assets/icons/landing/partners/logo_8.svg'
-import logo_9 from 'assets/icons/landing/partners/logo_9.svg'
 import logo_10 from 'assets/icons/landing/partners/logo_10.svg'
 import angel_1 from 'assets/icons/landing/partners/angel_1.svg'
-import angel_2 from 'assets/icons/landing/partners/angel_2.svg'
 import { colors } from 'utils/mui'
 
 const Landing = (): JSX.Element => {
@@ -308,8 +306,14 @@ const Landing = (): JSX.Element => {
             </span>
           </div>
         </Link>
-        <Link className={angelItem} target="_blank" rel="noreferrer" href={'https://www.bitcoin.com/'}>
-          <img src={angel_2} />
+        <Link
+          style={{ marginLeft: '70px' }}
+          className={angelItem}
+          target="_blank"
+          rel="noreferrer"
+          href={'https://www.bitcoin.com/'}
+        >
+          <img height={45} src={'https://exchange.bitcoin.com/images/uploads/exchange.png'} />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '36px', color: colors.white }}>{'landing_partners_angel_2_name'.localized()}</span>
             <span style={{ fontSize: '18px', color: colors.white }}>
