@@ -69,6 +69,7 @@
   "define_weights_assets_text": "Assets:",
   "define_weights_percents_template": "{{v1}}   %",
   "define_weights_continue_button_text": "Continue",
+  "define_attributes_back_button_text": "Select index attributes",
   "invest_back_button_text": "Invest",
   "invest_fees_text": "Fees: ",
   "invest_input_title": "Enter amount",
@@ -131,7 +132,7 @@
   "landing_partners_angel_1_name": "Richard Ma",
   "landing_partners_angel_1_title": "CEO of QuantStamp",
   "landing_partners_angel_2_name": "Danish Chaudhry",
-  "landing_partners_angel_2_title": "CEO of Bitcoin.com",
+  "landing_partners_angel_2_title": "CEO of Bitcoin.com Exchange",
   "common_day_template": {
     "one": "{{count}} Day old",
     "other": "{{count}} Days old"
