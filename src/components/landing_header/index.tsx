@@ -29,9 +29,11 @@ export const LandingHeader = (): JSX.Element => {
             {'landing_header_blog_button'.localized()}
           </Button>
         </Link>
-        <Button classes={{ disabled: disabledAppButton }} disabled variant="outlined" className={appButton}>
-          {'landing_header_app_button'.localized()}
-        </Button>
+        <Link className={blogButtonContainer} target="_blank" rel="noreferrer" href="https://app.phuture.finance/">
+          <Button variant="outlined" className={appButton}>
+            {'landing_header_app_button'.localized()}
+          </Button>
+        </Link>
       </div>
     </header>
   )
