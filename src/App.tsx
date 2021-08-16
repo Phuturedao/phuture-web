@@ -20,20 +20,33 @@ const App = (): JSX.Element => {
   return (
     <>
       <Helmet>
+        <meta name="theme-color" content="#000000" />
         <title>Phuture</title>
+        <meta name="title" content="Phuture" />
         <meta
           name="description"
           content="Decentralised protocol built for the creation and investment of passive index strategies."
         />
-        <meta name="theme-color" content="#000000" />
-        <meta property="og:url" content="https://www.phuture.finance" />
-        <meta property="og:title" content="Phuture" />
-        <meta property="og:image" content="%PUBLIC_URL%/PhutureIcon.png" />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.phuture.finance/" />
+        <meta property="og:title" content="Phuture" />
         <meta
           property="og:description"
           content="Decentralised protocol built for the creation and investment of passive index strategies."
         />
+        <meta property="og:image" content="" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.phuture.finance/" />
+        <meta property="twitter:title" content="Phuture" />
+        <meta
+          property="twitter:description"
+          content="Decentralised protocol built for the creation and investment of passive index strategies."
+        />
+        <meta property="twitter:image" content="" />
       </Helmet>
       <MuiThemeProvider theme={theme}>
         <Router>
