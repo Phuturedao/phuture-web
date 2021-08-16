@@ -1,30 +1,40 @@
-import { Web3Provider } from '@ethersproject/providers'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
-import { Web3ReactProvider } from '@web3-react/core'
 import { Layout } from 'components/layout'
-import React, { lazy } from 'react'
+import React from 'react'
+import { Helmet } from 'react-helmet'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { LANDING } from 'routes'
 import 'services/i18n'
 import { themeConfig } from 'utils/mui'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-
 import Landing from './pages/landing'
 
-export const notifyError = () => toast.error('Email is not valid')
-export const notifySuccess = () => toast.success('You are subscribed')
+export const notifyError = (): unknown => toast.error('Email is not valid')
+export const notifySuccess = (): unknown => toast.success('You are subscribed')
 
-const App = () => {
+const App = (): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const getLibrary = (provider: any): Web3Provider => {
-    const library = new Web3Provider(provider)
-    library.pollingInterval = 12000
-    return library
-  }
+
   const theme = createMuiTheme(themeConfig)
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
+    <>
+      <Helmet>
+        <title>Phuture</title>
+        <meta
+          name="description"
+          content="Decentralised protocol built for the creation and investment of passive index strategies."
+        />
+        <meta name="theme-color" content="#000000" />
+        <meta property="og:url" content="https://www.phuture.finance" />
+        <meta property="og:title" content="Phuture" />
+        <meta property="og:image" content="%PUBLIC_URL%/PhutureIcon.png" />
+        <meta property="og:url" content="https://www.phuture.finance/" />
+        <meta
+          property="og:description"
+          content="Decentralised protocol built for the creation and investment of passive index strategies."
+        />
+      </Helmet>
       <MuiThemeProvider theme={theme}>
         <Router>
           <Layout>
@@ -44,7 +54,7 @@ const App = () => {
         draggable
         pauseOnHover
       />
-    </Web3ReactProvider>
+    </>
   )
 }
 
