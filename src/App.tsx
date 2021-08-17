@@ -21,8 +21,8 @@ const App = (): JSX.Element => {
     <>
       <Helmet>
         <meta name="theme-color" content="#000000" />
-        <title>Phuture</title>
-        <meta name="title" content="Phuture" />
+        <title>Phuture - DeFi protocol for passive index strategies</title>
+        <meta name="title" content="Phuture - DeFi protocol for passive index strategies" />
         <meta
           name="description"
           content="Decentralised protocol built for the creation and investment of passive index strategies."
@@ -31,7 +31,7 @@ const App = (): JSX.Element => {
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.phuture.finance/" />
-        <meta property="og:title" content="Phuture" />
+        <meta property="og:title" content="Phuture - DeFi protocol for passive index strategies" />
         <meta
           property="og:description"
           content="Decentralised protocol built for the creation and investment of passive index strategies."
@@ -41,7 +41,7 @@ const App = (): JSX.Element => {
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.phuture.finance/" />
-        <meta property="twitter:title" content="Phuture" />
+        <meta property="twitter:title" content="Phuture - DeFi protocol for passive index strategies" />
         <meta
           property="twitter:description"
           content="Decentralised protocol built for the creation and investment of passive index strategies."
