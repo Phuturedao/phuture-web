@@ -1,7 +1,6 @@
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import { Layout } from 'components/layout'
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -19,35 +18,6 @@ const App = (): JSX.Element => {
   const theme = createMuiTheme(themeConfig)
   return (
     <>
-      <Helmet>
-        <meta name="theme-color" content="#000000" />
-        <title>Phuture - DeFi protocol for passive index strategies</title>
-        <meta name="title" content="Phuture - DeFi protocol for passive index strategies" />
-        <meta
-          name="description"
-          content="Decentralised protocol built for the creation and investment of passive index strategies."
-        />
-
-        {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.phuture.finance/" />
-        <meta property="og:title" content="Phuture - DeFi protocol for passive index strategies" />
-        <meta
-          property="og:description"
-          content="Decentralised protocol built for the creation and investment of passive index strategies."
-        />
-        <meta property="og:image" content="" />
-
-        {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.phuture.finance/" />
-        <meta property="twitter:title" content="Phuture - DeFi protocol for passive index strategies" />
-        <meta
-          property="twitter:description"
-          content="Decentralised protocol built for the creation and investment of passive index strategies."
-        />
-        <meta property="twitter:image" content="" />
-      </Helmet>
       <MuiThemeProvider theme={theme}>
         <Router>
           <Layout>
