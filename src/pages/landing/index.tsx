@@ -134,7 +134,7 @@ const Landing = (): JSX.Element => {
       <LandingHeader />
       <div style={{ marginTop: height < 750 ? '2%' : '7%' }} className={firstContainer}>
         <div className={firstLeftContainer}>
-          <h1 className={firstTitle}>{'landing_first_block_title'.localized()}</h1>
+          <h2 className={firstTitle}>{'landing_first_block_title'.localized()}</h2>
           <Link
             rel="noreferrer"
             className={buttonContainer}
@@ -159,21 +159,34 @@ const Landing = (): JSX.Element => {
           <span className={secondTopText}>{'landing_second_block_text'.localized()}</span>
           <span className={secondTopTitle}>{'landing_second_block_title'.localized()}</span>
         </div>
-        <img className={secondImg} src={width > 575 ? SecondBoxIcon : SecondBoxIconSmall} alt={'chart-icon'} />
+        <img
+          width={width < 575 ? '90%' : '100%'}
+          className={secondImg}
+          src={width > 575 ? SecondBoxIcon : SecondBoxIconSmall}
+          alt={'chart-icon'}
+        />
       </div>
       <div className={thirdContainer}>
         <div className={thirdLeftContainer}>
           <span className={thirdLeftTitle}>{'landing_third_block_title'.localized()}</span>
           <span className={thirdLeftText}>{'landing_third_block_text'.localized()}</span>
         </div>
-        <img className={thirdImg} src={ThirdBoxIcon} alt={'liquidity-icon'} />
+        <img
+          width={width < 575 ? '80%' : '55%'}
+          height={'100%'}
+          className={thirdImg}
+          src={ThirdBoxIcon}
+          alt={'liquidity-icon'}
+        />
       </div>
       <div className={fourthContainer}>
-        {width > 575 && <img className={fourthImg} src={FourthBoxIcon} alt={'protocol-lego-icon'} />}
+        {width > 575 && (
+          <img width={'50%'} height={'100%'} className={fourthImg} src={FourthBoxIcon} alt={'protocol-lego-icon'} />
+        )}
         <div className={fourthRightContainer}>
           <span className={fourthRightTitle}>{'landing_fourth_block_title'.localized()}</span>
           <span className={fourthRightText}>{'landing_fourth_block_text'.localized()}</span>
-          {width <= 575 && <img className={fourthImg} src={FourthBoxIcon} alt={'protocol-lego-icon'} />}
+          {width <= 575 && <img width={'70%'} className={fourthImg} src={FourthBoxIcon} alt={'protocol-lego-icon'} />}
         </div>
       </div>
       {width > 1070 ? (
