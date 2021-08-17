@@ -8,7 +8,7 @@ export const LandingHeader = (): JSX.Element => {
   return (
     <header className={wrap}>
       <div className={logoContainer}>
-        <img src={HeaderLogo} />
+        <img src={HeaderLogo} alt="header-logo" />
       </div>
       <div className={buttonsContainer}>
         <Link
