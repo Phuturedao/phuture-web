@@ -134,7 +134,6 @@ export const useStyles = makeStyles({
   },
   secondImg: {
     marginTop: '-20px',
-    width: '100%',
     maxWidth: '1139px',
     margin: '0 auto',
     '@media (max-width: 575px)': {
@@ -187,13 +186,11 @@ export const useStyles = makeStyles({
     },
   },
   thirdImg: {
-    width: '55%',
     marginTop: '-140px',
     maxWidth: '627px',
     maxHeight: '561px',
     '@media (max-width: 575px)': {
       marginTop: '20px',
-      width: '80%',
       margin: '0 auto',
     },
   },
@@ -257,10 +254,8 @@ export const useStyles = makeStyles({
     },
   },
   fourthImg: {
-    width: '50%',
     maxWidth: '554px',
     '@media (max-width: 575px)': {
-      width: '70%',
       margin: '0 auto',
     },
   },

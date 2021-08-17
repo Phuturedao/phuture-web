@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'GTWalsheim';
   src: local('GTWalsheim'), url('../src/assets/fonts/gt-walsheim-medium.ttf') format('truetype');
-  font-display: swap;
+  font-display: fallback;
 }
 
 @font-face {
   font-family: 'GTWalsheim_Bold';
   src: local('GTWalsheim'), url('../src/assets/fonts/gt-walsheim-bold.ttf') format('truetype');
-  font-display: swap;
+  font-display: fallback;
 }
 
 html,
