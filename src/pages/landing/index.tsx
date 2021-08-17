@@ -146,7 +146,13 @@ const Landing = (): JSX.Element => {
             </Button>
           </Link>
         </div>
-        <img className={firstImg} src={FirstBoxIcon} alt={'tokens-icon'} />
+        <img
+          width={width < 575 ? '80%' : '50%'}
+          height={'100%'}
+          className={firstImg}
+          src={FirstBoxIcon}
+          alt={'tokens-icon'}
+        />
       </div>
       <div className={secondContainer}>
         <div className={secondTopContainer}>
