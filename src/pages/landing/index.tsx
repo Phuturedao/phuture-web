@@ -175,7 +175,7 @@ const Landing = (): JSX.Element => {
           <span className={partnersTitle}>{'landing_partners_title'.localized()}</span>
           <div className={threeItemsRow}>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[0].link}>
-              <img src={partnersArr[0].logo} />
+              <img src={partnersArr[0].logo} alt="partner-icon-1" />
             </Link>
             <Link
               style={{ width: '305px' }}
@@ -184,7 +184,7 @@ const Landing = (): JSX.Element => {
               rel="noreferrer"
               href={partnersArr[1].link}
             >
-              <img src={partnersArr[1].logo} />
+              <img src={partnersArr[1].logo} alt="partner-icon-2" />
             </Link>
             <Link
               style={{ width: '295px' }}
@@ -193,12 +193,12 @@ const Landing = (): JSX.Element => {
               rel="noreferrer"
               href={partnersArr[2].link}
             >
-              <img src={partnersArr[2].logo} />
+              <img src={partnersArr[2].logo} alt="partner-icon-3" />
             </Link>
           </div>
           <div className={threeItemsRow}>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[3].link}>
-              <img src={partnersArr[3].logo} />
+              <img src={partnersArr[3].logo} alt="partner-icon-4" />
             </Link>
             <Link
               style={{ width: '375px' }}
@@ -207,7 +207,7 @@ const Landing = (): JSX.Element => {
               rel="noreferrer"
               href={partnersArr[4].link}
             >
-              <img src={partnersArr[4].logo} />
+              <img src={partnersArr[4].logo} alt="partner-icon-5" />
             </Link>
             <Link
               style={{ width: '295px' }}
@@ -216,12 +216,12 @@ const Landing = (): JSX.Element => {
               rel="noreferrer"
               href={partnersArr[5].link}
             >
-              <img src={partnersArr[5].logo} />
+              <img src={partnersArr[5].logo} alt="partner-icon-6" />
             </Link>
           </div>
           <div className={threeItemsRow}>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[6].link}>
-              <img src={partnersArr[6].logo} />
+              <img src={partnersArr[6].logo} alt="partner-icon-7" />
             </Link>
             <Link
               style={{ width: '300px' }}
@@ -230,7 +230,7 @@ const Landing = (): JSX.Element => {
               rel="noreferrer"
               href={partnersArr[7].link}
             >
-              <img src={partnersArr[7].logo} />
+              <img src={partnersArr[7].logo} alt="partner-icon-8" />
             </Link>
             <Link
               style={{ width: '295px' }}
@@ -239,7 +239,7 @@ const Landing = (): JSX.Element => {
               rel="noreferrer"
               href={partnersArr[8].link}
             >
-              <img src={partnersArr[8].logo} />
+              <img src={partnersArr[8].logo} alt="partner-icon-9" />
             </Link>
           </div>
         </div>
@@ -248,38 +248,38 @@ const Landing = (): JSX.Element => {
           <span className={partnersTitle}>{'landing_partners_title'.localized()}</span>
           <div className={twoItemsRow}>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[0].link}>
-              <img src={partnersArr[0].logo} />
+              <img src={partnersArr[0].logo} alt="partner-icon-1" />
             </Link>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[1].link}>
-              <img src={partnersArr[1].logo} />
+              <img src={partnersArr[1].logo} alt="partner-icon-2" />
             </Link>
           </div>
           <div className={twoItemsRow}>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[2].link}>
-              <img src={partnersArr[2].logo} />
+              <img src={partnersArr[2].logo} alt="partner-icon-3" />
             </Link>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[3].link}>
-              <img src={partnersArr[3].logo} />
+              <img src={partnersArr[3].logo} alt="partner-icon-4" />
             </Link>
           </div>
           <div className={twoItemsRow}>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[4].link}>
-              <img src={partnersArr[4].logo} />
+              <img src={partnersArr[4].logo} alt="partner-icon-5" />
             </Link>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[5].link}>
-              <img src={partnersArr[5].logo} />
+              <img src={partnersArr[5].logo} alt="partner-icon-6" />
             </Link>
           </div>
           <div className={twoItemsRow}>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[6].link}>
-              <img src={partnersArr[6].logo} />
+              <img src={partnersArr[6].logo} alt="partner-icon-7" />
             </Link>
             <Link className={partnerItem} target="_blank" rel="noreferrer" href={partnersArr[7].link}>
-              <img src={partnersArr[7].logo} />
+              <img src={partnersArr[7].logo} alt="partner-icon-8" />
             </Link>
           </div>
           <Link className={oneItem} target="_blank" rel="noreferrer" href={partnersArr[8].link}>
-            <img src={partnersArr[8].logo} />
+            <img src={partnersArr[8].logo} alt="partner-icon-9" />
           </Link>
         </div>
       ) : (
@@ -287,7 +287,7 @@ const Landing = (): JSX.Element => {
           <span className={partnersTitle}>{'landing_partners_title'.localized()}</span>
           {partnersArr.map((item, index) => (
             <Link key={index} className={oneItem} target="_blank" rel="noreferrer" href={item.link}>
-              <img src={item.logo} />
+              <img src={item.logo} alt="partner-logo" />
             </Link>
           ))}
         </div>
@@ -297,7 +297,7 @@ const Landing = (): JSX.Element => {
       </div>
       <div className={angelsContainer}>
         <Link className={angelItem} target="_blank" rel="noreferrer" href={'https://quantstamp.com/'}>
-          <img src={angel_1} />
+          <img src={angel_1} alt="angel-icon-1" />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '36px', color: colors.white }}>{'landing_partners_angel_1_name'.localized()}</span>
             <span style={{ fontSize: '18px', color: colors.white }}>
@@ -312,7 +312,7 @@ const Landing = (): JSX.Element => {
           rel="noreferrer"
           href={'https://exchange.bitcoin.com/'}
         >
-          <img height={45} src={'https://exchange.bitcoin.com/images/uploads/exchange.png'} />
+          <img height={45} src={'https://exchange.bitcoin.com/images/uploads/exchange.png'} alt="angel-link-icon-1" />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '36px', color: colors.white }}>{'landing_partners_angel_2_name'.localized()}</span>
             <span style={{ fontSize: '18px', color: colors.white }}>
