@@ -65,7 +65,6 @@ const Landing = (): JSX.Element => {
     partnersTitle,
     partnerItem,
     threeItemsRow,
-    fourItemsRow,
     twoItemsRow,
     oneItem,
     angelsContainer,
