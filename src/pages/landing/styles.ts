@@ -77,10 +77,8 @@ export const useStyles = makeStyles({
     },
   },
   firstImg: {
-    width: '50%',
     maxWidth: '453px',
     '@media (max-width: 575px)': {
-      width: '80%',
       marginTop: '40px',
     },
   },
