@@ -4,15 +4,7 @@ import React from 'react'
 import { useStyles } from './styles'
 
 export const LandingHeader = (): JSX.Element => {
-  const {
-    wrap,
-    logoContainer,
-    buttonsContainer,
-    blogButtonContainer,
-    blogButton,
-    appButton,
-    disabledAppButton,
-  } = useStyles()
+  const { wrap, logoContainer, buttonsContainer, blogButtonContainer, blogButton, appButton } = useStyles()
   return (
     <header className={wrap}>
       <div className={logoContainer}>
