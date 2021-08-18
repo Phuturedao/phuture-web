@@ -1,23 +1,15 @@
 import { Button, Container, FormControlLabel, Input, Link } from '@material-ui/core'
+import { notifyError, notifySuccess } from 'App'
+import DiscordIcon from 'assets/icons/landing/DiscordIcon.svg'
 import FirstBoxIcon from 'assets/icons/landing/FirstBoxIcon.svg'
 import FourthBoxIcon from 'assets/icons/landing/FourthBoxIcon.svg'
-import MediumIcon from 'assets/icons/landing/MediumIcon.svg'
-import SecondBoxIcon from 'assets/icons/landing/SecondBoxIcon.svg'
-import SecondBoxIconSmall from 'assets/icons/landing/SecondBoxIconSmall.svg'
-import ThirdBoxIcon from 'assets/icons/landing/ThirdBoxIcon.svg'
-import LinkedInIcon from 'assets/icons/landing/LinkedInIcon.svg'
-import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
-import TelegramIcon from 'assets/icons/landing/TelegramIcon.svg'
 import GitbookIcon from 'assets/icons/landing/GitbookIcon.svg'
 import GitIcon from 'assets/icons/landing/GitIcon.svg'
-import DiscordIcon from 'assets/icons/landing/DiscordIcon.svg'
-import { CustomCheckbox } from 'components/landing_checkbox'
-import React, { useState } from 'react'
-import useWindowDimensions from 'services/resizeManager'
-import { useStyles } from './styles'
-import { LandingHeader } from 'components/landing_header'
-import { notifyError, notifySuccess } from 'App'
+import LinkedInIcon from 'assets/icons/landing/LinkedInIcon.svg'
+import MediumIcon from 'assets/icons/landing/MediumIcon.svg'
+import angel_1 from 'assets/icons/landing/partners/angel_1.svg'
 import logo_1 from 'assets/icons/landing/partners/logo_1.svg'
+import logo_10 from 'assets/icons/landing/partners/logo_10.svg'
 import logo_2 from 'assets/icons/landing/partners/logo_2.svg'
 import logo_3 from 'assets/icons/landing/partners/logo_3.svg'
 import logo_4 from 'assets/icons/landing/partners/logo_4.svg'
@@ -25,9 +17,19 @@ import logo_5 from 'assets/icons/landing/partners/logo_5.svg'
 import logo_6 from 'assets/icons/landing/partners/logo_6.svg'
 import logo_7 from 'assets/icons/landing/partners/logo_7.svg'
 import logo_8 from 'assets/icons/landing/partners/logo_8.svg'
-import logo_10 from 'assets/icons/landing/partners/logo_10.svg'
-import angel_1 from 'assets/icons/landing/partners/angel_1.svg'
+import SecondBoxIcon from 'assets/icons/landing/SecondBoxIcon.svg'
+import SecondBoxIconSmall from 'assets/icons/landing/SecondBoxIconSmall.svg'
+import TelegramIcon from 'assets/icons/landing/TelegramIcon.svg'
+import ThirdBoxIcon from 'assets/icons/landing/ThirdBoxIcon.svg'
+import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
+import { CustomCheckbox } from 'components/landing_checkbox'
+import { LandingHeader } from 'components/landing_header'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { PRIVACY_POLICY } from 'routes'
+import useWindowDimensions from 'services/resizeManager'
 import { colors } from 'utils/mui'
+import { useStyles } from './styles'
 
 const Landing = (): JSX.Element => {
   const {
@@ -72,11 +74,13 @@ const Landing = (): JSX.Element => {
     footer,
     footerIconsContainer,
     iconsMargin,
+    privacyLink,
   } = useStyles()
 
   const { width, height } = useWindowDimensions()
   const [checked, setChecked] = useState<boolean>(true)
   const [email, setEmail] = useState<string>('')
+  const history = useHistory()
   const partnersArr = [
     {
       name: 'landing_partners_item_1'.localized(),
@@ -325,7 +329,10 @@ const Landing = (): JSX.Element => {
           </div>
         </Link>
         <Link
-          style={{ marginLeft: '70px' }}
+          style={{
+            marginLeft: width <= 575 ? '40px' : '70px',
+            maxWidth: width <= 575 ? '100%' : width <= 900 ? '300px' : '400px',
+          }}
           className={angelItem}
           target="_blank"
           rel="noreferrer"
@@ -340,7 +347,6 @@ const Landing = (): JSX.Element => {
           </div>
         </Link>
       </div>
-
       <div className={footer}>
         <div className={footerIconsContainer}>
           <Link target="_blank" rel="noreferrer" href="https://phuture.gitbook.io/phuture/">
@@ -365,6 +371,9 @@ const Landing = (): JSX.Element => {
             <img className={iconsMargin} src={TwitterIcon} alt="twitter-icon" />
           </Link>
         </div>
+        <span className={privacyLink} onClick={() => history.push(PRIVACY_POLICY)}>
+          Privacy policy
+        </span>
         <div>
           <div className={fourthRightButtons}>
             <Input

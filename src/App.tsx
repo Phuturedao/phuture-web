@@ -1,10 +1,10 @@
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
-import { Layout } from 'components/layout'
+import PrivacyPolicy from 'pages/privacy_policy'
 import React from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { LANDING } from 'routes'
+import { LANDING, PRIVACY_POLICY } from 'routes'
 import 'services/i18n'
 import { themeConfig } from 'utils/mui'
 import Landing from './pages/landing'
@@ -17,17 +17,14 @@ const App = (): JSX.Element => {
 
   const theme = createMuiTheme(themeConfig)
   return (
-    <>
-      <MuiThemeProvider theme={theme}>
-        <Router>
-          <Layout>
-            <Switch>
-              <Route path={LANDING} component={Landing} />
-              <Redirect to={LANDING} />
-            </Switch>
-          </Layout>
-        </Router>
-      </MuiThemeProvider>
+    <MuiThemeProvider theme={theme}>
+      <Router>
+        <Switch>
+          <Route exact path={LANDING} component={Landing} />
+          <Route path={PRIVACY_POLICY} component={PrivacyPolicy} />
+          <Redirect to={LANDING} />
+        </Switch>
+      </Router>
       <ToastContainer
         position="top-right"
         hideProgressBar={false}
@@ -37,7 +34,7 @@ const App = (): JSX.Element => {
         draggable
         pauseOnHover
       />
-    </>
+    </MuiThemeProvider>
   )
 }
 
