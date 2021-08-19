@@ -25,7 +25,7 @@ import TwitterIcon from 'assets/icons/landing/TwitterIcon.svg'
 import { CustomCheckbox } from 'components/landing_checkbox'
 import { LandingHeader } from 'components/landing_header'
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import { PRIVACY_POLICY } from 'routes'
 import useWindowDimensions from 'services/resizeManager'
 import { colors } from 'utils/mui'
@@ -80,7 +80,6 @@ const Landing = (): JSX.Element => {
   const { width, height } = useWindowDimensions()
   const [checked, setChecked] = useState<boolean>(true)
   const [email, setEmail] = useState<string>('')
-  const history = useHistory()
   const partnersArr = [
     {
       name: 'landing_partners_item_1'.localized(),
@@ -371,9 +370,9 @@ const Landing = (): JSX.Element => {
             <img className={iconsMargin} src={TwitterIcon} alt="twitter-icon" />
           </Link>
         </div>
-        <span className={privacyLink} onClick={() => history.push(PRIVACY_POLICY)}>
+        <RouterLink className={privacyLink} target="_blank" rel="noopener noreferrer" to={PRIVACY_POLICY}>
           Privacy policy
-        </span>
+        </RouterLink>
         <div>
           <div className={fourthRightButtons}>
             <Input
