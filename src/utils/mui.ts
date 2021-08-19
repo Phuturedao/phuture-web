@@ -5,6 +5,7 @@ export const colors: { [key: string]: string } = {
   black: '#000000',
   mainGreen: '#60E2A3',
   defaultGrey: '#C4C4C4',
+  secondaryGray: '#787484',
   //landing
   textShadowColor: 'rgba(255, 255, 255, 0.55)',
   //BG gradient
@@ -12,6 +13,7 @@ export const colors: { [key: string]: string } = {
   secondGradientColor: '#131722',
   //blue button gradient
   blueButtonGradient: 'linear-gradient(180deg, #00ACEE 0%, #006DD1 100%)',
+  primaryBlue: '#00A8E7',
   //wallet button
   walletButtonBorderColor: '#95B3C2',
   walletButtonBorderHoverColor: '#AAE5F8',

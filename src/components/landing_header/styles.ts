@@ -26,6 +26,16 @@ export const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    cursor: 'pointer',
+    transition: 'all 0.4s',
+    '&:hover': {
+      background: 'transparent',
+      opacity: 0.7,
+    },
+    '&:active': {
+      background: 'transparent',
+      opacity: 0.3,
+    },
   },
   buttonsContainer: {
     display: 'flex',

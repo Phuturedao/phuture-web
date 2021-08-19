@@ -453,12 +453,17 @@ export const useStyles = makeStyles({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: '150px',
-    '@media (max-width: 870px)': { flexDirection: 'column', alignItems: 'center', marginTop: '50px' },
+    '@media (max-width: 870px)': {
+      flexDirection: 'column-reverse',
+      alignItems: 'center',
+      marginTop: '50px',
+    },
   },
   footerIconsContainer: {
     height: '30px',
     display: 'flex',
     alignItems: 'center',
+    marginTop: '15px',
     '@media (max-width: 870px)': {
       marginBottom: '30px',
     },
@@ -471,6 +476,31 @@ export const useStyles = makeStyles({
     transition: 'all 0.4s',
     '&:hover': {
       opacity: 0.6,
+    },
+  },
+  privacyLink: {
+    color: colors.secondaryGray,
+    fontSize: '18px',
+    transition: 'all 0.4s',
+    textTransform: 'none',
+    textDecoration: 'none',
+    margin: '15px 0 0 0',
+    cursor: 'pointer',
+    '&:hover': {
+      opacity: 0.6,
+      textTransform: 'none',
+      textDecoration: 'none',
+    },
+    '&:active': {
+      opacity: 0.3,
+      textTransform: 'none',
+      textDecoration: 'none',
+    },
+    '@media (max-width: 870px)': {
+      margin: '30px 0',
+    },
+    ['@media (max-width:550px)']: {
+      margin: '30px 0 10px 0',
     },
   },
 })
