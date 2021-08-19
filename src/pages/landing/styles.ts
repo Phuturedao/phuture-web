@@ -265,7 +265,7 @@ export const useStyles = makeStyles({
     minWidth: '320px',
     background: 'transparent',
     border: `2px solid ${colors.primaryButtonBgColor}`,
-    color: colors.white,
+    color: `${colors.white} !important`,
     textTransform: 'none',
     textDecoration: 'none',
     marginRight: '12px',
