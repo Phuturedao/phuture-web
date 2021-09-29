@@ -337,7 +337,8 @@ const Landing = (): JSX.Element => {
           rel="noreferrer"
           href={'https://exchange.bitcoin.com/'}
         >
-          <img height={45} src={'https://exchange.bitcoin.com/images/uploads/exchange.png'} alt="angel-link-icon-1" />
+          {/* TODO: uncomment and change an icon after getting info from Oliver */}
+          {/* <img height={45} src={'https://exchange.bitcoin.com/images/uploads/exchange.png'} alt="angel-link-icon-1" /> */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '36px', color: colors.white }}>{'landing_partners_angel_2_name'.localized()}</span>
             <span style={{ fontSize: '18px', color: colors.white }}>
